@@ -132,9 +132,10 @@
   --color-text-project-sidebar: rgb(255, 255, 255);
   --color-text-project-title: #ffffff;
   --color-text-work-grid-title: #ffffff;
+  --color-text-hearo-headline: #ffffff;
   /* Link States */
   --color-link: #ffffff;
-  --color-link-hover: #111;x
+  --color-link-hover: #111;
   --color-link-visited: #5200ff;
   /* Navigation */
   --color-nav-link: #fff;
