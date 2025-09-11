@@ -403,7 +403,7 @@ h1 {
 
 h2 {
   font-size: 2rem;
-  font-family: var(--font-family-heading2);
+  font-family: var(--font-family-heading);
   line-height: 1.2;
   margin-bottom: 1rem;
   color: var(--h2-color)
