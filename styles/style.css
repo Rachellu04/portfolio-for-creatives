@@ -103,8 +103,8 @@
 :root {
   /* Typography */
   --font-family-body: "Inter", sans-serif;
-  --font-family-heading: "Eczar", serif;
-  --font-family-project-title: "Eczar", serif;
+  --font-family-heading: "Inter", sans-serif;
+  --font-family-project-title: "Inter", sans-serif;
   /* Core Colours */
   --color-text-primary: rgb(255, 255, 255);
   --color-text-secondary: rgb(255, 255, 255);
