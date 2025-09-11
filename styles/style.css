@@ -33,7 +33,7 @@
 /* Remember, the more fonts you load, the longer it can take for your page to load. */
 
 /* Cormorant Font (for headers or special text) */
-@import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&display=swap');;
+@import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&display=swap');
 
 /* Rubik Font (clean and modern for body text) */
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;900&display=swap");
