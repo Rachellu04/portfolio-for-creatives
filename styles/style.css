@@ -396,8 +396,8 @@ svg {
 h1 {
   font-size: 2rem;
   font-family: var(--font-family-heading);
-  line-height: 1;
-  margin-bottom: 1rem;
+  line-height: .5;
+  margin-bottom: .5rem;
   color: var(--h1-color)
 }
 
@@ -405,7 +405,7 @@ h2 {
   font-size: 2rem;
   font-family: var(--font-family-subheading);
   line-height: 1.2;
-  margin-bottom: 1rem;
+  margin-bottom: .5rem;
   color: var(--h2-color)
 }
 
