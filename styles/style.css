@@ -393,19 +393,18 @@ svg {
 /* Heading Styles (h1 - h6) */
 
 h1 {
-  font-size: 2.2rem;
+  font-size: 2rem;
   font-family: var(--font-family-heading);
   line-height: 1.2;
   margin-bottom: 1rem;
-  color: var(--h1-color);
-}
+  color: #ffffff
 
 h2 {
   font-size: 2rem;
   font-family: var(--font-family-heading);
   line-height: 1.2;
   margin-bottom: 1rem;
-  color: var(--h2-color);
+  color: #ffffff
 }
 
 h3 {
