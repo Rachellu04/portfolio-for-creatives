@@ -110,7 +110,7 @@
   --color-text-secondary: rgb(255, 255, 255);
   --color-accent-primary: #a6c6ec;
   --color-accent-secondary: #36a1ff;
-  --color-overlay-primary: #5200ff;
+  --color-overlay-primary: #ffffff;
   --color-highlight: rgb(99, 189, 240);
   --color-fallback: #ff057c; /* Fallback color for glitch effect on 404 page */
   /* Backgrounds */
@@ -132,7 +132,6 @@
   --color-text-project-sidebar: rgb(255, 255, 255);
   --color-text-project-title: #ffffff;
   --color-text-work-grid-title: #ffffff;
-  --color-text-hearo-headline: #ffffff;
   /* Link States */
   --color-link: #ffffff;
   --color-link-hover: #111;
