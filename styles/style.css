@@ -32,8 +32,8 @@
 /* TODO: Replace these Google Fonts with the ones you want to use on your site. */
 /* Remember, the more fonts you load, the longer it can take for your page to load. */
 
-/* Eczar Font (for headers or special text) */
-@import url("https://fonts.googleapis.com/css2?family=Eczar:wght@400;500;600;700;800&display=swap");
+/* Cormorant Font (for headers or special text) */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&display=swap');;
 
 /* Rubik Font (clean and modern for body text) */
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;900&display=swap");
@@ -105,6 +105,7 @@
   --font-family-body: "Inter", sans-serif;
   --font-family-heading: "Inter", sans-serif;
   --font-family-project-title: "Inter", sans-serif;
+  --font-family-heading2: "Cormorant", serif;
   /* Core Colours */
   --color-text-primary: rgb(255, 255, 255);
   --color-text-secondary: rgb(255, 255, 255);
@@ -402,7 +403,7 @@ h1 {
 
 h2 {
   font-size: 2rem;
-  font-family: var(--font-family-heading);
+  font-family: var(--font-family-heading2);
   line-height: 1.2;
   margin-bottom: 1rem;
   color: var(--h2-color)
