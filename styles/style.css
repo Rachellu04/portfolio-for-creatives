@@ -105,6 +105,7 @@
   --font-family-body: "Inter", sans-serif;
   --font-family-heading: "Inter", sans-serif;
   --font-family-project-title: "Inter", sans-serif;
+  --font-family-subheading: "Cormorant", serif;
   /* Core Colours */
   --color-text-primary: rgb(255, 255, 255);
   --color-text-secondary: rgb(255, 255, 255);
@@ -402,7 +403,7 @@ h1 {
 
 h2 {
   font-size: 2rem;
-  font-family: var(--font-family-heading);
+  font-family: var(--font-family-subheading);
   line-height: 1.2;
   margin-bottom: 1rem;
   color: var(--h2-color)
