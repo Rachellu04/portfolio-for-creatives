@@ -106,12 +106,12 @@
   --font-family-heading: "Eczar", serif;
   --font-family-project-title: "Eczar", serif;
   /* Core Colours */
-  --color-text-primary: #222;
-  --color-text-secondary: #333;
-  --color-accent-primary: #5200ff;
-  --color-accent-secondary: #ff057c;
+  --color-text-primary: rgb(255, 255, 255);
+  --color-text-secondary: rgb(255, 255, 255);
+  --color-accent-primary: #a6c6ec;
+  --color-accent-secondary: #36a1ff;
   --color-overlay-primary: #5200ff;
-  --color-highlight: lemonchiffon;
+  --color-highlight: rgb(99, 189, 240);
   --color-fallback: #ff057c; /* Fallback color for glitch effect on 404 page */
   /* Backgrounds */
   --color-bg: #000000;
@@ -119,12 +119,12 @@
   --color-bg-footer: #000000;
   --color-bg-holding-page: rgba(0, 0, 0, 0.6);
   /* Headings */
-  --h1-color: #5200ff;
-  --h2-color: #5200ff;
-  --h3-color: #5200ff;
-  --h4-color: #5200ff;
-  --h5-color: #5200ff;
-  --h6-color: #5200ff;
+  --h1-color: #ffffff;
+  --h2-color: #ffffff;
+  --h3-color: #ffffff;
+  --h4-color: #ffffff;
+  --h5-color: #ffffff;
+  --h6-color: #ffffff;
   /* Special Text Colours */
   --color-text-holding-title: #ebedf0;
   --color-text-project-category: #ffffff;
@@ -397,7 +397,7 @@ h1 {
   font-family: var(--font-family-heading);
   line-height: 1.2;
   margin-bottom: 1rem;
-  color: #ffffff
+  color: var(--h1-color)
 }
 
 h2 {
@@ -405,7 +405,7 @@ h2 {
   font-family: var(--font-family-heading);
   line-height: 1.2;
   margin-bottom: 1rem;
-  color: #ffffff
+  color: var(--h2-color)
 }
 
 h3 {
