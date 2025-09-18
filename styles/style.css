@@ -166,7 +166,7 @@
   --radius-lg: 2rem; /* Large decorative elements */
   --radius-full: 50%; /* Circles/pills */
   /* Padding Scale */
-  --padding-tiny: 0.5rem; /* Micro-spacing: icon padding, toggle switches */
+  --padding-tiny: 1rem; /* Micro-spacing: icon padding, toggle switches */
   --padding-small: 1rem; /* Compact spacing: mobile buttons, form tags */
   --padding-medium: 2rem; /* Standard spacing: desktop buttons, card content */
   --padding-large: 3rem; /* Section spacing: content blocks, banner padding */
