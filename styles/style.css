@@ -640,7 +640,7 @@ a.nav-link-primary:hover {
   flex-direction: row;
 }
 .nav-branding-item {
-  padding: var(--padding-tiny);
+  padding: 4rem;
 }
 
 .nav-branding-logo {
