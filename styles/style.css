@@ -563,7 +563,7 @@ a:active {
 
 a.nav-link-primary {
   color: var(--color-nav-link);
-  padding: 4rem;
+  padding: 0.5rem;
 }
 a.nav-link-primary:hover {
   color: var(--color-nav-link-hover);
