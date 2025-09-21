@@ -2,13 +2,25 @@
 <html lang="en">
   <head>
     <title>Free Creative Portfolio Template: Holding Page</title>
-    <meta name="description" content="When writing a meta description, keep it between 140 and 160 characters so Google can display your entire message. Don’t forget to include your keyword!" />
+    <meta
+      name="description"
+      content="When writing a meta description, keep it between 140 and 160 characters so Google can display your entire message. Don’t forget to include your keyword!"
+    />
     <meta charset="utf-8" />
     <meta http-equiv="refresh" content="5; url=work.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta property="og:image" content="screenshot.jpg" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <link rel="stylesheet" href="./styles/style.css" />
   </head>
   <body class="holding-page">
@@ -16,18 +28,76 @@
       <div class="holding-page-inner-container">
         <a href="work.html">
           <figure class="holding-page-animation">
-            <img src="assets/temp/holding-page-animation.gif" alt="Portfolio Website Launching Soon" />
+            <img
+              src="assets/temp/holding-page-animation.gif"
+              alt="Portfolio Website Launching Soon"
+            />
           </figure>
           <h1 class="holding-page-title">Rachel Lu</h1>
         </a>
       </div>
-      <div class="holding-page-footer">
-        <p class="holding-page-copyright">
-          &copy; 2020-2025. Hand crafted with
-          <span class="heart">❤</span>
-          by James Neufeld.
-        </p>
-      </div>
     </div>
+
+    <div class="holding-page-footer">
+      <p class="holding-page-copyright">
+        &copy; 2020-2025. Hand crafted with
+        <span class="heart">❤</span>
+        by James Neufeld.
+      </p>
+    </div>
+    <div class="custom-cursor"></div>
   </body>
+  <script>
+    const cursor = document.querySelector(".custom-cursor");
+
+    window.addEventListener("mousemove", (e) => {
+      cursor.style.top = e.clientY + "px";
+      cursor.style.left = e.clientX + "px";
+    });
+
+    let mouseX = 0;
+    let mouseY = 0;
+    let currentX = 0;
+    let currentY = 0;
+
+    window.addEventListener("mousemove", (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    });
+
+    function animate() {
+      currentX += (mouseX - currentX) * 0.15; // easing
+      currentY += (mouseY - currentY) * 0.15;
+      cursor.style.top = `${currentY}px`;
+      cursor.style.left = `${currentX}px`;
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+
+    window.addEventListener("mouseover", (e) => {
+      const target = e.target;
+
+      // Check if target is interactive
+      const isHoverable =
+        target.tagName === "A" ||
+        target.tagName === "BUTTON" ||
+        target.tagName === "INPUT" ||
+        target.tagName === "TEXTAREA" ||
+        target.tagName === "SELECT" ||
+        target.tagName === "IMG" ||
+        target.closest(".work-page-grid-item"); // include grid items
+      window.getComputedStyle(target).cursor === "pointer";
+
+      if (isHoverable) {
+        cursor.classList.add("expand");
+      } else {
+        cursor.classList.remove("expand");
+      }
+    });
+
+    window.addEventListener("mouseout", (e) => {
+      cursor.classList.remove("expand");
+    });
+  </script>
 </html>
