@@ -33,11 +33,10 @@
 /* Remember, the more fonts you load, the longer it can take for your page to load. */
 
 /* Cormorant Font (for headers or special text) */
-@import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&display=swap");
 
 /* Montserrat Font (great for readability and minimal design) */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
 /*
 
@@ -133,11 +132,11 @@
   --color-text-work-grid-title: #ffffff;
   /* Link States */
   --color-link: #ffffff;
-  --color-link-hover: #111;
-  --color-link-visited: #5200ff;
+  --color-link-hover: #ffffff;
+  --color-link-visited: #ffffff;
   /* Navigation */
   --color-nav-link: #fff;
-  --color-nav-link-hover: #321575;
+  --color-nav-link-hover: #ffffff;
   --color-nav-arrow: #5200ff;
   --color-nav-arrow-hover: #000;
   --color-nav-arrow-stroke: #5200ff;
@@ -148,7 +147,12 @@
   --color-bg-sidebar-project: orangered;
   --color-bg-sidebar-work: lemonchiffon;
   --color-gradient-hero: linear-gradient(90deg, #ff00ff, #00ffff);
-  --color-gradient-project-details: linear-gradient(-225deg, #ff057c 0%, #8d0b93 50%, #321575 100%);
+  --color-gradient-project-details: linear-gradient(
+    -225deg,
+    #ff057c 0%,
+    #8d0b93 50%,
+    #321575 100%
+  );
   /* Special Elements */
   --color-icon-heart: darkred;
   --color-text-holding-footer: #f8f8ff;
@@ -172,6 +176,28 @@
   --padding-large: 3rem; /* Section spacing: content blocks, banner padding */
   --padding-jumbo: 4rem; /* Hero elements: full-width containers, page headers */
   --padding-ultra: 8rem; /* Full-bleed spacing: edge-to-edge layouts, super-sized headers */
+
+  .custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 15px;
+    height: 15px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 50%;
+    pointer-events: none; /* So it doesn’t block clicks */
+    transform: translate(-50%, -50%);
+    transition: width 0.2s ease, height 0.2s ease, background-color 0.3s ease;
+    z-index: 9999;
+  }
+
+  .custom-cursor.expand {
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0);
+    border: 1px solid white; /* adds a solid white border */
+    box-sizing: border-box; /* ensures border doesn't increase total size */
+  }
 }
 
 /* ======================
@@ -195,8 +221,11 @@
 html {
   box-sizing: border-box; /* Makes sure padding and borders don't add extra width to elements */
   scroll-behavior: smooth; /* Adds smooth scrolling between sections */
-  cursor: url("../assets/temp/up-cursor.png"), auto !important; /* Custom cursor (change the URL below to use your own) */
-
+  *:hover,
+  *:hover::before,
+  *:hover::after {
+    cursor: none !important;
+  }
   /* TODO: Replace the URL above to add a custom cursor. 
      If you want to use the default browser cursor, just delete this line. */
 }
@@ -223,7 +252,9 @@ body {
 /* ------------------------------- */
 
 ::selection {
-  background: var(--color-bg-selection); /* Uses your custom color for highlighted text */
+  background: var(
+    --color-bg-selection
+  ); /* Uses your custom color for highlighted text */
 }
 
 /* ---------------------------------------- */
@@ -394,17 +425,17 @@ svg {
 h1 {
   font-size: 2rem;
   font-family: var(--font-family-heading);
-  line-height: .5;
-  margin-bottom: .5rem;
-  color: var(--h1-color)
+  line-height: 0.5;
+  margin-bottom: 0.25rem;
+  color: var(--h1-color);
 }
 
 h2 {
   font-size: 2rem;
   font-family: var(--font-family-subheading);
   line-height: 1.2;
-  margin-bottom: .5rem;
-  color: var(--h2-color)
+  margin-bottom: 0.5rem;
+  color: var(--h2-color);
 }
 
 h3 {
@@ -462,15 +493,52 @@ em {
 /* Main hero headline — usually sits in the intro section */
 .hero-headline {
   color: #ffffff; /* Uses your brand's dominant color */
-  font-size: 2.5rem;
+  font-size: 1.75rem;
   max-width: 40ch; /* Optimal line length for readability (~40 characters) */
-  text-wrap: balance; /* Prevents awkward line breaks (like elegant typography) */
   margin-inline: auto; /* Horizontally centers the text in its container */
 }
 
+.hero-headline,
+.hero-subhead {
+  opacity: 0;
+  transform: translateY(50px); /* start below */
+  transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hero-headline.show,
+.hero-subhead.show {
+  opacity: 1;
+  transform: translateY(0); /* slide up into place */
+}
+
+.hero-arrow {
+  font-size: 2rem;
+  display: inline-block;
+  cursor: pointer;
+  animation: bounce 5s infinite; /* bounce continuously */
+  margin-top: 0.2rem; /* spacing below hero text */
+}
+
+/* Keyframes for bounce */
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-20px); /* moves up */
+  }
+  60% {
+    transform: translateY(-7px); /* small bounce */
+  }
+}
 /* Large project title — appears on individual project pages */
 .project-title {
-  font-size: 3.625rem;
+  font-size: 1rem;
   font-family: var(--font-family-project-title);
   color: var(--color-text-project-title);
   margin-bottom: 1rem;
@@ -505,15 +573,20 @@ em {
 
 /* 📂 Project grid title — used in grid view (like a portfolio gallery) */
 .work-grid-project-title {
-  font-size: 2.875rem;
+  font-size: 1.6rem;
   color: var(--color-text-work-grid-title);
 }
 
 /* 🏷️ Project category label — displays the type or role of the project */
 .work-grid-project-category {
   color: var(--color-text-project-category);
+  font-size: 1rem;
 }
 
+.work-grid-project-title,
+.work-grid-project-category {
+  margin-top: 1rem; /* spacing below image */
+}
 /*
 
 ██   ██ ██    ██ ██████  ███████ ██████  ██      ██ ███    ██ ██   ██ ███████ 
@@ -564,7 +637,6 @@ a:active {
 
 a.nav-link-primary {
   color: var(--color-nav-link);
-  padding: 0.5rem;
 }
 a.nav-link-primary:hover {
   color: var(--color-nav-link-hover);
@@ -601,6 +673,78 @@ a.nav-link-primary:hover {
 .stroke:hover {
   -webkit-text-stroke-width: 2px;
   -webkit-text-stroke-color: var(--color-nav-arrow-stroke-hover);
+}
+/* footer item hover */
+.footer-item {
+  color: var(--color-link);
+  text-decoration: none;
+  position: relative;
+}
+
+.footer-item::before,
+.footer-item::after {
+  content: "";
+  opacity: 0; /* hidden by default */
+  transition: opacity 0.3s ease;
+}
+
+.footer-item::before {
+  content: "["; /* left bracket */
+  margin-right: 4px;
+}
+
+.footer-item::after {
+  content: "]"; /* right bracket */
+  margin-left: 4px;
+}
+
+.footer-item:hover::before,
+.footer-item:hover::after {
+  opacity: 1; /* show on hover */
+}
+
+/* nav-branding-item hover */
+.nav-branding-item {
+  color: var(--color-link);
+  text-decoration: none;
+  position: relative; /* needed for pseudo-elements */
+}
+
+.nav-branding-item::before,
+.nav-branding-item::after {
+  content: "";
+  opacity: 0; /* hidden by default */
+  transition: opacity 0.3s ease;
+}
+
+.nav-branding-item::before {
+  content: "["; /* left bracket */
+  margin-right: 2px;
+}
+
+.nav-branding-item::after {
+  content: "]"; /* right bracket */
+  margin-left: 2px;
+}
+
+.nav-branding-item:hover::before,
+.nav-branding-item:hover::after {
+  opacity: 1; /* show brackets on hover */
+}
+
+.nav-branding-item .nav-link-primary {
+  font-weight: 400; /* normal weight */
+  transition: font-weight 0.3s ease; /* smooth transition */
+}
+
+.nav-branding-item:hover .nav-link-primary {
+  font-weight: 700; /* bold on hover */
+}
+
+.nav-branding-item:hover .nav-link-primary {
+  font-weight: 700;
+  color: #ffffff; /* optional color change */
+  transform: translateY(-2px); /* optional slight lift */
 }
 
 /* 
@@ -642,11 +786,11 @@ a.nav-link-primary:hover {
   flex-direction: row;
 }
 .nav-branding-item {
-  padding: 4rem;
+  padding: 0.5rem;
 }
 
 .nav-branding-logo {
-  width: 3rem;
+  width: auto;
   /* TODO: Adjust the width of the logo on mobile devices here */
 }
 
@@ -655,9 +799,9 @@ a.nav-link-primary:hover {
   display: flex;
   flex-direction: column;
   flex: 1;
-  gap: 3rem;
+  gap: 0.75rem;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   padding: var(--padding-small);
   text-align: center; /* Keeps text centered */
 }
@@ -703,7 +847,9 @@ a.nav-link-primary:hover {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: var(--color-bg-full-width); /* Background color for full-width sections */
+  background: var(
+    --color-bg-full-width
+  ); /* Background color for full-width sections */
   margin-bottom: 1rem;
 }
 
@@ -748,6 +894,20 @@ a.nav-link-primary:hover {
 /* The goal is to showcase your projects and provide a responsive, clean UI  */
 /* -------------------------------------------------------------------------- */
 
+/* Initial state: hidden and below */
+.work-page-grid-item {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Final state: visible and in place */
+.work-page-grid-item.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* Work wrapper (takes up available space) */
 .main-work-section {
   flex: 1;
@@ -757,13 +917,15 @@ a.nav-link-primary:hover {
 .portfolio,
 .project-wrapper,
 .work-sidebar-wrapper {
-  padding: var(--padding-tiny); /* Padding to keep content from touching edges */
+  padding: 8rem; /* Padding to keep content from touching edges */
 }
 
 /* Work Sidebar on Mobile */
 .work-sidebar {
   width: 100%;
-  background: var(--color-bg-sidebar-work); /* Background color for the sidebar */
+  background: var(
+    --color-bg-sidebar-work
+  ); /* Background color for the sidebar */
 }
 
 /* Main Work Area with Sidebar on Mobile */
@@ -774,8 +936,11 @@ a.nav-link-primary:hover {
 /* Defining the work page grid */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Creates a responsive grid */
-  grid-gap: 1rem; /* Space between grid items */
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(300px, 1fr)
+  ); /* Creates a responsive grid */
+  grid-gap: 2rem; /* Space between grid items */
   /* The auto-fit and minmax() function help ensure responsiveness across screen sizes */
 }
 
@@ -783,6 +948,7 @@ a.nav-link-primary:hover {
 .work-page-grid-item {
   width: 100%;
   height: auto;
+  padding: 1rem;
   position: relative; /* Needed to position the overlay */
 }
 
@@ -792,37 +958,31 @@ a.nav-link-primary:hover {
   padding: var(--padding-medium);
 }
 
-/* Overlay (appears on hover) */
-.overlay {
+.work-grid-project-title {
+  display: inline-block; /* ensures box matches text width */
+  position: relative;
+  text-decoration: none;
+  color: #ffffff; /* adjust as needed */
+  font-size: 1.5rem;
+  margin-top: 2rem;
+}
+
+/* Hidden underline */
+.work-grid-project-title a::after {
+  content: "";
   position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0; /* Initially invisible */
-  transition: var(--duration-slow) ease;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  padding: var(--padding-small);
-  background-color: var(--color-overlay-primary); /* Background color of the overlay */
-  transition: opacity var(--duration-normal), visibility var(--duration-normal);
+  bottom: -15px; /* adjust gap below text */
+  width: 0; /* start invisible */
+  height: 2px; /* underline thickness */
+  background: #ffffff; /* underline color */
+  transition: width 0.8s ease;
 }
 
-/* Hover effect on work page grid items */
-.work-page-grid-item:hover .overlay {
-  visibility: visible; /* Make overlay visible on hover */
-  opacity: 0.8; /* Set opacity on hover */
+/* When the li is hovered, reveal underline on the title link */
+.work-page-grid-item:hover .work-grid-project-title a::after {
+  width: 100%; /* expands to match text length */
 }
-
-/* Optional container for future overlay customization */
-.project-details-overlay {
-  /* Placeholder: no custom styles yet */
-}
-
 /*
 
 ███████ ██ ██████  ███████ ██████   █████  ██████  
@@ -1100,7 +1260,9 @@ a.nav-link-primary:hover {
 .project-details {
   width: 100%;
   padding: var(--padding-small);
-  background: var(--color-gradient-project-details); /* TODO: Remove gradient background if you prefer a simpler design */
+  background: var(
+    --color-gradient-project-details
+  ); /* TODO: Remove gradient background if you prefer a simpler design */
 }
 
 /* Previous/Next Arrow Styles */
@@ -1171,7 +1333,12 @@ a.nav-link-primary:hover {
   width: 100%;
   min-height: 100vh;
   /* TODO: Delete the following if you do not want a grainy gradient background on index.html. Be careful not to delete the closing } */
-  background: linear-gradient(0deg, rgba(0, 0, 0, 1), var(--color-bg-holding-page)), var(--image-noise-texture);
+  background: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 1),
+      var(--color-bg-holding-page)
+    ),
+    var(--image-noise-texture);
   /* For more on grainy gradients see https://grainy-gradients.vercel.app/ */
 }
 
@@ -1193,7 +1360,9 @@ a.nav-link-primary:hover {
 
 .holding-page-copyright {
   font-size: 0.8rem; /* Smaller font size for copyright text */
-  color: var(--color-text-holding-footer); /* Custom color for the footer text */
+  color: var(
+    --color-text-holding-footer
+  ); /* Custom color for the footer text */
   margin-bottom: 0; /* Removes default margin from the bottom of the copyright text */
 }
 
@@ -1308,11 +1477,12 @@ to keep your styles reusable and consistent.
   }
 
   h1 {
-    font-size: 4.275rem;
+    font-size: 4rem;
   }
 
   h2 {
-    font-size: 2.25rem;
+    font-size: 1.7rem;
+    font-weight: 400;
   }
 
   h3 {
@@ -1328,7 +1498,7 @@ to keep your styles reusable and consistent.
     padding: var(--padding-jumbo);
   }
   .nav-branding-logo {
-    width: 5rem;
+    width: auto;
     /* TODO: Adjust the width of the logo on large devices here. */
   }
 
@@ -1360,23 +1530,12 @@ to keep your styles reusable and consistent.
     grid-gap: 1rem;
   }
 
-  /* Grayscale filter with full-colour on hover and tap */
-
-  .work-page-grid-item a.grayscale img {
-    filter: grayscale(100);
-  }
-
-  .work-page-grid-item > a.grayscale:active img,
-  .work-page-grid-item > a.grayscale:hover img {
-    filter: grayscale(0);
-  }
-
   /* Padding around work grid and project page */
 
   .portfolio,
   .project-wrapper,
   .work-sidebar-wrapper {
-    padding: var(--padding-small);
+    padding: 3rem;
   }
 
   /* Project Page Flex Direction on Large Devices */
@@ -1519,7 +1678,7 @@ to keep your styles reusable and consistent.
   /* TODO: Add styles here for XX-large devices. */
 
   .grid {
-    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
   }
 }
 
