@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Rachel Lu - Design</title>
+    <title>Rachel Lu - Branding and Advertising</title>
     <meta
       name="description"
-      content="When writing a meta description, keep it between 140 and 160 characters so Google can display your entire message. Don’t forget to include your keyword!"
+      content="Rachel Lu is a Vancouver-based graphic designer specializing in branding, UX/UI, motion design, and strategy to elevate brands across digital and print."
     />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -28,7 +28,7 @@
       <header class="hero-header">
         <ul class="nav-branding">
           <li class="nav-branding-item">
-            <a href="work.html" class="nav-link-primary">Rachel Lu</a>
+            <a href="work.html" class="nav-link-primary">RACHEL LU</a>
           </li>
           <li class="nav-branding-logo">
             <a href="index.html">
@@ -38,13 +38,10 @@
               />
             </a>
           </li>
-          <li class="nav-branding-item">
-            <a href="about.html" class="nav-link-primary">Info</a>
-          </li>
         </ul>
       </header>
       <div class="hero-headline-wrapper">
-        <h1 class="hero-headline">WELCOME</h1>
+        <h1 class="hero-headline">[ WELCOME ]</h1>
         <h2 class="hero-subhead"><em> scroll down to view my work</em></h2>
         <!-- Arrow -->
         <div class="hero-arrow">↓</div>
@@ -175,13 +172,22 @@
         </ul>
       </section>
     </main>
+
+    <section class="big-text">
+      <h3>Thanks for visiting</h3>
+    </section>
+
     <ul class="footer-global">
       <li class="footer-tagline">
         <ul class="footer-list">
           <a href="https://www.instagram.com/rachellu.dsgn/" class="footer-item"
             >Instagram</a
           >
-          <li class="footer-item">LinkedIn</li>
+          <a
+            href="https://www.linkedin.com/in/rachel-lu-211335274/LinkedIn"
+            class="footer-item"
+            >LinkedIn</a
+          >
           <li class="footer-item">Behance</li>
           <li class="footer-item">Contact</li>
         </ul>
@@ -299,27 +305,24 @@
   </script>
 
   <script>
-    (function () {
-      const speed = 0.09; // smaller = slower/smoother
-      let current = window.scrollY;
-      let target = window.scrollY;
+    const elements = document.querySelectorAll(".slide-up");
 
-      function update() {
-        current += (target - current) * speed; // ease toward target
-        window.scrollTo(0, current);
-        requestAnimationFrame(update);
-      }
+    window.addEventListener("load", () => {
+      elements.forEach((el, index) => {
+        setTimeout(() => {
+          el.classList.add("show");
+        }, index * 300); // 200ms stagger per element
+      });
+    });
+  </script>
 
-      window.addEventListener(
-        "wheel",
-        (e) => {
-          e.preventDefault(); // stop default jumpy scroll
-          target += e.deltaY; // accumulate target position
-        },
-        { passive: false }
-      );
+  <script>
+    const toggleButton = document.querySelector(".nav-toggle");
+    const overlay = document.querySelector(".nav-overlay");
 
-      update();
-    })();
+    toggleButton.addEventListener("click", () => {
+      overlay.classList.toggle("open");
+      toggleButton.classList.toggle("active"); // optional hamburger animation
+    });
   </script>
 </html>
