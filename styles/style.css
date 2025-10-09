@@ -425,7 +425,7 @@ svg {
 h1 {
   font-size: 2rem;
   font-family: var(--font-family-heading);
-  line-height: 0.5;
+  line-height: 5rem;
   margin-bottom: 0.25rem;
   color: var(--h1-color);
 }
@@ -494,6 +494,7 @@ em {
 .hero-headline {
   color: #ffffff; /* Uses your brand's dominant color */
   font-size: 1.75rem;
+  line-height: 1rem;
   max-width: 40ch; /* Optimal line length for readability (~40 characters) */
   margin-inline: auto; /* Horizontally centers the text in its container */
 }
@@ -544,6 +545,30 @@ em {
   margin-bottom: 1rem;
 }
 
+.project-header {
+  margin-bottom: 3rem;
+  display: inline-block;
+}
+
+/* Each word wrapper hides overflow */
+.project-header .word-wrapper {
+  display: inline-block;
+  overflow: hidden; /* hides the word's starting position */
+  vertical-align: bottom; /* aligns the text baseline nicely */
+  margin-right: 0.1em; /* optional spacing between words */
+}
+
+/* The actual word slides up */
+.project-header .word-wrapper span {
+  display: inline-block;
+  transform: translateY(100%); /* start below the wrapper */
+  transition: transform 0.6s ease-out;
+}
+
+.project-header .word-wrapper span.show {
+  transform: translateY(0); /* slide into place */
+}
+
 /* Project description text — pairs with the project title */
 .project-description {
   font-size: 1.225rem;
@@ -574,6 +599,7 @@ em {
 /* 📂 Project grid title — used in grid view (like a portfolio gallery) */
 .work-grid-project-title {
   font-size: 1.6rem;
+  line-height: 0.5rem;
   color: var(--color-text-work-grid-title);
 }
 
@@ -771,6 +797,33 @@ a.nav-link-primary:hover {
 }
 .hero-header {
   min-height: 6rem; /* Space reserved for logo + nav */
+  position: relative;
+  z-index: 10;
+}
+
+/* Nav branding list */
+.nav-branding {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 1rem 2rem;
+}
+
+/* Hamburger button */
+.nav-toggle {
+  display: none; /* desktop hidden */
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+.nav-toggle .bar {
+  width: 25px;
+  height: 3px;
+  background: #000;
+  transition: 0.3s;
 }
 
 .nav-branding {
@@ -792,6 +845,12 @@ a.nav-link-primary:hover {
 .nav-branding-logo {
   width: auto;
   /* TODO: Adjust the width of the logo on mobile devices here */
+}
+
+.nav-branding-logo img {
+  width: 2rem; /* Adjust size as needed */
+  height: auto; /* Maintain aspect ratio */
+  display: block; /* Remove inline spacing issues */
 }
 
 .hero-headline-wrapper {
@@ -917,7 +976,7 @@ a.nav-link-primary:hover {
 .portfolio,
 .project-wrapper,
 .work-sidebar-wrapper {
-  padding: 8rem; /* Padding to keep content from touching edges */
+  padding: 4rem; /* Padding to keep content from touching edges */
 }
 
 /* Work Sidebar on Mobile */
@@ -1203,6 +1262,7 @@ a.nav-link-primary:hover {
 .project-wrapper-full-width {
   width: 100%;
   padding: var(--padding-small);
+  margin-top: 2rem;
 }
 
 /* Container for the project content with full-width display */
@@ -1226,7 +1286,7 @@ a.nav-link-primary:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
+  flex-direction: row;
   margin-bottom: 1rem; /* Space below the image */
 }
 
@@ -1235,26 +1295,55 @@ a.nav-link-primary:hover {
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
-  flex-direction: column;
-  background: var(--color-bg-project-description);
-  padding: var(--padding-small);
+  flex-direction: row;
   width: 100%;
   margin-bottom: 1rem; /* Space below the description */
 }
 
 /* Column styles for two-column layouts */
 .col-2 {
-  width: 100%;
-  padding: var(--padding-small);
+  width: 50%;
 }
 
 /* Project image styling */
 .project-image {
   width: 100%;
+  height: auto;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1rem;
+  margin-bottom: 4rem;
+}
+
+/* Project image pair layout */
+.project-image-pair {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* two columns by default */
+  gap: 2rem;
+}
+
+/* Each image keeps 4:5 ratio */
+.project-image-pair .project-image {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  position: relative;
+}
+
+.project-image-pair .project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 1rem; /* keeps rounded-large */
+}
+
+.project-image-hero {
+  width: calc(100vw - 0px);
+  height: auto;
+  display: block;
+  margin-left: calc(-50vw + 50%);
+  margin-bottom: 3rem;
 }
 /* Project details section */
 .project-details {
@@ -1289,6 +1378,16 @@ a.nav-link-primary:hover {
   padding: 0;
 }
 
+.slide-up {
+  opacity: 0;
+  transform: translateY(100px) scale(0.98);
+  transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+}
+
+.slide-up.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
 /*
 
 ██████  ██       ██████   ██████      ██ ██████  ███████ ███████ ██    ██ ███    ███ ███████ 
@@ -1477,7 +1576,7 @@ to keep your styles reusable and consistent.
   }
 
   h1 {
-    font-size: 4rem;
+    font-size: 4.5rem;
   }
 
   h2 {
@@ -1578,7 +1677,8 @@ to keep your styles reusable and consistent.
     flex-direction: row;
   }
   .col-2 {
-    width: 50%;
+    width: 100%;
+    margin-top: 1rem;
   }
 
   .project-navigation {
