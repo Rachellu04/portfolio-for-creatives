@@ -41,7 +41,7 @@
         </ul>
       </header>
       <div class="hero-headline-wrapper">
-        <h1 class="hero-headline">[ WELCOME ]</h1>
+        <h1 class="hero-headline">Welcome</h1>
         <h2 class="hero-subhead"><em> scroll down to view my work</em></h2>
         <!-- Arrow -->
         <div class="hero-arrow">↓</div>
@@ -53,24 +53,27 @@
         <ul class="grid">
           <li class="work-page-grid-item">
             <figure>
-              <img
-                src="assets/project-thumbnail/placeholder-image.jpg"
-                width="1920"
-                height="1080"
-                class="rounded-large"
-                loading="lazy"
-                alt="Describe your project"
-              />
+              <a href="project-1.html">
+                <img
+                  href="project-1.html"
+                  src="assets/project-thumbnail/chirp-test-render-Recovered.jpg"
+                  width="1920"
+                  height="1080"
+                  class="rounded-large"
+                  loading="lazy"
+                  alt="Describe your project"
+                />
+              </a>
             </figure>
             <h1 class="work-grid-project-title">
-              <a href="project-1.html">CHIRP</a>
+              <a href="project-1.html">Chirp</a>
             </h1>
             <h4 class="work-grid-project-category">Branding • Packaging</h4>
           </li>
           <li class="work-page-grid-item">
             <figure>
               <img
-                src="assets/project-thumbnail/placeholder-image.jpg"
+                src="assets/project-thumbnail/tempobillboard.jpg"
                 width="1920"
                 height="1080"
                 class="rounded-large"
@@ -165,17 +168,13 @@
             ></div>
 
             <h1 class="work-grid-project-title">
-              <a href="project-6.html">Project Number Six</a>
+              <a href="project-6.html">Capstone</a>
             </h1>
-            <h4 class="work-grid-project-category">Add Your Categories</h4>
+            <h4 class="work-grid-project-category">Branding • Advertising</h4>
           </li>
         </ul>
       </section>
     </main>
-
-    <section class="big-text">
-      <h3>Thanks for visiting</h3>
-    </section>
 
     <ul class="footer-global">
       <li class="footer-tagline">
@@ -207,7 +206,9 @@
     <div id="myID" class="bottomMenu hide">
       <a href="#">Back to top</a>
     </div>
-    <div class="custom-cursor"></div>
+    <div class="custom-cursor">
+      <span class="cursor-arrow">view</span>
+    </div>
   </body>
 
   <script>
@@ -229,8 +230,8 @@
     });
 
     function animate() {
-      currentX += (mouseX - currentX) * 0.15; // easing
-      currentY += (mouseY - currentY) * 0.15;
+      currentX += (mouseX - currentX) * 0.4; // easing
+      currentY += (mouseY - currentY) * 0.4;
       cursor.style.top = `${currentY}px`;
       cursor.style.left = `${currentX}px`;
       requestAnimationFrame(animate);
@@ -313,16 +314,6 @@
           el.classList.add("show");
         }, index * 300); // 200ms stagger per element
       });
-    });
-  </script>
-
-  <script>
-    const toggleButton = document.querySelector(".nav-toggle");
-    const overlay = document.querySelector(".nav-overlay");
-
-    toggleButton.addEventListener("click", () => {
-      overlay.classList.toggle("open");
-      toggleButton.classList.toggle("active"); // optional hamburger animation
     });
   </script>
 </html>
