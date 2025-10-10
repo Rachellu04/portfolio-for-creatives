@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Rachel Lu - Branding and Advertising</title>
+    <title>Rachel Lu | Branding and Advertising</title>
     <meta
       name="description"
       content="Rachel Lu is a Vancouver-based graphic designer specializing in branding, UX/UI, motion design, and strategy to elevate brands across digital and print."
@@ -24,12 +24,10 @@
   </head>
 
   <body class="work-page" id="top">
-    <section class="hero gradient-animation">
+    <section class="gradient-hero">
+      <!-- <img src="assets/hero/keychain-2.png" alt="Hero Image" class="hero-bg" /> -->
       <header class="hero-header">
         <ul class="nav-branding">
-          <li class="nav-branding-item">
-            <a href="work.html" class="nav-link-primary">RACHEL LU</a>
-          </li>
           <li class="nav-branding-logo">
             <a href="index.html">
               <img
@@ -39,7 +37,34 @@
             </a>
           </li>
         </ul>
+        <div class="menu">
+          <span class="menu-circle"></span>
+          <a href="#" class="menu-link">
+            <span class="menu-icon">
+              <span class="menu-line menu-line-1"></span>
+              <span class="menu-line menu-line-2"></span>
+              <span class="menu-line menu-line-3"></span>
+            </span>
+          </a>
+          <div class="menu-overlay">
+            <ul>
+              <li class="nav-branding-item">
+                <a href="work.html"><h3>Work</h3></a>
+              </li>
+              <li class="nav-branding-item">
+                <a href="about.html"><h3>About</h3></a>
+              </li>
+              <li class="nav-branding-item">
+                <a href="work.html"><h3>Contact</h3></a>
+              </li>
+              <li class="nav-branding-item">
+                <a href="play.html"><h3>Play</h3></a>
+              </li>
+            </ul>
+          </div>
+        </div>
       </header>
+
       <div class="hero-headline-wrapper">
         <h1 class="hero-headline">Welcome</h1>
         <h2 class="hero-subhead"><em> scroll down to view my work</em></h2>
@@ -52,11 +77,11 @@
       <section class="portfolio">
         <ul class="grid">
           <li class="work-page-grid-item">
-            <figure>
+            <figure class="project-img">
               <a href="project-1.html">
                 <img
                   href="project-1.html"
-                  src="assets/project-thumbnail/chirp-test-render-Recovered.jpg"
+                  src="assets/project-thumbnail/chirp-thumbnail-test.jpg"
                   width="1920"
                   height="1080"
                   class="rounded-large"
@@ -71,9 +96,9 @@
             <h4 class="work-grid-project-category">Branding • Packaging</h4>
           </li>
           <li class="work-page-grid-item">
-            <figure>
+            <figure class="project-img">
               <img
-                src="assets/project-thumbnail/tempobillboard.jpg"
+                src="assets/project-thumbnail/tempo-thumbnail.jpg"
                 width="1920"
                 height="1080"
                 class="rounded-large"
@@ -92,9 +117,9 @@
             <h4 class="work-grid-project-category">Advertising</h4>
           </li>
           <li class="work-page-grid-item">
-            <figure>
+            <figure class="project-img">
               <img
-                src="assets/project-thumbnail/placeholder-image.jpg"
+                src="assets/project-thumbnail/creagan-thumbnail.jpg"
                 width="1920"
                 height="1080"
                 class="rounded-large"
@@ -113,9 +138,9 @@
             <h4 class="work-grid-project-category">Packaging • Advertising</h4>
           </li>
           <li class="work-page-grid-item">
-            <figure>
+            <figure class="project-img">
               <img
-                src="assets/project-thumbnail/placeholder-image.jpg"
+                src="assets/project-thumbnail/dface-thumbnail.jpg"
                 width="1920"
                 height="1080"
                 class="rounded-large"
@@ -135,7 +160,7 @@
             </h4>
           </li>
           <li class="work-page-grid-item">
-            <figure>
+            <figure class="project-img">
               <img
                 src="assets/project-5/tangfang-thumbnail.jpg"
                 width="1920"
@@ -152,9 +177,9 @@
             <h4 class="work-grid-project-category">Branding • Packaging</h4>
           </li>
           <li class="work-page-grid-item">
-            <figure>
+            <figure class="project-img">
               <img
-                src="assets/project-thumbnail/placeholder-image.jpg"
+                src="assets/project-thumbnail/capstone-thumbnail-placeholder.jpg"
                 width="1920"
                 height="1080"
                 class="rounded-large"
@@ -175,22 +200,45 @@
         </ul>
       </section>
     </main>
+    <div class="banner">
+      <div class="banner-content">
+        <span>Thanks for stopping by</span>
+        <span class="circle">●</span>
+        <span id="pst-time"></span>
+        <span class="circle">●</span>
+        <span>Thanks for stopping by</span>
+        <span class="circle">●</span>
+        <span id="pst-time"></span>
+      </div>
+    </div>
 
     <ul class="footer-global">
       <li class="footer-tagline">
-        <ul class="footer-list">
-          <a href="https://www.instagram.com/rachellu.dsgn/" class="footer-item"
-            >Instagram</a
-          >
-          <a
-            href="https://www.linkedin.com/in/rachel-lu-211335274/LinkedIn"
-            class="footer-item"
+        <h4>Let's Connect!</h4>
+        <p>
+          Feel free to reach out with any questions, collaborations, or just to
+          chat about design.
+        </p>
+        <a href="work.html" class="btn-primary position-aware">
+          Say Hello<span></span>
+        </a>
+      </li>
+
+      <ul class="footer-list">
+        <li class="footer-item">
+          <a href="https://www.instagram.com/rachellu.dsgn/">Instagram</a>
+        </li>
+
+        <li class="footer-item">
+          <a href="https://www.linkedin.com/in/rachel-lu-211335274/LinkedIn"
             >LinkedIn</a
           >
-          <li class="footer-item">Behance</li>
-          <li class="footer-item">Contact</li>
-        </ul>
-      </li>
+        </li>
+
+        <li class="footer-item">
+          <a href="https://www.behance.net/rachelludesign">Behance</a>
+        </li>
+      </ul>
 
       <li class="footer-full-width">
         <p class="footer-fineprint">
@@ -209,111 +257,6 @@
     <div class="custom-cursor">
       <span class="cursor-arrow">view</span>
     </div>
+    <script src="js/main.js" defer></script>
   </body>
-
-  <script>
-    const cursor = document.querySelector(".custom-cursor");
-
-    window.addEventListener("mousemove", (e) => {
-      cursor.style.top = e.clientY + "px";
-      cursor.style.left = e.clientX + "px";
-    });
-
-    let mouseX = 0;
-    let mouseY = 0;
-    let currentX = 0;
-    let currentY = 0;
-
-    window.addEventListener("mousemove", (e) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-    });
-
-    function animate() {
-      currentX += (mouseX - currentX) * 0.4; // easing
-      currentY += (mouseY - currentY) * 0.4;
-      cursor.style.top = `${currentY}px`;
-      cursor.style.left = `${currentX}px`;
-      requestAnimationFrame(animate);
-    }
-
-    animate();
-
-    window.addEventListener("mouseover", (e) => {
-      const target = e.target;
-
-      // Check if target is interactive
-      const isHoverable =
-        target.tagName === "A" ||
-        target.tagName === "BUTTON" ||
-        target.tagName === "INPUT" ||
-        target.tagName === "TEXTAREA" ||
-        target.tagName === "SELECT" ||
-        target.tagName === "IMG" ||
-        target.closest(".work-page-grid-item"); // include grid items
-      window.getComputedStyle(target).cursor === "pointer";
-
-      if (isHoverable) {
-        cursor.classList.add("expand");
-      } else {
-        cursor.classList.remove("expand");
-      }
-    });
-
-    window.addEventListener("mouseout", (e) => {
-      cursor.classList.remove("expand");
-    });
-  </script>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const items = document.querySelectorAll(".work-page-grid-item");
-
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("show");
-              observer.unobserve(entry.target); // animate once
-            }
-          });
-        },
-        { threshold: 0.3 }
-      );
-
-      items.forEach((item, i) => {
-        item.style.transitionDelay = `${i * 0.15}s`; // stagger effect
-        observer.observe(item);
-      });
-    });
-  </script>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const headline = document.querySelector(".hero-headline");
-      const subhead = document.querySelector(".hero-subhead");
-
-      // Show headline first
-      setTimeout(() => {
-        headline.classList.add("show");
-      }, 300); // slight delay for effect
-
-      // Show subhead after headline
-      setTimeout(() => {
-        subhead.classList.add("show");
-      }, 700); // staggered after 400ms
-    });
-  </script>
-
-  <script>
-    const elements = document.querySelectorAll(".slide-up");
-
-    window.addEventListener("load", () => {
-      elements.forEach((el, index) => {
-        setTimeout(() => {
-          el.classList.add("show");
-        }, index * 300); // 200ms stagger per element
-      });
-    });
-  </script>
 </html>
