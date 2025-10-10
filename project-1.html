@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Rachel Lu - Chirp Protein</title>
+    <title>Rachel Lu | Chirp Protein</title>
     <meta
       name="description"
       content="Product packaging, branding, and visual identity design for a sustainable cricket protein powder brand"
@@ -43,12 +43,14 @@
         </h1>
         <div class="project-description-container slide-up">
           <div class="project-title col-2">
-            <h4>Packaging Branding</h4>
+            <h2><em>Project Details</em></h2>
           </div>
 
           <div class="project-description col-2">
-            <h4>Timeline</h4>
-            <p>4 Weeks</p>
+            <ul class="project-page-details">
+              <li class="project-detail"><p>4 weeks</p></li>
+              <li class="project-detail"><p>Packaging</p></li>
+            </ul>
           </div>
         </div>
         <div class="project-description-container"></div>
@@ -324,7 +326,7 @@
           entries.forEach((entry) => {
             wordSpans.forEach((span, i) => {
               // stagger delay per word
-              span.style.transitionDelay = `${i * 0.15}s`;
+              span.style.transitionDelay = `${i * 0.045}s`;
               if (entry.isIntersecting) {
                 span.classList.add("show"); // scroll DOWN → slide up
               } else {
@@ -333,7 +335,7 @@
             });
           });
         },
-        { threshold: 0.2 }
+        { threshold: 0.1 }
       ); // trigger when ~20% visible
 
       observer.observe(header);
