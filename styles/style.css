@@ -104,49 +104,47 @@
   --font-family-project-title: "Montserrat", sans-serif;
   --font-family-subheading: "Cormorant", serif;
   /* Core Colours */
-  --color-text-primary: rgb(255, 255, 255);
-  --color-text-secondary: rgb(255, 255, 255);
+  --color-text-primary: rgb(0, 0, 0);
+  --color-text-secondary: rgb(0, 0, 0);
   --color-accent-primary: #a6c6ec;
   --color-accent-secondary: #36a1ff;
   --color-overlay-primary: #000000;
   --color-highlight: rgb(99, 189, 240);
   --color-fallback: #ff057c; /* Fallback color for glitch effect on 404 page */
   /* Backgrounds */
-  --color-bg: #000000;
-  --color-bg-about: #000000;
-  --color-bg-footer: #000000;
-  --color-bg-holding-page: rgba(0, 0, 0, 0.6);
+  --color-bg: #ffffff;
+  --color-bg-about: #ffffff;
+  --color-bg-footer: #ffffff;
+  --color-bg-holding-page: rgb(255, 255, 255);
   /* Headings */
-  --h1-color: #ffffff;
-  --h2-color: #ffffff;
-  --h3-color: #ffffff;
-  --h4-color: #ffffff;
-  --h5-color: #ffffff;
-  --h6-color: #ffffff;
+  --h1-color: #000000;
+  --h2-color: #000000;
+  --h3-color: #000000;
+  --h4-color: #000000;
+  --h5-color: #000000;
+  --h6-color: #000000;
   /* Special Text Colours */
-  --color-text-holding-title: #ebedf0;
-  --color-text-project-category: #ffffffc1;
-  --color-text-project-description: rgb(255, 255, 255);
-  --color-text-project-sidebar: rgb(255, 255, 255);
-  --color-text-project-title: #ffffff;
-  --color-text-work-grid-title: #ffffff;
+  --color-text-holding-title: #000000;
+  --color-text-project-category: #4a4a4ac1;
+  --color-text-project-description: rgb(0, 0, 0);
+  --color-text-project-sidebar: rgb(0, 0, 0);
+  --color-text-project-title: #000000;
+  --color-text-work-grid-title: #000000;
   /* Link States */
-  --color-link: #ffffff;
-  --color-link-hover: #ffffff;
-  --color-link-visited: #ffffff;
+  --color-link: #000000;
+  --color-link-hover: #000000;
+  --color-link-visited: #000000;
   /* Navigation */
-  --color-nav-link: #fff;
-  --color-nav-link-hover: #ffffff;
-  --color-nav-arrow: #5200ff;
-  --color-nav-arrow-hover: #000;
-  --color-nav-arrow-stroke: #5200ff;
-  --color-nav-arrow-stroke-hover: #000;
+  --color-nav-link: #000000;
+  --color-nav-link-hover: #000000;
+  --color-nav-arrow-hover: #000000;
+  --color-nav-arrow-stroke: #000000;
+  --color-nav-arrow-stroke-hover: #000000;
   /* Components */
-  --color-bg-full-width: #f5f5f5;
-  --color-bg-project-description: #f5f5f5;
+  --color-bg-full-width: #000000;
+  --color-bg-project-description: #000000;
   --color-bg-sidebar-project: orangered;
   --color-bg-sidebar-work: lemonchiffon;
-  --color-gradient-hero: linear-gradient(90deg, #ff00ff, #00ffff);
   --color-gradient-project-details: linear-gradient(
     -225deg,
     #ff057c 0%,
@@ -183,20 +181,40 @@
     left: 0;
     width: 15px;
     height: 15px;
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(0, 0, 0);
     border-radius: 50%;
-    pointer-events: none; /* So it doesn’t block clicks */
+    pointer-events: none;
     transform: translate(-50%, -50%);
     transition: width 0.2s ease, height 0.2s ease, background-color 0.3s ease;
     z-index: 9999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .custom-cursor.expand {
-    width: 40px;
-    height: 40px;
-    background-color: rgba(255, 255, 255, 0);
-    border: 1px solid white; /* adds a solid white border */
-    box-sizing: border-box; /* ensures border doesn't increase total size */
+    width: 50px;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.385);
+    border: 1.5px solid rgba(255, 255, 255, 0.728);
+    box-sizing: border-box;
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(6px);
+  }
+
+  .cursor-arrow {
+    color: white;
+    font-size: 0.8rem;
+    opacity: 0; /* hidden by default */
+    transform: scale(0.5); /* small + faded out */
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+
+  /* Show and center arrow only in expand state */
+  .custom-cursor.expand .cursor-arrow {
+    opacity: 1;
+    transform: scale(1);
   }
 }
 
@@ -439,14 +457,14 @@ h2 {
 }
 
 h3 {
-  font-size: 1.325rem;
+  font-size: 4rem;
   margin-bottom: 1rem;
   line-height: 1.2;
   color: var(--h3-color);
 }
 
 h4 {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   line-height: 1.2;
   margin-bottom: 1rem;
   color: var(--h4-color);
@@ -492,11 +510,12 @@ em {
 
 /* Main hero headline — usually sits in the intro section */
 .hero-headline {
-  color: #ffffff; /* Uses your brand's dominant color */
+  color: #000000; /* Uses your brand's dominant color */
   font-size: 1.75rem;
   line-height: 1rem;
   max-width: 40ch; /* Optimal line length for readability (~40 characters) */
   margin-inline: auto; /* Horizontally centers the text in its container */
+  text-transform: uppercase;
 }
 
 .hero-headline,
@@ -601,6 +620,7 @@ em {
   font-size: 1.6rem;
   line-height: 0.5rem;
   color: var(--color-text-work-grid-title);
+  font-weight: 500;
 }
 
 /* 🏷️ Project category label — displays the type or role of the project */
@@ -769,7 +789,7 @@ a.nav-link-primary:hover {
 
 .nav-branding-item:hover .nav-link-primary {
   font-weight: 700;
-  color: #ffffff; /* optional color change */
+  color: #000000; /* optional color change */
   transform: translateY(-2px); /* optional slight lift */
 }
 
@@ -1021,7 +1041,7 @@ a.nav-link-primary:hover {
   display: inline-block; /* ensures box matches text width */
   position: relative;
   text-decoration: none;
-  color: #ffffff; /* adjust as needed */
+  color: #000000; /* adjust as needed */
   font-size: 1.5rem;
   margin-top: 2rem;
 }
@@ -1033,9 +1053,9 @@ a.nav-link-primary:hover {
   left: 0;
   bottom: -15px; /* adjust gap below text */
   width: 0; /* start invisible */
-  height: 2px; /* underline thickness */
-  background: #ffffff; /* underline color */
-  transition: width 0.8s ease;
+  height: 1.5px; /* underline thickness */
+  background: #000000; /* underline color */
+  transition: width 0.5s ease;
 }
 
 /* When the li is hovered, reveal underline on the title link */
@@ -1105,6 +1125,68 @@ a.nav-link-primary:hover {
 .about-grid-text {
   grid-column: 1 / 2; /* Text spans the first column */
   grid-row: 2 / 3; /* Text spans the second row */
+}
+
+.about-awards {
+  display: flex; /* Set to grid layout */
+  flex-direction: column;
+  background: var(--color-bg-about); /* Background color for the section */
+  padding: var(--padding-jumbo); /* Padding around the grid */
+  gap: 2rem;
+}
+
+.award-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 2rem;
+  border-top: 1px solid #ffffff; /* adds top border */
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+}
+
+.about-experience {
+  display: flex; /* Set to grid layout */
+  flex-direction: column;
+  background: var(--color-bg-about); /* Background color for the section */
+  padding: var(--padding-jumbo); /* Padding around the grid */
+  gap: 2rem;
+}
+
+.experience-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 2rem;
+  border-top: 1px solid #ffffff; /* adds top border */
+  padding-top: 4rem;
+  padding-bottom: 2rem;
+}
+
+.about-services {
+  display: grid; /* Set to grid layout */
+  grid-template-columns: 400px 1fr; /* Single column layout for mobile and smaller screens */
+  grid-gap: 2rem; /* Space between grid items */
+  background: var(--color-bg-about); /* Background color for the section */
+  padding: var(--padding-jumbo); /* Padding around the grid */
+}
+
+.about-services-title {
+  grid-column: 1; /* Image spans the first column */
+  grid-row: 1; /* Image spans the first row */
+}
+
+.services-list {
+  grid-column: 2; /* Text spans the first column */
+  grid-row: 1; /* Text spans the second row */
+}
+
+.service-item {
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 2rem;
+  padding-bottom: 1rem;
 }
 
 /* 
@@ -1431,14 +1513,6 @@ a.nav-link-primary:hover {
   text-align: center;
   width: 100%;
   min-height: 100vh;
-  /* TODO: Delete the following if you do not want a grainy gradient background on index.html. Be careful not to delete the closing } */
-  background: linear-gradient(
-      0deg,
-      rgba(0, 0, 0, 1),
-      var(--color-bg-holding-page)
-    ),
-    var(--image-noise-texture);
-  /* For more on grainy gradients see https://grainy-gradients.vercel.app/ */
 }
 
 .holding-page-animation {
@@ -1585,7 +1659,7 @@ to keep your styles reusable and consistent.
   }
 
   h3 {
-    font-size: 1.625rem;
+    font-size: 3rem;
   }
 
   .h1-full-width,
