@@ -81,8 +81,8 @@
         <figure class="project-image slide-up">
           <img
             src="assets/project-thumbnail/placeholder-image.jpg"
-            width="auto"
-            height="auto"
+            width="1920"
+            height="1080"
             loading="lazy"
             class="rounded-large"
             alt="Describe your project"
@@ -91,8 +91,8 @@
         <figure class="project-image slide-up">
           <img
             src="assets/project-thumbnail/placeholder-image.jpg"
-            width="auto"
-            height="auto"
+            width="1920"
+            height="1080"
             loading="lazy"
             class="rounded-large"
             alt="Describe your project"
@@ -140,6 +140,7 @@
             allow="autoplay; fullscreen"
             allowfullscreen
             class="responsive-iframe"
+            style="border-radius: 16px; overflow: hidden"
           ></iframe>
         </div>
         <div class="project-description-container">
@@ -160,14 +161,14 @@
     </div>
     <ul class="footer-global">
       <li class="footer-tagline">
-        <h2>Let's Connect!</h2>
+        <h4>Let's Connect!</h4>
         <p>
           Feel free to reach out with any questions, collaborations, or just to
           chat about design.
         </p>
       </li>
       <li class="footer-highlights">
-        <h2>Awards & Recognition</h2>
+        <h4>Awards & Recognition</h4>
         <ul class="footer-awards-list">
           <li class="footer-item">
             <a href="#">Dean’s List – Year or Term</a>
@@ -185,7 +186,7 @@
       </li>
 
       <li class="footer-contact-social">
-        <h2>Contact & Social</h2>
+        <h4>Contact & Social</h4>
         <ul class="footer-socials-list">
           <li class="footer-item"><a href="#">Insta</a></li>
           <li class="footer-item"><a href="#">LinkedIn</a></li>
@@ -196,7 +197,7 @@
       <li class="footer-full-width">
         <p><a href="#top">Smooth scroll to the top</a></p>
         <p class="footer-fineprint">
-          &copy; <span id="copyright-years">2020-</span>. Hand crafted with
+          &copy; <span id="copyright-years">2025</span>. Hand crafted with
           <span class="heart">❤</span>
           by James Neufeld.
         </p>
@@ -224,7 +225,9 @@
 
       window.addEventListener("scroll", myScrollFunc);
     </script>
-    <div class="custom-cursor"></div>
+    <div class="custom-cursor">
+      <span class="cursor-arrow">view</span>
+    </div>
   </body>
 
   <script>
@@ -246,8 +249,8 @@
     });
 
     function animate() {
-      currentX += (mouseX - currentX) * 0.15; // easing
-      currentY += (mouseY - currentY) * 0.15;
+      currentX += (mouseX - currentX) * 0.4; // easing
+      currentY += (mouseY - currentY) * 0.4;
       cursor.style.top = `${currentY}px`;
       cursor.style.left = `${currentX}px`;
       requestAnimationFrame(animate);
@@ -265,7 +268,9 @@
         target.tagName === "INPUT" ||
         target.tagName === "TEXTAREA" ||
         target.tagName === "SELECT" ||
-        target.closest(".work-page-grid-item"); // include grid items
+        target.closest(".arrow-left") ||
+        target.closest(".arrow-right");
+
       window.getComputedStyle(target).cursor === "pointer";
 
       if (isHoverable) {
