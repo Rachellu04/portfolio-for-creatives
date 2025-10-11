@@ -64,7 +64,7 @@
         </figure>
       </div>
       <div class="about-grid-text">
-        <h1>Hey, I'm Rachel.</h1>
+        <h1 class="about-header">Hey, I'm Rachel.</h1>
 
         <p>
           A recent graduate from Capilano University's IDEA School of Design.
@@ -74,7 +74,15 @@
         </p>
       </div>
     </div>
-
+    <div class="about-btns">
+      <h3>Check out my stuff</h3>
+      <a href="work.html" class="btn-primary position-aware">
+        Say Hello<span></span>
+      </a>
+      <a href="work.html" class="btn-primary position-aware">
+        Resume<span></span>
+      </a>
+    </div>
     <div class="about-awards">
       <h3>Awards</h3>
       <ul class="awards-list">
@@ -276,21 +284,29 @@
     var els = document.querySelectorAll(".btn-primary.position-aware");
     els.forEach(function (el) {
       el.addEventListener("mouseenter", function (e) {
-        var relX = e.pageX - el.offsetLeft;
-        var relY = e.pageY - el.offsetTop;
+        var rect = el.getBoundingClientRect();
+        var relX = e.clientX - rect.left;
+        var relY = e.clientY - rect.top;
+
         var scale = Math.round(
-          (Math.abs(relX - el.offsetWidth / 2) / (el.offsetWidth / 2) + 1) * 100
+          (Math.abs(relX - rect.width / 2) / (rect.width / 2) + 1) * 100
         );
-        el.querySelector("span").style.width = "calc(" + scale + "% + 1rem)";
-        el.querySelector("span").style.top = relY + "px";
-        el.querySelector("span").style.left = relX + "px";
+
+        var span = el.querySelector("span");
+        span.style.width = "calc(" + scale + "% + 1rem)";
+        span.style.top = relY + "px";
+        span.style.left = relX + "px";
       });
+
       el.addEventListener("mouseout", function (e) {
-        var relX = e.pageX - el.offsetLeft;
-        var relY = e.pageY - el.offsetTop;
-        el.querySelector("span").style.width = "0%";
-        el.querySelector("span").style.top = relY + "px";
-        el.querySelector("span").style.left = relX + "px";
+        var rect = el.getBoundingClientRect();
+        var relX = e.clientX - rect.left;
+        var relY = e.clientY - rect.top;
+
+        var span = el.querySelector("span");
+        span.style.width = "0%";
+        span.style.top = relY + "px";
+        span.style.left = relX + "px";
       });
     });
   </script>
