@@ -1122,25 +1122,26 @@ a.nav-link-primary:hover {
 }
 
 .project-img {
-  width: 660px; /* fixed width for container */
-  height: 380px; /* fixed height for container */
-  overflow: hidden; /* ensures image stays inside container */
-  border-radius: 1rem; /* rounded corners on container */
-  position: relative; /* for potential absolute positioning */
+  width: 100%; /* fills parent container */
+  max-width: 660px; /* prevents it from getting too large on big screens */
+  aspect-ratio: 16 / 9; /* keeps the same shape as 660x380 */
+  overflow: hidden;
+  border-radius: 1rem;
+  position: relative;
 }
 
 .project-img img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* keeps image proportions while filling container */
+  object-fit: cover;
   display: block;
-  transition: transform 0.3s ease; /* smooth zoom */
+  transition: transform 0.3s ease;
   transform-origin: center center;
-  border-radius: inherit; /* keeps the container’s rounded corners */
+  border-radius: inherit;
 }
 
 .project-img:hover img {
-  transform: scale(1.1); /* zoom image on hover */
+  transform: scale(1.1);
 }
 
 /* Work wrapper (takes up available space) */
@@ -1269,6 +1270,7 @@ a.nav-link-primary:hover {
   background: var(--color-bg-about); /* Background color for the section */
   padding: var(--padding-small); /* Padding around the grid */
   flex: 1; /* Flex-grow to take up available space */
+  overflow: visible;
 }
 
 /* Image section in the About page grid */
@@ -1281,6 +1283,7 @@ a.nav-link-primary:hover {
 .about-grid-text {
   grid-column: 1 / 2; /* Text spans the first column */
   grid-row: 2 / 3; /* Text spans the second row */
+  overflow: visible;
 }
 
 .about-awards {
@@ -1435,14 +1438,22 @@ a.nav-link-primary:hover {
 /* -------------------------------------------------------------------------- */
 
 .footer-global {
-  display: grid;
-  grid-template-columns: 1fr; /* Single column layout */
-  grid-gap: 3rem; /* Consistent spacing between sections */
-  min-height: auto; /* Allows footer to expand based on content, no fixed height */
-  background: var(--color-bg-footer); /* Using CSS variable for theming */
-  padding: var(--padding-small); /* Internal spacing */
+  .footer-global {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* three equal columns */
+    gap: 2rem;
+    padding: var(--padding-jumbo);
+    background: #f8f8f8;
+    overflow: visible;
+  }
 
   /* Note: Using 'fr' units ensures proper scaling across devices */
+}
+.footer-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  overflow: visible; /* important for position-aware button */
 }
 
 /* -------------------------------------------------------------------------- */
@@ -1453,6 +1464,11 @@ a.nav-link-primary:hover {
 .footer-tagline {
   grid-column: 1 / 2; /* Full width (single column) */
   grid-row: 1 / 2;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  position: relative; /* ensures child absolute elements inside button work */
+  overflow: visible; /* allow button span to expand outside */
 }
 .footer-highlights {
   grid-column: 1 / 2;
@@ -1545,6 +1561,7 @@ a.nav-link-primary:hover {
 
 .footer-global-wrapper {
   padding: var(--padding-small);
+  overflow: visible;
 }
 
 /* 
@@ -1823,7 +1840,8 @@ a.nav-link-primary:hover {
   overflow: hidden;
   display: block;
   width: 0%;
-  transition: width 0.25s ease-in-out;
+  transition: width 0.25s ease-in-out, height 0.25s ease-in-out, top 0.1s,
+    left 0.1s;
   transform: translate(-50%, -50%);
   aspect-ratio: 1;
   z-index: -1;
@@ -2039,6 +2057,7 @@ to keep your styles reusable and consistent.
   .about-grid {
     padding: var(--padding-jumbo);
     grid-template-columns: 2fr 3fr;
+    overflow: visible;
   }
 
   .about-grid-image {
@@ -2048,6 +2067,7 @@ to keep your styles reusable and consistent.
   .about-grid-text {
     grid-row: 1 / 2;
     grid-column: 2 / 3;
+    overflow: visible;
   }
 
   /* ------------------------------- */
@@ -2055,17 +2075,20 @@ to keep your styles reusable and consistent.
   /* ------------------------------- */
 
   .footer-global {
-    padding-top: var(--padding-jumbo);
-    padding-right: var(--padding-jumbo);
-    padding-bottom: 0;
-    padding-left: var(--padding-jumbo);
-    grid-template-columns: 1fr 1fr 1fr; /* Three equal columns */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: var(--padding-jumbo);
+    gap: 2rem;
+    overflow: visible; /* allow children to expand */
   }
 
   /* Column 1: Tagline/Message */
   .footer-tagline {
     grid-column: 1 / 2;
     grid-row: 1 / 2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   /* Column 2: Awards & Works */
@@ -2078,6 +2101,10 @@ to keep your styles reusable and consistent.
   .footer-contact-social {
     grid-row: 1 / 2;
     grid-column: 3 / 4;
+  }
+
+  .footer-tagline.footer-highlights.footer-contact-social.footer-contact {
+    overflow: visible;
   }
 
   /* ------------------------------- */
