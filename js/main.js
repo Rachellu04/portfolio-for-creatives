@@ -25,26 +25,25 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   animateCursor();
 
-  // Position-aware buttons
-  const posAwareBtns = document.querySelectorAll(".btn-primary.position-aware");
-  posAwareBtns.forEach((btn) => {
-    const span = btn.querySelector("span");
-    btn.addEventListener("mouseenter", (e) => {
-      const relX = e.offsetX;
-      const relY = e.offsetY;
-      const scale = Math.round(
-        (Math.abs(relX - btn.offsetWidth / 2) / (btn.offsetWidth / 2) + 1) * 100
+  //positon aware button
+  var els = document.querySelectorAll(".btn-primary.position-aware");
+  els.forEach(function (el) {
+    el.addEventListener("mouseenter", function (e) {
+      var relX = e.pageX - el.offsetLeft;
+      var relY = e.pageY - el.offsetTop;
+      var scale = Math.round(
+        (Math.abs(relX - el.offsetWidth / 2) / (el.offsetWidth / 2) + 1) * 100
       );
-      span.style.width = `calc(${scale}% + 1rem)`;
-      span.style.top = `${relY}px`;
-      span.style.left = `${relX}px`;
+      el.querySelector("span").style.width = "calc(" + scale + "% + 1rem)";
+      el.querySelector("span").style.top = relY + "px";
+      el.querySelector("span").style.left = relX + "px";
     });
-    btn.addEventListener("mouseout", (e) => {
-      const relX = e.offsetX;
-      const relY = e.offsetY;
-      span.style.width = "0%";
-      span.style.top = `${relY}px`;
-      span.style.left = `${relX}px`;
+    el.addEventListener("mouseout", function (e) {
+      var relX = e.pageX - el.offsetLeft;
+      var relY = e.pageY - el.offsetTop;
+      el.querySelector("span").style.width = "0%";
+      el.querySelector("span").style.top = relY + "px";
+      el.querySelector("span").style.left = relX + "px";
     });
   });
 
