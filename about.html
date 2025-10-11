@@ -51,8 +51,8 @@
         </div>
       </div>
     </header>
-    <ul class="about-grid">
-      <li class="about-grid-image">
+    <div class="about-grid">
+      <div class="about-grid-image">
         <figure class="about-image">
           <img
             src="assets/about/about-page-palceholder.JPG"
@@ -62,8 +62,8 @@
             alt="Rachel Lu self-portrait for about page"
           />
         </figure>
-      </li>
-      <li class="about-grid-text">
+      </div>
+      <div class="about-grid-text">
         <h1>Hey, I'm Rachel.</h1>
 
         <p>
@@ -72,8 +72,8 @@
           can't wait to get my hands on new applications and techniques to try.
           I believe that design should be fluid and everchanging.
         </p>
-      </li>
-    </ul>
+      </div>
+    </div>
 
     <div class="about-awards">
       <h3>Awards</h3>
@@ -268,6 +268,29 @@
 
         $(".menu-overlay").toggleClass("open");
         $(".menu").toggleClass("open");
+      });
+    });
+  </script>
+
+  <script>
+    var els = document.querySelectorAll(".btn-primary.position-aware");
+    els.forEach(function (el) {
+      el.addEventListener("mouseenter", function (e) {
+        var relX = e.pageX - el.offsetLeft;
+        var relY = e.pageY - el.offsetTop;
+        var scale = Math.round(
+          (Math.abs(relX - el.offsetWidth / 2) / (el.offsetWidth / 2) + 1) * 100
+        );
+        el.querySelector("span").style.width = "calc(" + scale + "% + 1rem)";
+        el.querySelector("span").style.top = relY + "px";
+        el.querySelector("span").style.left = relX + "px";
+      });
+      el.addEventListener("mouseout", function (e) {
+        var relX = e.pageX - el.offsetLeft;
+        var relY = e.pageY - el.offsetTop;
+        el.querySelector("span").style.width = "0%";
+        el.querySelector("span").style.top = relY + "px";
+        el.querySelector("span").style.left = relX + "px";
       });
     });
   </script>
