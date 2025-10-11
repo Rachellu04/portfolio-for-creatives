@@ -1837,11 +1837,9 @@ a.nav-link-primary:hover {
   border-radius: 100%;
   background: black;
   position: absolute;
-  overflow: hidden;
   display: block;
   width: 0%;
-  transition: width 0.25s ease-in-out, height 0.25s ease-in-out, top 0.1s,
-    left 0.1s;
+  transition: width 0.25s ease-in-out;
   transform: translate(-50%, -50%);
   aspect-ratio: 1;
   z-index: -1;
@@ -1849,9 +1847,7 @@ a.nav-link-primary:hover {
 .btn-primary:hover {
   color: rgb(255, 255, 255);
 }
-.btn-primary:hover > span {
-  width: 101%;
-}
+
 .error-message {
   margin: 2rem;
 }
@@ -2068,6 +2064,13 @@ to keep your styles reusable and consistent.
     grid-row: 1 / 2;
     grid-column: 2 / 3;
     overflow: visible;
+  }
+  .about-header {
+    margin-bottom: 2rem;
+  }
+
+  .about-btns {
+    padding: var(--padding-jumbo);
   }
 
   /* ------------------------------- */
