@@ -29,8 +29,9 @@ document.addEventListener("DOMContentLoaded", () => {
   var els = document.querySelectorAll(".btn-primary.position-aware");
   els.forEach(function (el) {
     el.addEventListener("mouseenter", function (e) {
-      var relX = e.pageX - el.offsetLeft;
-      var relY = e.pageY - el.offsetTop;
+      var rect = el.getBoundingClientRect();
+      var relX = e.clientX - rect.left;
+      var relY = e.clientY - rect.top;
       var scale = Math.round(
         (Math.abs(relX - el.offsetWidth / 2) / (el.offsetWidth / 2) + 1) * 100
       );
