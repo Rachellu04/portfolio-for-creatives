@@ -63,25 +63,45 @@
           />
         </figure>
       </div>
-      <div class="about-grid-text">
-        <h1 class="about-header">Hey, I'm Rachel.</h1>
+      <div class="about-grid-info">
+        <div class="about-grid-text">
+          <h1 class="about-header">Hey, I'm Rachel.</h1>
 
-        <p>
-          A recent graduate from Capilano University's IDEA School of Design.
-          I'm passionate regarding all things design. From print to digital I
-          can't wait to get my hands on new applications and techniques to try.
-          I believe that design should be fluid and everchanging.
-        </p>
+          <p>
+            A recent graduate from Capilano University's IDEA School of Design.
+            I'm passionate regarding all things design. From print to digital I
+            can't wait to get my hands on new applications and techniques to
+            try. I believe that design should be fluid and everchanging.
+          </p>
+        </div>
       </div>
     </div>
-    <div class="about-btns">
-      <h3>Check out my stuff</h3>
-      <a href="work.html" class="btn-primary position-aware">
-        Say Hello<span></span>
-      </a>
-      <a href="work.html" class="btn-primary position-aware">
-        Resume<span></span>
-      </a>
+
+    <div class="about-services">
+      <div class="about-services-title"><h3>Services</h3></div>
+
+      <ul class="services-list">
+        <li class="service-item">
+          <h4>01</h4>
+          <h4>Brand Identity</h4>
+        </li>
+        <li class="service-item">
+          <h4>02</h4>
+          <h4>Advertising</h4>
+        </li>
+        <li class="service-item">
+          <h4>03</h4>
+          <h4>Motion Design</h4>
+        </li>
+        <li class="service-item">
+          <h4>04</h4>
+          <h4>3D Modeling</h4>
+        </li>
+        <li class="service-item">
+          <h4>05</h4>
+          <h4>Web Design</h4>
+        </li>
+      </ul>
     </div>
     <div class="about-awards">
       <h3>Awards</h3>
@@ -113,32 +133,19 @@
         </li>
       </ul>
     </div>
-    <div class="about-services">
-      <div class="about-services-title"><h3>Services</h3></div>
-
-      <ul class="services-list">
-        <li class="service-item">
-          <h4>01</h4>
-          <h4>Brand Identity</h4>
-        </li>
-        <li class="service-item">
-          <h4>02</h4>
-          <h4>Advertising</h4>
-        </li>
-        <li class="service-item">
-          <h4>03</h4>
-          <h4>Motion Design</h4>
-        </li>
-        <li class="service-item">
-          <h4>04</h4>
-          <h4>3D Modeling</h4>
-        </li>
-        <li class="service-item">
-          <h4>05</h4>
-          <h4>Web Design</h4>
-        </li>
-      </ul>
+    <div class="about-btns">
+      <h3>More Information</h3>
+      <a href="work.html" class="btn-primary position-aware">
+        Email<span></span>
+      </a>
+      <a href="work.html" class="btn-primary position-aware">
+        Resume<span></span>
+      </a>
+      <a href="work.html" class="btn-primary position-aware">
+        LinkedIns<span></span>
+      </a>
     </div>
+
     <ul class="footer-global">
       <li class="footer-tagline">
         <h4>Let's Connect!</h4>
@@ -279,7 +286,6 @@
       });
     });
   </script>
-
   <script>
     var els = document.querySelectorAll(".btn-primary.position-aware");
     els.forEach(function (el) {
@@ -287,26 +293,19 @@
         var rect = el.getBoundingClientRect();
         var relX = e.clientX - rect.left;
         var relY = e.clientY - rect.top;
-
         var scale = Math.round(
-          (Math.abs(relX - rect.width / 2) / (rect.width / 2) + 1) * 100
+          (Math.abs(relX - el.offsetWidth / 2) / (el.offsetWidth / 2) + 1) * 100
         );
-
-        var span = el.querySelector("span");
-        span.style.width = "calc(" + scale + "% + 1rem)";
-        span.style.top = relY + "px";
-        span.style.left = relX + "px";
+        el.querySelector("span").style.width = "calc(" + scale + "% + 1rem)";
+        el.querySelector("span").style.top = relY + "px";
+        el.querySelector("span").style.left = relX + "px";
       });
-
       el.addEventListener("mouseout", function (e) {
-        var rect = el.getBoundingClientRect();
-        var relX = e.clientX - rect.left;
-        var relY = e.clientY - rect.top;
-
-        var span = el.querySelector("span");
-        span.style.width = "0%";
-        span.style.top = relY + "px";
-        span.style.left = relX + "px";
+        var relX = e.pageX - el.offsetLeft;
+        var relY = e.pageY - el.offsetTop;
+        el.querySelector("span").style.width = "0%";
+        el.querySelector("span").style.top = relY + "px";
+        el.querySelector("span").style.left = relX + "px";
       });
     });
   </script>
