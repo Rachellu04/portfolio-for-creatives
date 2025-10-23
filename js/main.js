@@ -105,3 +105,68 @@ document.addEventListener("DOMContentLoaded", () => {
   setInterval(updatePSTTime, 1000);
   updatePSTTime();
 });
+
+//draggable
+
+let drag = false;
+let offsetX, offsetY, coordX, coordY, activeEl;
+
+function startDrag(e) {
+  e = e || window.event;
+  if (e.preventDefault) e.preventDefault();
+
+  const targ = e.target || e.srcElement;
+  if (!targ.classList.contains("dragme")) return;
+
+  activeEl = targ;
+  offsetX = e.clientX;
+  offsetY = e.clientY;
+
+  coordX = parseInt(activeEl.style.left || 0);
+  coordY = parseInt(activeEl.style.top || 0);
+  drag = true;
+
+  document.onmousemove = dragDiv;
+  document.onmouseup = stopDrag;
+}
+
+function dragDiv(e) {
+  if (!drag || !activeEl) return;
+  e = e || window.event;
+
+  // new proposed position
+  let newX = coordX + e.clientX - offsetX;
+  let newY = coordY + e.clientY - offsetY;
+
+  // constrain inside sandbox
+  const sandbox = document.querySelector(".sandbox");
+  const bounds = sandbox.getBoundingClientRect();
+  const elBounds = activeEl.getBoundingClientRect();
+
+  // left limit
+  if (newX < 0) newX = 0;
+  // right limit
+  if (newX + elBounds.width > bounds.width) {
+    newX = bounds.width - elBounds.width;
+  }
+  // top limit
+  if (newY < 0) newY = 0;
+  // bottom limit
+  if (newY + elBounds.height > bounds.height) {
+    newY = bounds.height - elBounds.height;
+  }
+
+  // apply
+  activeEl.style.left = newX + "px";
+  activeEl.style.top = newY + "px";
+}
+
+function stopDrag() {
+  drag = false;
+  document.onmousemove = null;
+  document.onmouseup = null;
+}
+
+window.onload = function () {
+  document.onmousedown = startDrag;
+};

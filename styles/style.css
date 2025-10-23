@@ -38,6 +38,10 @@
 /* Montserrat Font (great for readability and minimal design) */
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
+/* Caveat Font (great for readability and minimal design) */
+
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap");
+
 /*
 
 /* 
@@ -2084,70 +2088,134 @@ to keep your styles reusable and consistent.
     margin-bottom: 2rem;
   }
 
-  /* ------------------------------- */
-  /* 🖥️ FOOTER GRID - DESKTOP LAYOUT */
-  /* ------------------------------- */
+  /*---draggable---*/
 
-  .footer-global {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    padding: var(--padding-jumbo);
-    gap: 2rem;
-    overflow: visible; /* allow children to expand */
-  }
-
-  /* Column 1: Tagline/Message */
-  .footer-tagline {
-    grid-column: 1 / 2;
-    grid-row: 1 / 2;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  /* Column 2: Awards & Works */
-  .footer-highlights {
-    grid-row: 1 / 2;
-    grid-column: 2 / 3;
-  }
-
-  /* Column 3: Contact & Social */
-  .footer-contact-social {
-    grid-row: 1 / 2;
-    grid-column: 3 / 4;
-  }
-
-  .footer-tagline.footer-highlights.footer-contact-social.footer-contact {
-    overflow: visible;
-  }
-
-  /* ------------------------------- */
-  /* 📏 FULL-WIDTH BOTTOM SECTION */
-  /* ------------------------------- */
-  .footer-full-width {
-    grid-row: 2 / 3;
-    grid-column: 1 / 4; /* Spans all three columns */
-    text-align: center;
-    align-self: end; /* Aligns content to bottom */
-    border-top: 1px solid #000;
-    padding-top: 2rem;
-  }
-
-  /* Work Sidebar on Large Devices */
-
-  .work-sidebar {
-    width: 25%;
+  .sandbox {
     height: 80vh;
-    position: -webkit-sticky;
-    position: sticky;
-    top: 1rem;
+    overflow: hidden; /* hide overflow just in case */
+    display: flex;
+    margin-top: 3rem;
+    background: radial-gradient(#ffffff, #fff #8c9eb0 50%);
   }
 
-  /* Main Work Area on Large Devices */
+  .dragme {
+    position: relative;
+    width: 300px;
+    height: 250px;
 
-  .work-details {
-    width: 75%;
+    /* Polaroid look 
+    background: #fff;
+    padding: 10px 10px 40px 10px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.143);
+    border-radius: 4px;
+    display: inline-block;
+    text-align: center;
+    font-family: "Caveat", cursive;
+    transition: transform 0.2s ease, box-shadow 0.2s ease; */
   }
+
+  /* The actual photo area */
+  .dragme img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 2px;
+    pointer-events: none; /* allows dragging by outer box */
+  }
+
+  /* Optional caption area (under the photo) 
+  .dragme figcaption {
+    margin-top: 1rem;
+    font-size: 1.25rem;
+    color: #333;
+    pointer-events: none; /* allows dragging by outer box */
+}
+
+/* Add a subtle rotation for realism */
+.dragme:nth-child(odd) {
+  transform: rotate(-3deg);
+}
+.dragme:nth-child(even) {
+  transform: rotate(2deg);
+}
+
+/* Lift effect on hover 
+  .dragme:hover {
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+    transform: scale(1.03) rotate(0deg);
+  }*/
+
+/*---play---*/
+.sandbox-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3rem;
+}
+
+/* ------------------------------- */
+/* 🖥️ FOOTER GRID - DESKTOP LAYOUT */
+/* ------------------------------- */
+
+.footer-global {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: var(--padding-jumbo);
+  gap: 2rem;
+  overflow: visible; /* allow children to expand */
+}
+
+/* Column 1: Tagline/Message */
+.footer-tagline {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Column 2: Awards & Works */
+.footer-highlights {
+  grid-row: 1 / 2;
+  grid-column: 2 / 3;
+}
+
+/* Column 3: Contact & Social */
+.footer-contact-social {
+  grid-row: 1 / 2;
+  grid-column: 3 / 4;
+}
+
+.footer-tagline.footer-highlights.footer-contact-social.footer-contact {
+  overflow: visible;
+}
+
+/* ------------------------------- */
+/* 📏 FULL-WIDTH BOTTOM SECTION */
+/* ------------------------------- */
+.footer-full-width {
+  grid-row: 2 / 3;
+  grid-column: 1 / 4; /* Spans all three columns */
+  text-align: center;
+  align-self: end; /* Aligns content to bottom */
+  border-top: 1px solid #000;
+  padding-top: 2rem;
+}
+
+/* Work Sidebar on Large Devices */
+
+.work-sidebar {
+  width: 25%;
+  height: 80vh;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 1rem;
+}
+
+/* Main Work Area on Large Devices */
+
+.work-details {
+  width: 75%;
 }
 
 /* X-Large devices (large desktops, 1200px and up)*/
