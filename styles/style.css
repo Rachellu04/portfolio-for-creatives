@@ -652,19 +652,44 @@ em {
   border-top: 1px solid #000000; /* thickness, style, color */
   border-bottom: 1px solid #000000; /* thickness, style, color */
 }
+.banner-top {
+  width: calc(100vw);
+  margin-left: calc(-50vw + 50%); /* Break out of parent padding */
+  margin-right: calc(-50vw + 50%);
+  margin-bottom: var(--padding-large);
+}
 
 .banner-content {
-  display: inline-block;
-  padding-left: 100%; /* start off-screen */
+  display: flex;
+  white-space: nowrap;
   animation: scroll 50s linear infinite;
-  font-size: 1.5rem;
+}
+
+/* Items style */
+.banner-top-item {
+  display: inline-block;
+  margin: 0 0.25rem; /* very tight spacing */
+  border-radius: 60px;
+  border: 1px solid #000;
+  padding: 0.5rem 1rem;
+  font-size: medium;
   text-transform: uppercase;
+}
+
+/* Keyframes – move exactly one "set" width */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 .banner-content span {
   display: inline-block;
-  margin-right: 50px; /* spacing between repeats */
-  margin-left: 50px;
+  margin-right: 20px; /* spacing between repeats */
+  margin-left: 20px;
 }
 
 @keyframes scroll {
@@ -1020,8 +1045,44 @@ a.nav-link-primary:hover {
   gap: 0.75rem;
   align-items: center;
   justify-content: flex-end;
-  padding: var(--padding-small);
   text-align: center; /* Keeps text centered */
+}
+
+.hero-image-wrapper {
+  perspective: 1000px;
+  display: inline-block;
+  position: relative;
+  padding-bottom: var(--padding-large);
+}
+
+.hero-image {
+  width: 100%;
+  max-width: 1000px;
+  transition: transform 0.25s ease-out, box-shadow 0.3s ease;
+  transform-style: preserve-3d;
+  will-change: transform;
+  border-radius: 8px;
+}
+
+.hero-image::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgba(255, 255, 255, 0.25),
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.hero-image-wrapper:hover .hero-image::after {
+  opacity: 0.5;
 }
 
 .hero-icon {
@@ -1922,6 +1983,8 @@ to keep your styles reusable and consistent.
 
 /* Media Queries for Layout Adjustments */
 
+/* Medium devices (tablets, 320px and up) */
+
 /* Medium devices (tablets, 768px and up) */
 
 @media (min-width: 768px) {
@@ -1980,7 +2043,7 @@ to keep your styles reusable and consistent.
   }
 
   .hero-headline-wrapper {
-    padding-top: var(--padding-jumbo);
+    padding-top: var(--padding-tiny);
     padding-bottom: var(--padding-jumbo);
     padding-left: var(--padding-ultra);
     padding-right: var(--padding-ultra);
@@ -2088,6 +2151,11 @@ to keep your styles reusable and consistent.
     margin-bottom: 2rem;
   }
 
+  .divider {
+    margin-top: var(--padding-jumbo);
+    margin-bottom: var(--padding-jumbo);
+  }
+
   /*---draggable---*/
 
   .sandbox {
@@ -2100,10 +2168,10 @@ to keep your styles reusable and consistent.
 
   .dragme {
     position: relative;
-    width: 300px;
-    height: 250px;
+    width: 400px;
+    height: 300px;
 
-    /* Polaroid look 
+    /* Polaroid look */
     background: #fff;
     padding: 10px 10px 40px 10px;
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.143);
@@ -2111,7 +2179,7 @@ to keep your styles reusable and consistent.
     display: inline-block;
     text-align: center;
     font-family: "Caveat", cursive;
-    transition: transform 0.2s ease, box-shadow 0.2s ease; */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
 
   /* The actual photo area */
@@ -2123,118 +2191,119 @@ to keep your styles reusable and consistent.
     pointer-events: none; /* allows dragging by outer box */
   }
 
-  /* Optional caption area (under the photo) 
+  /* Optional caption area (under the photo) */
   .dragme figcaption {
     margin-top: 1rem;
     font-size: 1.25rem;
     color: #333;
     pointer-events: none; /* allows dragging by outer box */
-}
+  }
 
-/* Add a subtle rotation for realism */
-.dragme:nth-child(odd) {
-  transform: rotate(-3deg);
-}
-.dragme:nth-child(even) {
-  transform: rotate(2deg);
-}
+  /* Add a subtle rotation for realism */
+  .dragme:nth-child(odd) {
+    transform: rotate(-3deg);
+  }
+  .dragme:nth-child(even) {
+    transform: rotate(2deg);
+  }
 
-/* Lift effect on hover 
+  /* Lift effect on hover */
   .dragme:hover {
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
     transform: scale(1.03) rotate(0deg);
-  }*/
-
-/*---play---*/
-.sandbox-header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 3rem;
-}
-
-/* ------------------------------- */
-/* 🖥️ FOOTER GRID - DESKTOP LAYOUT */
-/* ------------------------------- */
-
-.footer-global {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  padding: var(--padding-jumbo);
-  gap: 2rem;
-  overflow: visible; /* allow children to expand */
-}
-
-/* Column 1: Tagline/Message */
-.footer-tagline {
-  grid-column: 1 / 2;
-  grid-row: 1 / 2;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-/* Column 2: Awards & Works */
-.footer-highlights {
-  grid-row: 1 / 2;
-  grid-column: 2 / 3;
-}
-
-/* Column 3: Contact & Social */
-.footer-contact-social {
-  grid-row: 1 / 2;
-  grid-column: 3 / 4;
-}
-
-.footer-tagline.footer-highlights.footer-contact-social.footer-contact {
-  overflow: visible;
-}
-
-/* ------------------------------- */
-/* 📏 FULL-WIDTH BOTTOM SECTION */
-/* ------------------------------- */
-.footer-full-width {
-  grid-row: 2 / 3;
-  grid-column: 1 / 4; /* Spans all three columns */
-  text-align: center;
-  align-self: end; /* Aligns content to bottom */
-  border-top: 1px solid #000;
-  padding-top: 2rem;
-}
-
-/* Work Sidebar on Large Devices */
-
-.work-sidebar {
-  width: 25%;
-  height: 80vh;
-  position: -webkit-sticky;
-  position: sticky;
-  top: 1rem;
-}
-
-/* Main Work Area on Large Devices */
-
-.work-details {
-  width: 75%;
-}
-
-/* X-Large devices (large desktops, 1200px and up)*/
-
-@media (min-width: 1200px) {
-  /* TODO: Add styles here for X-large devices. */
-
-  .grid {
-    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
   }
-}
 
-/* XX-Large devices (larger desktops, 1400px and up) */
+  /*---play---*/
+  .sandbox-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: var(--padding-large);
+  }
 
-@media (min-width: 1400px) {
-  /* TODO: Add styles here for XX-large devices. */
+  /* ------------------------------- */
+  /* 🖥️ FOOTER GRID - DESKTOP LAYOUT */
+  /* ------------------------------- */
 
-  .grid {
-    grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+  .footer-global {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: var(--padding-jumbo);
+    gap: 2rem;
+    overflow: visible; /* allow children to expand */
+  }
+
+  /* Column 1: Tagline/Message */
+  .footer-tagline {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  /* Column 2: Awards & Works */
+  .footer-highlights {
+    grid-row: 1 / 2;
+    grid-column: 2 / 3;
+  }
+
+  /* Column 3: Contact & Social */
+  .footer-contact-social {
+    grid-row: 1 / 2;
+    grid-column: 3 / 4;
+  }
+
+  .footer-tagline.footer-highlights.footer-contact-social.footer-contact {
+    overflow: visible;
+  }
+
+  /* ------------------------------- */
+  /* 📏 FULL-WIDTH BOTTOM SECTION */
+  /* ------------------------------- */
+  .footer-full-width {
+    grid-row: 2 / 3;
+    grid-column: 1 / 4; /* Spans all three columns */
+    text-align: center;
+    align-self: end; /* Aligns content to bottom */
+    border-top: 1px solid #000;
+    padding-top: 2rem;
+  }
+
+  /* Work Sidebar on Large Devices */
+
+  .work-sidebar {
+    width: 25%;
+    height: 80vh;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 1rem;
+  }
+
+  /* Main Work Area on Large Devices */
+
+  .work-details {
+    width: 75%;
+  }
+
+  /* X-Large devices (large desktops, 1200px and up)*/
+
+  @media (min-width: 1200px) {
+    /* TODO: Add styles here for X-large devices. */
+
+    .grid {
+      grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    }
+  }
+
+  /* XX-Large devices (larger desktops, 1400px and up) */
+
+  @media (min-width: 1400px) {
+    /* TODO: Add styles here for XX-large devices. */
+
+    .grid {
+      grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+    }
   }
 }
 
@@ -2246,10 +2315,4 @@ to keep your styles reusable and consistent.
 ██      ██ ██  ██ ██
 ██      ██ ██   ████
                                               
-That’s a wrap, class! 🧑‍🎓✨
-
 */
-
-/* 🎉 You made it to the end! */
-/* This is a great place to celebrate your progress, add Easter eggs, or leave notes for your future self. */
-/* Happy coding, and don’t forget to take breaks, stay hydrated, and share your work proudly. 💻✨🎨 */

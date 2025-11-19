@@ -11,9 +11,9 @@ document.addEventListener("DOMContentLoaded", () => {
     mouseY = e.clientY;
     const target = e.target;
     const isHoverable =
-      ["A", "BUTTON", "INPUT", "TEXTAREA", "SELECT", "IMG"].includes(
-        target.tagName
-      ) || target.closest(".work-page-grid-item");
+      ["A", "BUTTON", "INPUT", "TEXTAREA", "SELECT"].includes(target.tagName) ||
+      target.closest(".work-page-grid-item");
+
     cursor.classList.toggle("expand", isHoverable);
   });
 
@@ -170,3 +170,31 @@ function stopDrag() {
 window.onload = function () {
   document.onmousedown = startDrag;
 };
+
+//parallax
+document.addEventListener("DOMContentLoaded", () => {
+  const wrapper = document.querySelector(".hero-image-wrapper");
+  const image = document.querySelector(".hero-image");
+
+  if (!wrapper || !image) {
+    console.error("Hero image elements not found.");
+    return;
+  }
+
+  wrapper.addEventListener("mousemove", (e) => {
+    const rect = wrapper.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+
+    const rotateX = ((y - centerY) / centerY) * 10;
+    const rotateY = ((x - centerX) / centerX) * -10;
+
+    image.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+  });
+  document.querySelector(".hero-image").removeAttribute("title");
+  wrapper.addEventListener("mouseleave", () => {
+    image.style.transform = "rotateX(0deg) rotateY(0deg) scale(1)";
+  });
+});
