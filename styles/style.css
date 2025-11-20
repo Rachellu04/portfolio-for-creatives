@@ -1514,17 +1514,16 @@ a.nav-link-primary:hover {
 /* -------------------------------------------------------------------------- */
 
 .footer-global {
-  .footer-global {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* three equal columns */
-    gap: 2rem;
-    padding: var(--padding-jumbo);
-    background: #f8f8f8;
-    overflow: visible;
-  }
-
-  /* Note: Using 'fr' units ensures proper scaling across devices */
+  display: grid;
+  grid-template-columns: 1fr; /* three equal columns */
+  gap: 2rem;
+  padding: var(--padding-jumbo);
+  background: #f8f8f8;
+  overflow: visible;
 }
+
+/* Note: Using 'fr' units ensures proper scaling across devices */
+
 .footer-column {
   display: flex;
   flex-direction: column;
@@ -1560,9 +1559,10 @@ a.nav-link-primary:hover {
 /* -------------------------------------------------------------------------- */
 .footer-full-width {
   grid-column: 1 / 2;
-  grid-row: 4 / 5;
+  grid-row: 3 / 4;
   text-align: center; /* Center copyright text */
   align-self: end; /* Push to bottom */
+  background: rgb(245, 80, 4);
 }
 
 /* ------------------------------- */
@@ -1586,9 +1586,18 @@ a.nav-link-primary:hover {
 /* -------------------------------------------------------------------------- */
 
 /* Apply this class to ALL list items (awards, works, social, bullets) */
+
+.footer-contact {
+  grid-column: 1/2;
+  grid-row: 1/2;
+  background: red;
+}
 .footer-item {
   line-height: 1.2; /* Consistent line height for footer items to improve spacing */
   margin-bottom: 0.25rem;
+  grid-column: 1/2;
+  grid-row: 2/3;
+  background: green;
 }
 
 /* ------------------------------- */
@@ -2233,6 +2242,17 @@ to keep your styles reusable and consistent.
     overflow: visible; /* allow children to expand */
   }
 
+  .footer-contact {
+    grid-column: 1/2;
+    grid-row: 1/2;
+    background: hotpink;
+  }
+  .footer-item {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    background: rgb(57, 104, 11);
+  }
+
   /* Column 1: Tagline/Message */
   .footer-tagline {
     grid-column: 1 / 2;
@@ -2268,6 +2288,7 @@ to keep your styles reusable and consistent.
     align-self: end; /* Aligns content to bottom */
     border-top: 1px solid #000;
     padding-top: 2rem;
+    background: rgb(26, 40, 194);
   }
 
   /* Work Sidebar on Large Devices */
