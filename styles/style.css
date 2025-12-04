@@ -582,13 +582,6 @@ em {
   color: var(--color-accent-secondary);
 }
 
-.highlight-gradient {
-  background: var(--color-gradient-hero);
-  -webkit-background-clip: text;
-  color: transparent;
-  font-weight: bold;
-}
-
 /* 📂 Project grid title — used in grid view (like a portfolio gallery) */
 .work-grid-project-title {
   font-size: 1.6rem;
@@ -1189,6 +1182,11 @@ a.nav-link-primary:hover {
   min-height: 6rem; /* Space reserved for logo + nav */
   position: relative;
   z-index: 10;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-left: var(--padding-jumbo);
+  padding-right: var(--padding-jumbo);
 }
 
 /* Nav branding list */
@@ -1249,6 +1247,15 @@ a.nav-link-primary:hover {
   padding-bottom: var(--padding-tiny);
 }
 
+/*.gradient-hero {
+  background-image: linear-gradient(
+    to bottom,
+    rgb(147, 173, 188),
+    rgb(211, 224, 236),
+    rgb(255, 255, 255),
+    rgb(255, 255, 255)
+  );
+}*/
 .hero-image {
   width: 100%;
   max-width: 1000px;
@@ -1536,6 +1543,34 @@ a.nav-link-primary:hover {
   background: var(--color-bg-about); /* Background color for the section */
   padding: var(--padding-jumbo); /* Padding around the grid */
   flex: 1; /* Flex-grow to take up available space */
+}
+
+.about-image {
+  position: relative;
+  width: 500px;
+  height: 800px;
+  border-radius: 600px;
+  overflow: hidden;
+}
+
+.about-image img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.4s ease;
+}
+
+.img-hover {
+  opacity: 0;
+}
+
+.about-image:hover .img-hover {
+  opacity: 1;
+}
+
+.about-image:hover .img-default {
+  opacity: 0;
 }
 
 /* Image section in the About page grid */
@@ -2171,6 +2206,10 @@ to keep your styles reusable and consistent.
 
 @media (min-width: 992px) {
   /* TODO: Add or adjust styles here for large devices. */
+
+  .hero-subhead {
+    font-size: 2rem;
+  }
 
   .flex-row {
     flex-direction: row; /* Changes to row layout on larger screens */

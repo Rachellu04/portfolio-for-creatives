@@ -10,6 +10,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta property="og:image" content="screenshot.jpg" />
     <link
+      rel="icon"
+      type="image/x-icon"
+      href="assets/branding-images/logo.svg"
+    />
+    <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
     />
@@ -26,16 +31,6 @@
   <body class="work-page" id="top">
     <section class="gradient-hero">
       <header class="hero-header">
-        <ul class="nav-branding">
-          <li class="nav-branding-logo">
-            <a href="index.html">
-              <img
-                src="assets/branding-images/logo-main.svg"
-                alt="Your portfolio logo"
-              />
-            </a>
-          </li>
-        </ul>
         <div class="menu">
           <span class="menu-circle"></span>
           <a href="#" class="menu-link">
@@ -57,10 +52,17 @@
                 <a href="work.html"><h3>Contact</h3></a>
               </li>
               <li class="nav-branding-item">
-                <a href="play.html"><h3>Illustration</h3></a>
+                <a href="404.html"><h3>Illustration</h3></a>
               </li>
             </ul>
           </div>
+        </div>
+        <div class="name">
+          <ul>
+            <li class="nav-branding-item">
+              <a href="work.html"><p>Rachel Lu</p></a>
+            </li>
+          </ul>
         </div>
       </header>
 
@@ -68,14 +70,16 @@
         <div class="hero-image-wrapper">
           <img
             class="hero-image"
-            src="assets/hero/silver-letters.png"
+            src="assets/hero/silver-icon.png"
             alt="Rachel Lu written in silver serif letters"
             title="Rachel Lu"
             fetchpriority="high"
           />
         </div>
 
-        <h1 class="hero-headline">Interdisciplinary designer</h1>
+        <h1 class="hero-headline">
+          Hi, I'm Rachel an Interdisciplinary designer
+        </h1>
         <h2 class="hero-subhead"><em> scroll down to view my work</em></h2>
         <!-- Arrow -->
         <div class="hero-arrow">↓</div>
@@ -178,6 +182,28 @@
             </h1>
             <h4 class="work-grid-project-category">Branding • Packaging</h4>
           </li>
+
+          <li class="work-page-grid-item">
+            <figure class="project-img">
+              <a href="pangea.html">
+                <img
+                  src="assets/project-thumbnail/pangea-project-thumbnail.jpg"
+                  width="1920"
+                  height="1080"
+                  class="rounded-large"
+                  loading="lazy"
+                  alt="Background with geometric shapes floating"
+              /></a>
+            </figure>
+
+            <h1 class="work-grid-project-title">
+              <a href="pangea.html">Pangea</a>
+            </h1>
+            <h4 class="work-grid-project-category">
+              Branding • Advertising • Web Design
+            </h4>
+          </li>
+
           <li class="work-page-grid-item">
             <figure class="project-img">
               <a href="buddi.html"
@@ -197,6 +223,26 @@
             </h1>
             <h4 class="work-grid-project-category">UX / UI • Art Direction</h4>
           </li>
+
+          <li class="work-page-grid-item">
+            <figure class="project-img">
+              <a href="tang-fang.html"
+                ><img
+                  src="assets/project-thumbnail/tang-fang.jpg"
+                  width="1920"
+                  height="1080"
+                  class="rounded-large"
+                  loading="lazy"
+                  alt="Background with geometric shapes floating"
+              /></a>
+            </figure>
+
+            <h1 class="work-grid-project-title">
+              <a href="tang-fang.html">Tang Fang</a>
+            </h1>
+            <h4 class="work-grid-project-category">Branding • Packaging</h4>
+          </li>
+
           <li class="work-page-grid-item">
             <figure class="project-img">
               <a href="404.html">
@@ -209,10 +255,6 @@
                   alt="Describe your project"
               /></a>
             </figure>
-
-            <div
-              class="project-details-overlay overlay rounded-large centered-text"
-            ></div>
 
             <h1 class="work-grid-project-title">
               <a href="404.html">Creagan</a>
@@ -232,9 +274,6 @@
               /></a>
             </figure>
 
-            <div
-              class="project-details-overlay overlay rounded-large centered-text"
-            ></div>
             <h1 class="work-grid-project-title">
               <a href="404.html">DEFACE</a>
             </h1>
@@ -242,24 +281,7 @@
               Branding • Packaging • Advertising
             </h4>
           </li>
-          <li class="work-page-grid-item">
-            <figure class="project-img">
-              <a href="tang-fang.html"
-                ><img
-                  src="assets/project-thumbnail/tang-fang.jpg"
-                  width="1920"
-                  height="1080"
-                  class="rounded-large"
-                  loading="lazy"
-                  alt="Background with geometric shapes floating"
-              /></a>
-            </figure>
 
-            <h1 class="work-grid-project-title">
-              <a href="tang-fang.html">Tang Fang</a>
-            </h1>
-            <h4 class="work-grid-project-category">Branding • Packaging</h4>
-          </li>
           <li class="work-page-grid-item">
             <figure class="project-img">
               <a href="404.html">
@@ -273,39 +295,12 @@
               /></a>
             </figure>
 
-            <div
-              class="project-details-overlay overlay rounded-large centered-text"
-            ></div>
-
             <h1 class="work-grid-project-title">
               <a href="404.html">Reform</a>
             </h1>
             <h4 class="work-grid-project-category">Branding • Advertising</h4>
           </li>
-          <li class="work-page-grid-item">
-            <figure class="project-img">
-              <a href="pangea.html">
-                <img
-                  src="assets/project-thumbnail/pangea-project-thumbnail.jpg"
-                  width="1920"
-                  height="1080"
-                  class="rounded-large"
-                  loading="lazy"
-                  alt="Background with geometric shapes floating"
-              /></a>
-            </figure>
 
-            <div
-              class="project-details-overlay overlay rounded-large centered-text"
-            ></div>
-
-            <h1 class="work-grid-project-title">
-              <a href="pangea.html">Pangea</a>
-            </h1>
-            <h4 class="work-grid-project-category">
-              Branding • Advertising • UI/UX
-            </h4>
-          </li>
           <li class="work-page-grid-item">
             <figure class="project-img">
               <a href="tempo.html"
@@ -319,10 +314,6 @@
               /></a>
             </figure>
 
-            <div
-              class="project-details-overlay overlay rounded-large centered-text"
-            ></div>
-
             <h1 class="work-grid-project-title">
               <a href="tempo.html">Tempo</a>
             </h1>
@@ -335,11 +326,15 @@
         </div>
         <div class="content-drag-area">
           <!-- Draggable images -->
-          <img
-            class="img-drag"
-            src="assets/draggable/music.png"
-            alt="Describe your project"
-          />
+          <a
+            href="https://open.spotify.com/playlist/4BPjarRG8c6ISEcfVJ3AGM?si=a2ee914c3d4c4503"
+            target="_blank"
+            ><img
+              class="img-drag"
+              src="assets/draggable/music.png"
+              alt="Describe your project"
+          /></a>
+
           <img
             class="img-drag"
             src="assets/draggable/cats.png"
@@ -446,13 +441,25 @@
             <a href="#">Dean’s List | 2022-2025</a>
           </li>
           <li class="footer-item">
-            <a href="#">Tiit Telmet Award</a>
+            <a
+              href="https://descan.ca/scholarships/2025-descan-scholarship-recipients/"
+              target="_blank"
+              >Tiit Telmet Award</a
+            >
           </li>
           <li class="footer-item">
-            <a href="#">Honourable Mention | Social Media </a>
+            <a
+              href="https://rgd.ca/hiring-designers/award-winners/2025-student-award-winners/award-for-social-media-design"
+              target="_blank"
+              >Honourable Mention | Social Media
+            </a>
           </li>
           <li class="footer-item">
-            <a href="#">Other Recognition or Accolade</a>
+            <a
+              href="https://rgd.ca/hiring-designers/award-winners/rgd-student-awards-past-winners"
+              target="_blank"
+              >Honourable Mention | Artisia 1st Year</a
+            >
           </li>
         </ul>
       </li>
@@ -460,9 +467,23 @@
       <li class="footer-contact-social">
         <h4>Social</h4>
         <ul class="footer-socials-list">
-          <li class="footer-item"><a href="#">Instagram</a></li>
-          <li class="footer-item"><a href="#">LinkedIn</a></li>
-          <li class="footer-item"><a href="#">Behance</a></li>
+          <li class="footer-item">
+            <a href="https://www.instagram.com/rachellu.dsgn/" target="_blank"
+              >Instagram</a
+            >
+          </li>
+          <li class="footer-item">
+            <a
+              href="https://www.linkedin.com/in/rachel-lu-211335274/"
+              target="_blank"
+              >LinkedIn</a
+            >
+          </li>
+          <li class="footer-item">
+            <a href="https://www.behance.net/rachelludesign" target="_blank"
+              >Behance</a
+            >
+          </li>
         </ul>
       </li>
 

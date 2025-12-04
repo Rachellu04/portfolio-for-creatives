@@ -4,11 +4,16 @@
     <title>Rachel Lu | Error Page</title>
     <meta
       name="Rachel Lu - 404"
-      content="When writing a meta description, keep it between 140 and 160 characters so Google can display your entire message. Don’t forget to include your keyword!"
+      content="Sorry! Seems like you ended up in the wrong place."
     />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta property="og:image" content="screenshot.jpg" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="assets/branding-images/logo.svg"
+    />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
@@ -26,17 +31,39 @@
   <body class="error-page">
     <section class="hero">
       <header class="hero-header">
-        <ul class="nav-branding">
-          <li><a href="work.html" class="custom-navigation">Work</a></li>
-          <li class="nav-branding-logo">
-            <a href="index.html"
-              ><img
-                src="assets/branding-images/logo.svg"
-                alt="Your portfolio logo"
-            /></a>
-          </li>
-          <li><a href="about.html" class="custom-navigation">About</a></li>
-        </ul>
+        <div class="menu">
+          <span class="menu-circle"></span>
+          <a href="#" class="menu-link">
+            <span class="menu-icon">
+              <span class="menu-line menu-line-1"></span>
+              <span class="menu-line menu-line-2"></span>
+              <span class="menu-line menu-line-3"></span>
+            </span>
+          </a>
+          <div class="menu-overlay">
+            <ul>
+              <li class="nav-branding-item">
+                <a href="work.html"><h3>Work</h3></a>
+              </li>
+              <li class="nav-branding-item">
+                <a href="about.html"><h3>About</h3></a>
+              </li>
+              <li class="nav-branding-item">
+                <a href="work.html"><h3>Contact</h3></a>
+              </li>
+              <li class="nav-branding-item">
+                <a href="play.html"><h3>Illustration</h3></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="name">
+          <ul>
+            <li class="nav-branding-item">
+              <a href="work.html"><p>Rachel Lu</p></a>
+            </li>
+          </ul>
+        </div>
       </header>
       <div class="error-headline-wrapper">
         <a href="work.html">
@@ -46,7 +73,8 @@
             class="error-page-animation"
           ></object
         ></a>
-        <h2 class="error-page-title error-404">404 File Not Found</h2>
+        <img src="assets/branding-images/404.gif" />
+
         <div class="error-message">
           <h3 class="uppercase">Oh dear...</h3>
           <h2>
@@ -64,37 +92,63 @@
     </section>
     <ul class="footer-global">
       <li class="footer-tagline">
-        <h2>Let's Connect!</h2>
+        <h4>Let's Connect!</h4>
         <p>
-          Feel free to reach out with any questions, collaborations, or just to
-          chat about design.
+          Congratulations you reached the bottom. Since you're already here we
+          should totally be friends.
         </p>
       </li>
 
       <li class="footer-highlights">
-        <h2>Awards & Recognition</h2>
+        <h4>Awards & Recognition</h4>
         <ul class="footer-awards-list">
           <li class="footer-item">
-            <a href="#">Dean’s List – Year or Term</a>
+            <a href="#">Dean’s List | 2022-2025</a>
           </li>
           <li class="footer-item">
-            <a href="#">Your Award – Name of Student Award and Year</a>
+            <a
+              href="https://descan.ca/scholarships/2025-descan-scholarship-recipients/"
+              target="_blank"
+              >Tiit Telmet Award</a
+            >
           </li>
           <li class="footer-item">
-            <a href="#">Honourable Mention – Project or Competition Name</a>
+            <a
+              href="https://rgd.ca/hiring-designers/award-winners/2025-student-award-winners/award-for-social-media-design"
+              target="_blank"
+              >Honourable Mention | Social Media
+            </a>
           </li>
           <li class="footer-item">
-            <a href="#">Other Recognition or Accolade</a>
+            <a
+              href="https://rgd.ca/hiring-designers/award-winners/rgd-student-awards-past-winners"
+              target="_blank"
+              >Honourable Mention | Artisia 1st Year</a
+            >
           </li>
         </ul>
       </li>
 
       <li class="footer-contact-social">
-        <h2>Contact & Social</h2>
+        <h4>Social</h4>
         <ul class="footer-socials-list">
-          <li class="footer-item"><a href="#">Insta</a></li>
-          <li class="footer-item"><a href="#">LinkedIn</a></li>
-          <li class="footer-item"><a href="#">Behance</a></li>
+          <li class="footer-item">
+            <a href="https://www.instagram.com/rachellu.dsgn/" target="_blank"
+              >Instagram</a
+            >
+          </li>
+          <li class="footer-item">
+            <a
+              href="https://www.linkedin.com/in/rachel-lu-211335274/"
+              target="_blank"
+              >LinkedIn</a
+            >
+          </li>
+          <li class="footer-item">
+            <a href="https://www.behance.net/rachelludesign" target="_blank"
+              >Behance</a
+            >
+          </li>
         </ul>
       </li>
 
