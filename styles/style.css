@@ -2089,7 +2089,7 @@ a.nav-link-primary:hover {
   justify-content: center;
   padding: var(--padding-small);
   text-align: center;
-  margin: 0 auto;
+  margin: 0 auto 3rem;
 }
 
 .error-page-animation {
@@ -2134,7 +2134,7 @@ a.nav-link-primary:hover {
   color: #fff;
 }
 .error-message {
-  margin: 2rem;
+  margin: 0 2rem 2rem 2rem;
 }
 
 /*
