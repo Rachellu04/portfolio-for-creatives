@@ -537,9 +537,9 @@ em {
 }
 
 .project-header {
-  margin-bottom: 3rem;
-  font-size: 3rem;
-  line-height: 2.5 rem;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  line-height: 2.5rem;
   display: inline-block;
 }
 
@@ -608,10 +608,59 @@ em {
   margin-top: 1rem; /* spacing below image */
 }
 
-.project-detail {
+.project-detail h4 {
+  font-family: "cormorant", serif;
+  font-style: italic;
+}
+
+.project-intro-description-container {
+  height: auto;
+}
+
+.project-page-classification {
+  grid-column: 1 / 2;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.project-classification {
+  gap: 0.5rem;
+  padding-right: 0.5rem;
+  line-height: 0.5rem;
+}
+
+.project-classification p {
+  padding: 0.5rem 1rem;
+  border: 1px solid #000;
+  border-radius: 60px;
+  font-size: 0.85rem;
+}
+
+.project-award {
+  gap: 0.5rem;
+  padding-right: 0.5rem;
+  line-height: 0.5rem;
+}
+
+.project-award p {
+  padding: 0.5rem 1rem;
+  border: 1px solid #000;
+  background-color: #000000;
+  color: #ffffff;
+  border-radius: 60px;
+  font-size: 0.85rem;
+}
+
+.project-detail p {
   border-top: 1px solid #000;
   padding-top: 1rem;
-  width: 40%;
+  width: 50%;
+}
+
+.project-detail h4 {
+  border-top: none;
+  padding-top: 1rem;
+  width: 100%;
 }
 
 /* -----------------------------------------------------
@@ -622,7 +671,7 @@ em {
 .marquee-top {
   position: relative;
   width: 100%;
-  min-height: 20vh;
+  min-height: 15vh;
   overflow: hidden;
   background: #fff;
 
@@ -672,11 +721,6 @@ em {
 }
 
 /* Image-specific item */
-.marquee-top__item--image {
-  width: 8rem;
-}
-
-/* Image-specific item */
 .marquee-top__item--icon h3 {
   font-size: 1.75rem;
 }
@@ -696,6 +740,83 @@ em {
   border: 1px solid #000;
   padding: 10px 20px 10px 20px;
   border-radius: 60px;
+}
+
+/* -----------------------------------------------------
+   Marquee Structure (image)
+----------------------------------------------------- */
+
+/* The outer container — holds everything in place */
+.marquee-image {
+  position: relative;
+  width: 100%;
+  min-height: 45vh;
+  overflow: hidden;
+  background: #fff;
+  margin-bottom: 3rem;
+  display: flex;
+  align-items: center;
+}
+
+/* The moving "track" that slides left to right */
+.marquee-image__track {
+  display: flex;
+  flex-shrink: 0;
+  white-space: nowrap;
+  animation: marquee-scroll 160s linear infinite;
+}
+
+/* Animation: moves the track smoothly across the screen */
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Each block of repeated content (we duplicate it in HTML) */
+.marquee-image__content {
+  display: inline-flex;
+  flex-shrink: 0; /* Prevents shrinking */
+}
+
+/* The list and items inside the marquee */
+.marquee-image__list {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Base style for all items */
+.marquee-image__item {
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Image-specific item */
+.marquee-image__item--image {
+  width: auto;
+  border: 1px solid #000;
+  border-radius: 25px;
+  margin-left: 2rem;
+}
+
+/* Image formatting */
+.marquee-image__item--image img {
+  width: auto;
+  height: 40vh;
+  display: block;
+}
+
+.marquee-image:hover .marquee-image__track {
+  animation-play-state: paused;
+  transition: transform 10s ease-in-out;
 }
 
 /* -----------------------------------------------------
@@ -886,8 +1007,11 @@ em {
   text-align: center;
   color: #ffffff;
 }
+/*----figma embed------*/
+.figma-embed {
+  border-radius: 16px;
+}
 /*
-
 ██   ██ ██    ██ ██████  ███████ ██████  ██      ██ ███    ██ ██   ██ ███████ 
 ██   ██  ██  ██  ██   ██ ██      ██   ██ ██      ██ ████   ██ ██  ██  ██      
 ███████   ████   ██████  █████   ██████  ██      ██ ██ ██  ██ █████   ███████ 
@@ -1114,7 +1238,7 @@ a.nav-link-primary:hover {
   flex: 1;
   gap: 0.75rem;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: center;
   text-align: center; /* Keeps text centered */
 }
 
@@ -1128,6 +1252,7 @@ a.nav-link-primary:hover {
 .hero-image {
   width: 100%;
   max-width: 1000px;
+  max-height: 80vh;
   transition: transform 0.25s ease-out, box-shadow 0.3s ease;
   transform-style: preserve-3d;
   will-change: transform;
@@ -1258,12 +1383,10 @@ a.nav-link-primary:hover {
 }
 
 .project-img {
-  width: 100%; /* fills parent container */
-  max-width: 660px; /* prevents it from getting too large on big screens */
-  aspect-ratio: 16 / 9; /* keeps the same shape as 660x380 */
-  overflow: hidden;
+  width: 100%;
+  aspect-ratio: 16/9;
   border-radius: 1rem;
-  position: relative;
+  overflow: hidden;
 }
 
 .project-img img {
@@ -1310,11 +1433,12 @@ a.nav-link-primary:hover {
 /* Defining the work page grid */
 .grid {
   display: grid;
+
   grid-template-columns: repeat(
     auto-fit,
     minmax(300px, 1fr)
   ); /* Creates a responsive grid */
-  grid-gap: 2rem; /* Space between grid items */
+  grid-gap: 1.5rem; /* Space between grid items */
   /* The auto-fit and minmax() function help ensure responsiveness across screen sizes */
 }
 
@@ -1330,6 +1454,10 @@ a.nav-link-primary:hover {
 .project-container {
   background: var(--color-accent-primary); /* Set project background color */
   padding: var(--padding-medium);
+}
+
+.project-navigation-container {
+  margin-top: 2rem;
 }
 
 .work-grid-project-title {
@@ -1406,7 +1534,7 @@ a.nav-link-primary:hover {
   grid-template-columns: 1fr; /* Single column layout for mobile and smaller screens */
   grid-gap: 4rem; /* Space between grid items */
   background: var(--color-bg-about); /* Background color for the section */
-  padding: var(--padding-small); /* Padding around the grid */
+  padding: var(--padding-jumbo); /* Padding around the grid */
   flex: 1; /* Flex-grow to take up available space */
 }
 
@@ -1734,12 +1862,14 @@ a.nav-link-primary:hover {
 
 /* Container for project description */
 .project-description-container {
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  flex-direction: row;
-  width: 100%;
-  margin-bottom: 1rem; /* Space below the description */
+  display: grid;
+  grid-template-columns: 1fr;
+  margin-bottom: 2rem;
+}
+
+.project-page-divider {
+  margin-top: var(--padding-jumbo);
+  margin-bottom: var(--padding-jumbo);
 }
 
 /* Column styles for two-column layouts */
@@ -1762,12 +1892,13 @@ a.nav-link-primary:hover {
   display: grid;
   grid-template-columns: repeat(2, 1fr); /* two columns by default */
   gap: 2rem;
+  margin-top: 2rem;
 }
 
 /* Each image keeps 4:5 ratio */
 .project-image-pair .project-image {
   width: 100%;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 4 / 3;
   overflow: hidden;
   position: relative;
 }
@@ -1781,12 +1912,15 @@ a.nav-link-primary:hover {
 }
 
 .project-image-hero {
-  width: calc(100vw - 0px);
+  width: 100vw;
   height: auto;
-  display: block;
   margin-left: calc(-50vw + 50%);
-  margin-bottom: 3rem;
 }
+
+.project-image-hero img {
+  aspect-ratio: 21 / 9;
+}
+
 /* Project details section */
 .project-details {
   width: 100%;
@@ -1961,6 +2095,9 @@ a.nav-link-primary:hover {
   color: rgb(255, 255, 255);
 }
 
+.award-link {
+  color: #fff;
+}
 .error-message {
   margin: 2rem;
 }
@@ -2139,10 +2276,23 @@ to keep your styles reusable and consistent.
     width: 65%;
   }
 
-  .project-header {
-    font-size: 4rem;
+  .project-image-hero {
+    margin-bottom: 3rem;
   }
 
+  .project-description-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .project-header {
+    font-size: 4rem;
+    line-height: 4.4rem;
+    margin-bottom: 3rem;
+  }
+  .project-classification p {
+    font-size: 1rem;
+  }
   .project-image-container,
   .project-description-container {
     flex-direction: row;
@@ -2288,10 +2438,21 @@ to keep your styles reusable and consistent.
     align-content: center;
     justify-content: center;
   }
-  .sandbox-header h2 {
+  .sandbox-header h3 {
     display: flex;
     font-size: 2.5rem;
     font-style: italic;
+    font-family: "cormorant", serif;
+  }
+
+  /* Work Sidebar on Large Devices */
+  .about-grid {
+    display: grid; /* Set to grid layout */
+    grid-template-columns: 1fr 1fr; /* Single column layout for mobile and smaller screens */
+    grid-gap: 4rem; /* Space between grid items */
+    background: var(--color-bg-about); /* Background color for the section */
+    padding: var(--padding-jumbo); /* Padding around the grid */
+    flex: 1; /* Flex-grow to take up available space */
   }
 
   /* Work Sidebar on Large Devices */
