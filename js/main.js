@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
     { threshold: 0.3 }
   );
   items.forEach((item, i) => {
-    item.style.transitionDelay = `${i * 0.15}s`;
+    item.style.transitionDelay = `${i * 0.03}s`;
     observer.observe(item);
   });
   //Hero Headline Fade-In

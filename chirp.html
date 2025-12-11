@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Rachel Lu | Chirp Protein</title>
+    <title>
+      Rachel Lu | Branding & Packaging | Chirp Protein: Sustainable Protein
+      Powder
+    </title>
     <meta
       name="description"
-      content="Product packaging, branding, and visual identity design for a sustainable cricket protein powder brand"
+      content="Product packaging, branding, and visual identity designed by Rachel Lu, for a sustainable cricket protein powder brand"
     />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -88,40 +91,46 @@
             alt="Describe your project"
           />
         </figure>
-        <div class="project-description-container slide-up">
+        <div class="project-description-container-intro slide-up">
           <div class="project-title">
             <ul class="project-page-details">
-              <li class="project-detail"><h4>Timeline</h4></li>
-              <li class="project-detail"><p>4 weeks</p></li>
-              <li class="project-detail"><h4>Tools</h4></li>
-              <li class="project-detail"><p>Adobe Illustrator</p></li>
+              <li class="project-heading"><p>Timeline</p></li>
+              <li class="project-paragraph"><p>4 weeks</p></li>
+              <li class="project-heading"><p>Tools</p></li>
+              <li class="project-paragraph"><p>Adobe Illustrator</p></li>
 
-              <li class="project-detail">
+              <li class="project-paragraph">
                 <p>Adobe Photoshop</p>
               </li>
 
-              <li class="project-detail">
-                <p>blender</p>
+              <li class="project-paragraph">
+                <p>Blender</p>
               </li>
             </ul>
           </div>
-          <div class="project-description">
-            <h4>Problem</h4>
-            <p>
-              Currently, many animal protein powder blends contribute greatly to
-              pollution. Sustainable alternatives such as plant-based powders
-              are unable to deliver readily available amino acids for maximum
-              performance.
-            </p>
-            <h4>Solution</h4>
-            <p>
-              To create a compelling brand that markets cricket-based protein
-              powder blends to athletes. The blends are crafted with performance
-              and environmental sustainability in mind to give athletes clean,
-              quality fuel. The brand bridges the gap between sustainable living
-              and athletic performance, redefining how consumers view
-              alternative protein sources.
-            </p>
+          <div class="project-description-intro">
+            <div class="paragraph">
+              <h4>
+                Chirp Protein is a cricket-based protein supplement developed to
+                support diverse athletic needs. The branding explores energy,
+                movement, and sustainability, translating the product’s
+                high-performance purpose into a bold visual identity.
+              </h4>
+
+              <p>
+                This project includes packaging design, visual language, and
+                promotional materials built around the idea of fueling athletes
+                with a cleaner, more efficient source of protein.
+              </p>
+            </div>
+            <div class="project-button">
+              <a
+                href="chirp-case-study.html"
+                class="btn-primary position-aware"
+              >
+                Full Case Study<span></span>
+              </a>
+            </div>
           </div>
         </div>
         <hr class="project-page-divider" />
@@ -145,6 +154,7 @@
             </h4>
           </div>
         </div>
+
         <div class="marquee-image slide-up">
           <div class="marquee-image__track">
             <!-- Original content block -->
@@ -180,13 +190,22 @@
                 </li>
 
                 <li class="marquee-image__item marquee-image__item--image">
-                  <img src="assets/project-1/chirp-sketches.jpg" alt="Gibbet" />
+                  <img
+                    src="assets/project-1/chirp-sketches.jpg"
+                    alt="logo sketches"
+                  />
                 </li>
                 <li class="marquee-image__item marquee-image__item--image">
-                  <img src="assets/project-1/colours.jpg" alt="Gibbet" />
+                  <img
+                    src="assets/project-1/colours.jpg"
+                    alt="Chirp brand colours"
+                  />
                 </li>
                 <li class="marquee-image__item marquee-image__item--image">
-                  <img src="assets/project-1/typography.jpg" alt="Gibbet" />
+                  <img
+                    src="assets/project-1/typography.jpg"
+                    alt="Chirp brand typography"
+                  />
                 </li>
               </ul>
             </div>
@@ -357,148 +376,6 @@
       <span class="cursor-arrow">view</span>
     </div>
   </body>
-
-  <script>
-    const cursor = document.querySelector(".custom-cursor");
-
-    window.addEventListener("mousemove", (e) => {
-      cursor.style.top = e.clientY + "px";
-      cursor.style.left = e.clientX + "px";
-    });
-
-    let mouseX = 0;
-    let mouseY = 0;
-    let currentX = 0;
-    let currentY = 0;
-
-    window.addEventListener("mousemove", (e) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-    });
-
-    function animate() {
-      currentX += (mouseX - currentX) * 0.4; // easing
-      currentY += (mouseY - currentY) * 0.4;
-      cursor.style.top = `${currentY}px`;
-      cursor.style.left = `${currentX}px`;
-      requestAnimationFrame(animate);
-    }
-
-    animate();
-
-    window.addEventListener("mouseover", (e) => {
-      const target = e.target;
-
-      // Check if target is interactive
-      const isHoverable =
-        target.tagName === "A" ||
-        target.tagName === "BUTTON" ||
-        target.tagName === "INPUT" ||
-        target.tagName === "TEXTAREA" ||
-        target.tagName === "SELECT" ||
-        target.closest(".arrow-left") ||
-        target.closest(".arrow-right");
-
-      window.getComputedStyle(target).cursor === "pointer";
-
-      if (isHoverable) {
-        cursor.classList.add("expand");
-      } else {
-        cursor.classList.remove("expand");
-      }
-    });
-
-    window.addEventListener("mouseout", (e) => {
-      cursor.classList.remove("expand");
-    });
-  </script>
-  <script>
-    const elements = document.querySelectorAll(".slide-up");
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            // Add a delay depending on the element's index
-            const index = Array.from(elements).indexOf(entry.target);
-            entry.target.style.transitionDelay = `${index * 0.17}s`; // 0.2s apart
-            entry.target.classList.add("show");
-            observer.unobserve(entry.target); // animate once
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    elements.forEach((el) => observer.observe(el));
-  </script>
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const header = document.querySelector(".project-header.stagger");
-
-      // Split headline into words
-      const words = header.textContent.trim().split(/\s+/);
-
-      // Wrap each word in its own overflow-hidden container
-      header.innerHTML = words
-        .map((word) => `<span class="word-wrapper"><span>${word}</span></span>`)
-        .join(" ");
-
-      const wordSpans = header.querySelectorAll(".word-wrapper span");
-
-      // IntersectionObserver to trigger slide up/down on scroll
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            wordSpans.forEach((span, i) => {
-              // stagger delay per word
-              span.style.transitionDelay = `${i * 0.045}s`;
-              if (entry.isIntersecting) {
-                span.classList.add("show"); // scroll DOWN → slide up
-              } else {
-                span.classList.remove("show"); // scroll UP → slide down
-              }
-            });
-          });
-        },
-        { threshold: 0.1 }
-      ); // trigger when ~20% visible
-
-      observer.observe(header);
-    });
-  </script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script>
-    $(function () {
-      $(".menu-link").click(function (e) {
-        e.preventDefault();
-
-        $(".menu-overlay").toggleClass("open");
-        $(".menu").toggleClass("open");
-      });
-    });
-  </script>
-  <script>
-    var els = document.querySelectorAll(".btn-primary.position-aware");
-    els.forEach(function (el) {
-      el.addEventListener("mouseenter", function (e) {
-        var rect = el.getBoundingClientRect();
-        var relX = e.clientX - rect.left;
-        var relY = e.clientY - rect.top;
-        var scale = Math.round(
-          (Math.abs(relX - el.offsetWidth / 2) / (el.offsetWidth / 2) + 1) * 100
-        );
-        el.querySelector("span").style.width = "calc(" + scale + "% + 1rem)";
-        el.querySelector("span").style.top = relY + "px";
-        el.querySelector("span").style.left = relX + "px";
-      });
-      el.addEventListener("mouseout", function (e) {
-        var relX = e.pageX - el.offsetLeft;
-        var relY = e.pageY - el.offsetTop;
-        el.querySelector("span").style.width = "0%";
-        el.querySelector("span").style.top = relY + "px";
-        el.querySelector("span").style.left = relX + "px";
-      });
-    });
-  </script>
+  <script src="js/project.js" defer></script>
 </html>

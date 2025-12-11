@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Rachel Lu | Chirp Protein</title>
+    <title>
+      Rachel Lu | Branding & Packaging | Tang Fang: Restaurant Branding
+    </title>
     <meta
       name="description"
-      content="Product packaging, branding, and visual identity design for a sustainable cricket protein powder brand"
+      content="Restaurant branding project by Rachel Lu featuring visual identity, packaging, and menu design for Tang Fang, a modern Chinese herbal soup restaurant."
     />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -224,12 +226,12 @@
         <div class="project-navigation-container">
           <ul class="project-navigation">
             <li class="arrow-left">
-              <a href="project-3.html" class="navigation-arrow"
+              <a href="pangea.html" class="navigation-arrow"
                 ><i class="fa-sharp fa-solid fa-arrow-left fa-2x"></i
               ></a>
             </li>
             <li class="arrow-right">
-              <a href="project-2.html" class="navigation-arrow"
+              <a href="tempo.html" class="navigation-arrow"
                 ><i class="fa-sharp fa-solid fa-arrow-right fa-2x"></i
               ></a>
             </li>
@@ -312,147 +314,6 @@
     </div>
   </body>
 
-  <script>
-    const cursor = document.querySelector(".custom-cursor");
-
-    window.addEventListener("mousemove", (e) => {
-      cursor.style.top = e.clientY + "px";
-      cursor.style.left = e.clientX + "px";
-    });
-
-    let mouseX = 0;
-    let mouseY = 0;
-    let currentX = 0;
-    let currentY = 0;
-
-    window.addEventListener("mousemove", (e) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-    });
-
-    function animate() {
-      currentX += (mouseX - currentX) * 0.4; // easing
-      currentY += (mouseY - currentY) * 0.4;
-      cursor.style.top = `${currentY}px`;
-      cursor.style.left = `${currentX}px`;
-      requestAnimationFrame(animate);
-    }
-
-    animate();
-
-    window.addEventListener("mouseover", (e) => {
-      const target = e.target;
-
-      // Check if target is interactive
-      const isHoverable =
-        target.tagName === "A" ||
-        target.tagName === "BUTTON" ||
-        target.tagName === "INPUT" ||
-        target.tagName === "TEXTAREA" ||
-        target.tagName === "SELECT" ||
-        target.closest(".arrow-left") ||
-        target.closest(".arrow-right");
-
-      window.getComputedStyle(target).cursor === "pointer";
-
-      if (isHoverable) {
-        cursor.classList.add("expand");
-      } else {
-        cursor.classList.remove("expand");
-      }
-    });
-
-    window.addEventListener("mouseout", (e) => {
-      cursor.classList.remove("expand");
-    });
-  </script>
-  <script>
-    const elements = document.querySelectorAll(".slide-up");
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            // Add a delay depending on the element's index
-            const index = Array.from(elements).indexOf(entry.target);
-            entry.target.style.transitionDelay = `${index * 0.17}s`; // 0.2s apart
-            entry.target.classList.add("show");
-            observer.unobserve(entry.target); // animate once
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    elements.forEach((el) => observer.observe(el));
-  </script>
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const header = document.querySelector(".project-header.stagger");
-
-      // Split headline into words
-      const words = header.textContent.trim().split(/\s+/);
-
-      // Wrap each word in its own overflow-hidden container
-      header.innerHTML = words
-        .map((word) => `<span class="word-wrapper"><span>${word}</span></span>`)
-        .join(" ");
-
-      const wordSpans = header.querySelectorAll(".word-wrapper span");
-
-      // IntersectionObserver to trigger slide up/down on scroll
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            wordSpans.forEach((span, i) => {
-              // stagger delay per word
-              span.style.transitionDelay = `${i * 0.045}s`;
-              if (entry.isIntersecting) {
-                span.classList.add("show"); // scroll DOWN → slide up
-              } else {
-                span.classList.remove("show"); // scroll UP → slide down
-              }
-            });
-          });
-        },
-        { threshold: 0.1 }
-      ); // trigger when ~20% visible
-
-      observer.observe(header);
-    });
-  </script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script>
-    $(function () {
-      $(".menu-link").click(function (e) {
-        e.preventDefault();
-
-        $(".menu-overlay").toggleClass("open");
-        $(".menu").toggleClass("open");
-      });
-    });
-  </script>
-  <script>
-    var els = document.querySelectorAll(".btn-primary.position-aware");
-    els.forEach(function (el) {
-      el.addEventListener("mouseenter", function (e) {
-        var rect = el.getBoundingClientRect();
-        var relX = e.clientX - rect.left;
-        var relY = e.clientY - rect.top;
-        var scale = Math.round(
-          (Math.abs(relX - el.offsetWidth / 2) / (el.offsetWidth / 2) + 1) * 100
-        );
-        el.querySelector("span").style.width = "calc(" + scale + "% + 1rem)";
-        el.querySelector("span").style.top = relY + "px";
-        el.querySelector("span").style.left = relX + "px";
-      });
-      el.addEventListener("mouseout", function (e) {
-        var relX = e.pageX - el.offsetLeft;
-        var relY = e.pageY - el.offsetTop;
-        el.querySelector("span").style.width = "0%";
-        el.querySelector("span").style.top = relY + "px";
-        el.querySelector("span").style.left = relX + "px";
-      });
-    });
-  </script>
+  <script src="js/project.js" defer></script>
 </html>
