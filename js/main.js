@@ -198,3 +198,8 @@ document.addEventListener("DOMContentLoaded", () => {
     image.style.transform = "rotateX(0deg) rotateY(0deg) scale(1)";
   });
 });
+
+//get year
+
+document.getElementById("copyright-years").textContent +=
+  new Date().getFullYear();

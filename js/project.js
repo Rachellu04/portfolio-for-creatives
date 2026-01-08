@@ -147,3 +147,8 @@ els.forEach(function (el) {
     el.querySelector("span").style.left = relX + "px";
   });
 });
+
+//get year
+
+document.getElementById("copyright-years").textContent +=
+  new Date().getFullYear();

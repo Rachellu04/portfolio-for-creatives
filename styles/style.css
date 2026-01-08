@@ -126,13 +126,8 @@
   --color-bg-full-width: #000000;
   --color-bg-project-description: #000000;
   --color-bg-sidebar-project: orangered;
-  --color-bg-sidebar-work: lemonchiffon;
-  --color-gradient-project-details: linear-gradient(
-    -225deg,
-    #ff057c 0%,
-    #8d0b93 50%,
-    #321575 100%
-  );
+  --color-bg-sidebar-work: rgb(255, 255, 255);
+
   /* Special Elements */
 
   --color-text-holding-footer: #f8f8ff;
@@ -566,6 +561,7 @@ em {
 .project-description {
   color: var(--color-text-project-description);
   margin-bottom: 1rem;
+  margin-top: 2rem;
 }
 
 .project-button {
@@ -648,6 +644,36 @@ em {
 
 .project-heading {
   color: #a1a1a1;
+  font-family: "Mona Sans", sans-serif;
+  font-size: 1rem;
+}
+
+.project-paragraph {
+  font-family: "Mona Sans", sans-serif;
+  font-size: 1rem;
+}
+
+.project-heading h2 {
+  color: #a1a1a1;
+  font-family: "Mona Sans", sans-serif;
+  font-size: 1rem;
+}
+
+.project-section-heading p {
+  color: #a1a1a1;
+  font-family: "Mona Sans", sans-serif;
+  font-size: 1rem;
+}
+
+.case-image-hero {
+  border-radius: 30px;
+  overflow: hidden;
+}
+
+.case-image-description {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 /* -----------------------------------------------------
@@ -1863,11 +1889,15 @@ a.nav-link-primary:hover {
 /* ---------------------------------------------------------------------------------- */
 
 /* Wrapper for the main project section and sidebar */
-.project-wrapper,
-.work-sidebar-wrapper {
+.project-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.work-sidebar-wrapper {
+  display: flex;
+  align-items: flex-start;
 }
 
 /* Full-width wrapper for the project section */
@@ -1875,6 +1905,45 @@ a.nav-link-primary:hover {
   width: 100%;
   padding: var(--padding-small);
   margin-top: 2rem;
+}
+
+.case-progress {
+  position: fixed;
+  margin-top: 1rem;
+}
+
+.case-progress ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.case-progress a {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.9rem;
+  text-decoration: none;
+  color: #ccc;
+  transition: color 0.3s ease;
+}
+
+.case-progress span {
+  width: 10px;
+  height: 2px;
+  border-radius: 25%;
+  background: #ccc;
+  display: inline-block;
+  transition: width 0.5s ease-in-out, background 0.3s ease;
+}
+
+.case-progress a.active {
+  color: #000;
+}
+
+.case-progress a.active span {
+  width: 20px;
+  background: #000;
 }
 
 /* Container for the project content with full-width display */
@@ -1922,7 +1991,7 @@ a.nav-link-primary:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 4rem;
+  margin-top: 2rem;
 }
 
 /* Project image pair layout */
@@ -2002,15 +2071,6 @@ a.nav-link-primary:hover {
   opacity: 1;
   transform: translateY(0) scale(1);
 }
-/*
-
-██████  ██       ██████   ██████      ██ ██████  ███████ ███████ ██    ██ ███    ███ ███████ 
-██   ██ ██      ██    ██ ██          ██  ██   ██ ██      ██      ██    ██ ████  ████ ██      
-██████  ██      ██    ██ ██   ███   ██   ██████  █████   ███████ ██    ██ ██ ████ ██ █████   
-██   ██ ██      ██    ██ ██    ██  ██    ██   ██ ██           ██ ██    ██ ██  ██  ██ ██      
-██████  ███████  ██████   ██████  ██     ██   ██ ███████ ███████  ██████  ██      ██ ███████ 
-                                                                                             
-*/
 
 /* Blog and Resume page styles */
 
@@ -2024,16 +2084,6 @@ a.nav-link-primary:hover {
   list-style-type: disc;
   margin-left: 1.2rem;
 }
-
-/* 
-
-██   ██  ██████  ██      ██████  ██ ███    ██  ██████  
-██   ██ ██    ██ ██      ██   ██ ██ ████   ██ ██       
-███████ ██    ██ ██      ██   ██ ██ ██ ██  ██ ██   ███ 
-██   ██ ██    ██ ██      ██   ██ ██ ██  ██ ██ ██    ██ 
-██   ██  ██████  ███████ ██████  ██ ██   ████  ██████  
-                                                       
-*/
 
 /* Holding page styles */
 
@@ -2072,16 +2122,8 @@ a.nav-link-primary:hover {
 }
 
 /*
-███████ ██████  ██████   ██████  ██████  
-██      ██   ██ ██   ██ ██    ██ ██   ██ 
-█████   ██████  ██████  ██    ██ ██████  
-██      ██   ██ ██   ██ ██    ██ ██   ██ 
-███████ ██   ██ ██   ██  ██████  ██   ██ 
+Error
 */
-
-/* TODO: Customize your 404 Error Page */
-
-/* A great 404 page is a chance to leave a memorable impression when visitors land on a page that doesn't exist. Consider customizing this page to be more engaging, humorous, or on-brand with your site. Check out error.css for the gradient and glitch effect. */
 
 .error-headline-wrapper {
   width: 85%;
@@ -2140,27 +2182,6 @@ a.nav-link-primary:hover {
   margin: 0 2rem 2rem 2;
 }
 
-/*
-
-██████  ██       █████  ██    ██ 
-██   ██ ██      ██   ██  ██  ██  
-██████  ██      ███████   ████   
-██      ██      ██   ██    ██    
-██      ███████ ██   ██    ██    
-*/
-
-/* Play Page Styles
-––––––––––––––––––––––––––––––––––––––––––––––––––
-Custom styles specific to the "Play" page layout and content.
-
-✅ Masonry layout is defined separately in masonry.css  
-✅ Lightbox functionality is handled via Lightbox2 (in /lightbox2 folder)  
-✅ Rotate and other utility classes are already included in the base styles (this file)
-
-Use this section to style elements that are *unique to the Play page*.
-For common layout or effects, continue using the base utility classes
-to keep your styles reusable and consistent.
-*/
 .sandbox-header {
   display: flex;
   align-content: center;
@@ -2178,23 +2199,6 @@ to keep your styles reusable and consistent.
   max-height: 80vh;
   display: flex;
   margin-top: 3rem;
-}
-
-/*
-
-███████ ██   ██ ███████ ████████  ██████ ██   ██ ██████   ██████   ██████  ██   ██ 
-██      ██  ██  ██         ██    ██      ██   ██ ██   ██ ██    ██ ██    ██ ██  ██  
-███████ █████   █████      ██    ██      ███████ ██████  ██    ██ ██    ██ █████   
-     ██ ██  ██  ██         ██    ██      ██   ██ ██   ██ ██    ██ ██    ██ ██  ██  
-███████ ██   ██ ███████    ██     ██████ ██   ██ ██████   ██████   ██████  ██   ██ 
-
-*/
-
-/* Sketchbook Page Styles */
-
-.sketchbook-page {
-  display: grid;
-  place-items: center;
 }
 
 /*
@@ -2270,7 +2274,7 @@ to keep your styles reusable and consistent.
     padding: var(--padding-small);
   }
   .padding-jumbo {
-    padding: var(--padding-jumbo);
+    padding: var(--padding-large);
   }
   .nav-branding-logo {
     width: auto;
@@ -2459,7 +2463,7 @@ to keep your styles reusable and consistent.
     margin-top: 3rem;
   }
 
-  /*---play---*/
+  /*---Project Scroll Bar---*/
 
   /* ------------------------------- */
   /* 🖥️ FOOTER GRID - DESKTOP LAYOUT */
@@ -2467,23 +2471,12 @@ to keep your styles reusable and consistent.
 
   .footer-global {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    padding: var(--padding-jumbo);
+    grid-template-columns: 1fr 1fr;
+    padding: var(--padding-large);
     gap: 2rem;
-    overflow: visible; /* allow children to expand */
   }
 
-  .footer-contact {
-    grid-column: 1/2;
-    grid-row: 1/2;
-    background: hotpink;
-  }
-  .footer-item {
-    grid-column: 2/3;
-    grid-row: 1/2;
-  }
-
-  /* Column 1: Tagline/Message */
+  /* Left column */
   .footer-tagline {
     grid-column: 1 / 2;
     grid-row: 1 / 2;
@@ -2492,16 +2485,18 @@ to keep your styles reusable and consistent.
     align-items: flex-start;
   }
 
-  /* Column 2: Awards & Works */
-  .footer-highlights {
-    grid-row: 1 / 2;
+  /* Right column */
+  .footer-social {
     grid-column: 2 / 3;
+    grid-row: 1 / 2;
   }
 
-  /* Column 3: Contact & Social */
-  .footer-contact-social {
-    grid-row: 1 / 2;
-    grid-column: 3 / 4;
+  /* Internal list layout */
+  .footer-list {
+    display: flex;
+    flex-direction: row;
+    gap: 0.75rem;
+    justify-content: end;
   }
 
   .footer-tagline.footer-highlights.footer-contact-social.footer-contact {
@@ -2546,9 +2541,9 @@ to keep your styles reusable and consistent.
   /* Work Sidebar on Large Devices */
 
   .work-sidebar {
-    width: 25%;
-    height: 80vh;
-    position: -webkit-sticky;
+    width: 200px;
+    flex-shrink: 0; /* prevents it from shrinking */
+    height: calc(100vh - 2rem);
     position: sticky;
     top: 1rem;
   }
@@ -2579,13 +2574,3 @@ to keep your styles reusable and consistent.
     }
   }
 }
-
-/*
-
-███████ ██ ███    ██
-██      ██ ████   ██
-█████   ██ ██ ██  ██
-██      ██ ██  ██ ██
-██      ██ ██   ████
-                                              
-*/
