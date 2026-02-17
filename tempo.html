@@ -29,39 +29,35 @@
 
   <body class="project-1">
     <header class="hero-header">
-      <div class="menu">
-        <span class="menu-circle"></span>
-        <a href="#" class="menu-link">
-          <span class="menu-icon">
+
+      <nav class="menu" aria-label="Main navigation">
+      
+
+        <button class="menu-link" aria-label="Open menu">
+          <span class="menu-icon" aria-hidden="true">
             <span class="menu-line menu-line-1"></span>
             <span class="menu-line menu-line-2"></span>
             <span class="menu-line menu-line-3"></span>
           </span>
-        </a>
+        </button>
+
         <div class="menu-overlay">
           <ul>
+            <li class="nav-branding-item"><a href="work.html">Work</a></li>
+            <li class="nav-branding-item"><a href="about.html">About</a></li>
+            <li class="nav-branding-item"><a href="work.html">Contact</a></li>
             <li class="nav-branding-item">
-              <a href="work.html"><h3>Work</h3></a>
-            </li>
-            <li class="nav-branding-item">
-              <a href="about.html"><h3>About</h3></a>
-            </li>
-            <li class="nav-branding-item">
-              <a href="work.html"><h3>Contact</h3></a>
-            </li>
-            <li class="nav-branding-item">
-              <a href="404.html"><h3>Illustration</h3></a>
+              <a href="404.html">Illustration</a>
             </li>
           </ul>
         </div>
-      </div>
+      </nav>
+
+      <!-- Site name / home link -->
       <div class="name">
-        <ul>
-          <li class="nav-branding-item">
-            <a href="work.html"><p>Rachel Lu</p></a>
-          </li>
-        </ul>
+        <a href="work.html">Rachel Lu</a>
       </div>
+
     </header>
     <div class="project-wrapper-full-width">
       <aside class="project-full-width">
