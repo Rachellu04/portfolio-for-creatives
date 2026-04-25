@@ -1937,7 +1937,6 @@ a.nav-link-primary:hover {
   height: 100%;
   object-fit: cover;
   display: block;
-  border-radius: 1rem; /* keeps rounded-large */
 }
 
 .project-image-hero {
