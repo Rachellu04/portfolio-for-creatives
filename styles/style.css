@@ -684,7 +684,7 @@ em {
 .marquee-top {
   position: relative;
   width: 100%;
-  min-height: 8vh;
+  min-height: 7vh;
   overflow: hidden;
   background: #fff;
   display: flex;
@@ -755,6 +755,7 @@ em {
   margin: 0;
   white-space: nowrap;
   color: #000000;
+  text-transform: uppercase;
   /* border: 1px solid #000;
   padding: 10px 10px 10px 10px;
   border-radius: 60px;*/
@@ -895,6 +896,7 @@ em {
 
 .name {
   font-size: .8rem;
+  text-transform: uppercase;
 }
 /*----figma embed------*/
 .figma-embed {
@@ -1330,6 +1332,12 @@ a.nav-link-primary:hover {
   aspect-ratio: 16/9;
   /* border-radius: 1rem; */
   overflow: hidden;
+}
+
+.project-img video {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
 }
 
 .project-img img {
@@ -2245,7 +2253,7 @@ Error
 
   .hero-headline {
     color: #000000; /* Uses your brand's dominant color */
-    font-size: 1rem;
+    font-size: .8rem;
     line-height: 1.2rem;
     max-width: 40ch; /* Optimal line length for readability (~40 characters) */
    grid-column: 1 / 2; /* first column */
@@ -2254,10 +2262,20 @@ Error
 
   .hero-subhead {
 color: #000000; /* Uses your brand's dominant color */
-    font-size: 1rem;
+    font-size: .8rem;
     line-height: 1.2rem;
     max-width: 40ch; /* Optimal line length for readability (~40 characters) */
    grid-column: 2 / 3; /* first column */
+    text-transform: uppercase;
+    font-family: 'Mona Sans', sans-serif;
+  }
+
+  .hero-subhead-work {
+    color: #000000; /* Uses your brand's dominant color */
+    font-size: .8rem;
+    line-height: 1.2rem;
+    max-width: 40ch; /* Optimal line length for readability (~40 characters) */
+   grid-column: 3/ 4; /* first column */
     text-transform: uppercase;
     font-family: 'Mona Sans', sans-serif;
   }
