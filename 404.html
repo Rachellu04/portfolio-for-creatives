@@ -12,7 +12,7 @@
     <link
       rel="icon"
       type="image/x-icon"
-      href="assets/branding-images/logo.svg"
+      href="assets/branding-images/logo-flavicon.png"
     />
     <link
       rel="stylesheet"
@@ -31,39 +31,33 @@
   <body class="error-page">
     <section class="hero">
       <header class="hero-header">
-        <div class="menu">
-          <span class="menu-circle"></span>
-          <a href="#" class="menu-link">
-            <span class="menu-icon">
-              <span class="menu-line menu-line-1"></span>
-              <span class="menu-line menu-line-2"></span>
-              <span class="menu-line menu-line-3"></span>
-            </span>
-          </a>
-          <div class="menu-overlay">
-            <ul>
-              <li class="nav-branding-item">
-                <a href="work.html"><h3>Work</h3></a>
-              </li>
-              <li class="nav-branding-item">
-                <a href="about.html"><h3>About</h3></a>
-              </li>
-              <li class="nav-branding-item">
-                <a href="work.html"><h3>Contact</h3></a>
-              </li>
-              <li class="nav-branding-item">
-                <a href="404.html"><h3>Illustration</h3></a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="name">
+        <nav class="menu" aria-label="Main navigation">
+      
+
+        <button class="menu-link" aria-label="Open menu">
+          <span class="menu-icon" aria-hidden="true">
+            <span class="menu-line menu-line-1"></span>
+            <span class="menu-line menu-line-2"></span>
+            <span class="menu-line menu-line-3"></span>
+          </span>
+        </button>
+
+        <div class="menu-overlay">
           <ul>
+            <li class="nav-branding-item"><a href="work.html">Work</a></li>
+            <li class="nav-branding-item"><a href="about.html">About</a></li>
+            <li class="nav-branding-item"><a href="work.html">Art Direction</a></li>
             <li class="nav-branding-item">
-              <a href="work.html"><p>Rachel Lu</p></a>
+              <a href="404.html">UX/UI</a>
             </li>
           </ul>
         </div>
+      </nav>
+
+      <!-- Site name / home link -->
+      <div class="name">
+        <a href="work.html">Rachel Lu</a>
+      </div>
       </header>
       <div class="error-headline-wrapper">
         <a href="work.html">
@@ -109,74 +103,11 @@
         </ul>
       </div>
     </footer>
+    <div class="custom-cursor">
+      <span class="cursor-arrow">view</span>
+    </div>
+
+    <script src="js/main.js" defer></script>
   </body>
-  <script>
-    const cursor = document.querySelector(".custom-cursor");
-
-    window.addEventListener("mousemove", (e) => {
-      cursor.style.top = e.clientY + "px";
-      cursor.style.left = e.clientX + "px";
-    });
-
-    let mouseX = 0;
-    let mouseY = 0;
-    let currentX = 0;
-    let currentY = 0;
-
-    window.addEventListener("mousemove", (e) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-    });
-
-    function animate() {
-      currentX += (mouseX - currentX) * 0.4; // easing
-      currentY += (mouseY - currentY) * 0.4;
-      cursor.style.top = `${currentY}px`;
-      cursor.style.left = `${currentX}px`;
-      requestAnimationFrame(animate);
-    }
-
-    animate();
-
-    window.addEventListener("mouseover", (e) => {
-      const target = e.target;
-
-      // Check if target is interactive
-      const isHoverable = target.closest(".nav-branding"); // include grid items
-      window.getComputedStyle(target).cursor === "pointer";
-
-      if (isHoverable) {
-        cursor.classList.add("expand");
-      } else {
-        cursor.classList.remove("expand");
-      }
-    });
-
-    window.addEventListener("mouseout", (e) => {
-      cursor.classList.remove("expand");
-    });
-  </script>
-
-  <script>
-    var els = document.querySelectorAll(".btn-primary.position-aware");
-    els.forEach(function (el) {
-      el.addEventListener("mouseenter", function (e) {
-        var relX = e.pageX - el.offsetLeft;
-        var relY = e.pageY - el.offsetTop;
-        var scale = Math.round(
-          (Math.abs(relX - el.offsetWidth / 2) / (el.offsetWidth / 2) + 1) * 100
-        );
-        el.querySelector("span").style.width = "calc(" + scale + "% + 1rem)";
-        el.querySelector("span").style.top = relY + "px";
-        el.querySelector("span").style.left = relX + "px";
-      });
-      el.addEventListener("mouseout", function (e) {
-        var relX = e.pageX - el.offsetLeft;
-        var relY = e.pageY - el.offsetTop;
-        el.querySelector("span").style.width = "0%";
-        el.querySelector("span").style.top = relY + "px";
-        el.querySelector("span").style.left = relX + "px";
-      });
-    });
-  </script>
+  
 </html>
