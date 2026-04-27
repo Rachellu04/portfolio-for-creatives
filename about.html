@@ -195,7 +195,7 @@
       </a>
     </div>
 
-    <footer class="footer-global">
+   <footer class="footer-global">
       <div class="footer-tagline">
         <p>
           Hand Crafted with ♡ by Rachel Lu &copy;
@@ -205,127 +205,19 @@
 
       <div class="footer-social">
         <ul class="footer-list">
-          <li class="footer-item"><a href="#">Instagram</a></li>
+          <li class="footer-item"><a href="https://www.instagram.com/rachellu.dsgn/">Instagram</a></li>
           <li class="footer-item">
-            <a href="mailto:rachel.l04@outlook.com">Email</a>
+            <a href="mailto:rachelludesign@gmail.com">Email</a>
           </li>
-          <li class="footer-item"><a href="#">Behance</a></li>
-          <li class="footer-item"><a href="#">LinkedIn</a></li>
+          <li class="footer-item"><a href="https://www.behance.net/rachelludesign">Behance</a></li>
+          <li class="footer-item"><a href="https://www.linkedin.com/in/rachelludesign/">LinkedIn</a></li>
         </ul>
       </div>
     </footer>
-    <div class="custom-cursor"></div>
+    <div class="custom-cursor">
+      <span class="cursor-arrow">view</span>
+    </div>
+
+    <script src="js/main.js" defer></script>
   </body>
-
-  <script>
-    const cursor = document.querySelector(".custom-cursor");
-
-    window.addEventListener("mousemove", (e) => {
-      cursor.style.top = e.clientY + "px";
-      cursor.style.left = e.clientX + "px";
-    });
-
-    let mouseX = 0;
-    let mouseY = 0;
-    let currentX = 0;
-    let currentY = 0;
-
-    window.addEventListener("mousemove", (e) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-    });
-
-    function animate() {
-      currentX += (mouseX - currentX) * 0.35; // easing
-      currentY += (mouseY - currentY) * 0.35;
-      cursor.style.top = `${currentY}px`;
-      cursor.style.left = `${currentX}px`;
-      requestAnimationFrame(animate);
-    }
-
-    animate();
-
-    window.addEventListener("mouseover", (e) => {
-      const target = e.target;
-
-      // Check if target is interactive
-      const isHoverable =
-        target.tagName === "A" ||
-        target.tagName === "BUTTON" ||
-        target.tagName === "INPUT" ||
-        target.tagName === "TEXTAREA" ||
-        target.tagName === "SELECT" ||
-        target.tagName === "IMG" ||
-        window.getComputedStyle(target).cursor === "pointer";
-
-      if (isHoverable) {
-        cursor.classList.add("expand");
-      } else {
-        cursor.classList.remove("expand");
-      }
-    });
-
-    window.addEventListener("mouseout", (e) => {
-      cursor.classList.remove("expand");
-    });
-  </script>
-  <script>
-    const animatedItems = document.querySelectorAll(
-      ".service-item, .award-item, .experience-item"
-    );
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-
-            // Optional stagger delay
-            const index = Array.from(animatedItems).indexOf(entry.target);
-            entry.target.style.transitionDelay = `${index * 0.02}s`;
-          } else {
-            entry.target.classList.remove("visible");
-            entry.target.style.transitionDelay = "0s";
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    animatedItems.forEach((item) => observer.observe(item));
-  </script>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script>
-    $(function () {
-      $(".menu-link").click(function (e) {
-        e.preventDefault();
-
-        $(".menu-overlay").toggleClass("open");
-        $(".menu").toggleClass("open");
-      });
-    });
-  </script>
-  <script>
-    var els = document.querySelectorAll(".btn-primary.position-aware");
-    els.forEach(function (el) {
-      el.addEventListener("mouseenter", function (e) {
-        var rect = el.getBoundingClientRect();
-        var relX = e.clientX - rect.left;
-        var relY = e.clientY - rect.top;
-        var scale = Math.round(
-          (Math.abs(relX - el.offsetWidth / 2) / (el.offsetWidth / 2) + 1) * 100
-        );
-        el.querySelector("span").style.width = "calc(" + scale + "% + 1rem)";
-        el.querySelector("span").style.top = relY + "px";
-        el.querySelector("span").style.left = relX + "px";
-      });
-      el.addEventListener("mouseout", function (e) {
-        var relX = e.pageX - el.offsetLeft;
-        var relY = e.pageY - el.offsetTop;
-        el.querySelector("span").style.width = "0%";
-        el.querySelector("span").style.top = relY + "px";
-        el.querySelector("span").style.left = relX + "px";
-      });
-    });
-  </script>
 </html>

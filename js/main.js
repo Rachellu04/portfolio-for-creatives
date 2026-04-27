@@ -66,10 +66,20 @@ document.addEventListener("DOMContentLoaded", () => {
     observer.observe(item);
   });
   //Hero Headline Fade-In
-  const headline = document.querySelector(".hero-headline");
-  const subhead = document.querySelector(".hero-subhead");
-  if (headline) setTimeout(() => headline.classList.add("show"), 300);
-  if (subhead) setTimeout(() => subhead.classList.add("show"), 700);
+ const elements = [
+  { el: ".hero-headline", delay: 300 },
+  { el: ".hero-subhead", delay: 700 },
+  { el: ".hero-subhead-work", delay: 1100 }
+];
+
+elements.forEach(item => {
+  const element = document.querySelector(item.el);
+  if (element) {
+    setTimeout(() => {
+      element.classList.add("show");
+    }, item.delay);
+  }
+});
   //Slide-Up Elements
   const slideUps = document.querySelectorAll(".slide-up");
   window.addEventListener("load", () => {
