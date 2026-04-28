@@ -1,154 +1,114 @@
-myID = document.getElementById("myID");
+// -----------------------------
+// SLIDE UP ANIMATION
+// -----------------------------
+document.addEventListener("DOMContentLoaded", () => {
+  const slideElements = document.querySelectorAll(".slide-up");
 
-var myScrollFunc = function () {
-  var y = window.scrollY;
-  if (y >= 800) {
-    myID.className = "bottomMenu show";
-  } else {
-    myID.className = "bottomMenu hide";
-  }
-};
-
-window.addEventListener("scroll", myScrollFunc);
-
-const cursor = document.querySelector(".custom-cursor");
-
-window.addEventListener("mousemove", (e) => {
-  cursor.style.top = e.clientY + "px";
-  cursor.style.left = e.clientX + "px";
-});
-
-let mouseX = 0;
-let mouseY = 0;
-let currentX = 0;
-let currentY = 0;
-
-window.addEventListener("mousemove", (e) => {
-  mouseX = e.clientX;
-  mouseY = e.clientY;
-});
-
-function animate() {
-  currentX += (mouseX - currentX) * 0.4; // easing
-  currentY += (mouseY - currentY) * 0.4;
-  cursor.style.top = `${currentY}px`;
-  cursor.style.left = `${currentX}px`;
-  requestAnimationFrame(animate);
-}
-
-animate();
-
-window.addEventListener("mouseover", (e) => {
-  const target = e.target;
-
-  // Check if target is interactive
-  const isHoverable =
-    target.tagName === "A" ||
-    target.tagName === "BUTTON" ||
-    target.tagName === "INPUT" ||
-    target.tagName === "TEXTAREA" ||
-    target.tagName === "SELECT" ||
-    target.closest(".arrow-left") ||
-    target.closest(".arrow-right");
-
-  window.getComputedStyle(target).cursor === "pointer";
-
-  if (isHoverable) {
-    cursor.classList.add("expand");
-  } else {
-    cursor.classList.remove("expand");
-  }
-});
-
-window.addEventListener("mouseout", (e) => {
-  cursor.classList.remove("expand");
-});
-
-const elements = document.querySelectorAll(".slide-up");
-
-const observer = new IntersectionObserver(
-  (entries) => {
+  const slideObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        // Add a delay depending on the element's index
-        const index = Array.from(elements).indexOf(entry.target);
-        entry.target.style.transitionDelay = `${index * 0.02}s`; // 0.2s apart
         entry.target.classList.add("show");
-        observer.unobserve(entry.target); // animate once
+        observer.unobserve(entry.target);
       }
     });
-  },
-  { threshold: 0.1 }
-);
+  }, {
+    threshold: 0.2
+  });
 
-elements.forEach((el) => observer.observe(el));
+  slideElements.forEach(el => slideObserver.observe(el));
+});
 
+
+// -----------------------------
+// STAGGERED HEADER ANIMATION
+// -----------------------------
 document.addEventListener("DOMContentLoaded", () => {
   const header = document.querySelector(".project-header.stagger");
+  if (!header) return;
 
-  // Split headline into words
   const words = header.textContent.trim().split(/\s+/);
 
-  // Wrap each word in its own overflow-hidden container
   header.innerHTML = words
     .map((word) => `<span class="word-wrapper"><span>${word}</span></span>`)
     .join(" ");
 
   const wordSpans = header.querySelectorAll(".word-wrapper span");
 
-  // IntersectionObserver to trigger slide up/down on scroll
-  const observer = new IntersectionObserver(
+  const textObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         wordSpans.forEach((span, i) => {
-          // stagger delay per word
           span.style.transitionDelay = `${i * 0.045}s`;
+
           if (entry.isIntersecting) {
-            span.classList.add("show"); // scroll DOWN → slide up
+            span.classList.add("show");
           } else {
-            span.classList.remove("show"); // scroll UP → slide down
+            span.classList.remove("show");
           }
         });
       });
     },
     { threshold: 0.1 }
-  ); // trigger when ~20% visible
+  );
 
-  observer.observe(header);
+  textObserver.observe(header);
 });
 
-$(function () {
-  $(".menu-link").click(function (e) {
+
+// -----------------------------
+// MENU TOGGLE (NO JQUERY)
+// -----------------------------
+const menuBtn = document.querySelector(".menu-link");
+const menuOverlay = document.querySelector(".menu-overlay");
+const menu = document.querySelector(".menu");
+
+if (menuBtn) {
+  menuBtn.addEventListener("click", (e) => {
     e.preventDefault();
 
-    $(".menu-overlay").toggleClass("open");
-    $(".menu").toggleClass("open");
-  });
-});
+    menuOverlay.classList.toggle("open");
+    menu.classList.toggle("open");
 
-var els = document.querySelectorAll(".btn-primary.position-aware");
-els.forEach(function (el) {
-  el.addEventListener("mouseenter", function (e) {
-    var rect = el.getBoundingClientRect();
-    var relX = e.clientX - rect.left;
-    var relY = e.clientY - rect.top;
-    var scale = Math.round(
+    // accessibility improvement
+    const expanded = menuBtn.getAttribute("aria-expanded") === "true";
+    menuBtn.setAttribute("aria-expanded", !expanded);
+  });
+}
+
+
+// -----------------------------
+// BUTTON HOVER EFFECT
+// -----------------------------
+const buttons = document.querySelectorAll(".btn-primary.position-aware");
+
+buttons.forEach((el) => {
+  const span = el.querySelector("span");
+  if (!span) return;
+
+  el.addEventListener("mouseenter", (e) => {
+    const rect = el.getBoundingClientRect();
+    const relX = e.clientX - rect.left;
+    const relY = e.clientY - rect.top;
+
+    const scale = Math.round(
       (Math.abs(relX - el.offsetWidth / 2) / (el.offsetWidth / 2) + 1) * 100
     );
-    el.querySelector("span").style.width = "calc(" + scale + "% + 1rem)";
-    el.querySelector("span").style.top = relY + "px";
-    el.querySelector("span").style.left = relX + "px";
+
+    span.style.width = `calc(${scale}% + 1rem)`;
+    span.style.top = `${relY}px`;
+    span.style.left = `${relX}px`;
   });
-  el.addEventListener("mouseout", function (e) {
-    var relX = e.pageX - el.offsetLeft;
-    var relY = e.pageY - el.offsetTop;
-    el.querySelector("span").style.width = "0%";
-    el.querySelector("span").style.top = relY + "px";
-    el.querySelector("span").style.left = relX + "px";
+
+  el.addEventListener("mouseleave", (e) => {
+    span.style.width = "0%";
   });
 });
 
-//get year
 
-document.getElementById("copyright-years").textContent +=
-  new Date().getFullYear();
+// -----------------------------
+// COPYRIGHT YEAR
+// -----------------------------
+const yearEl = document.getElementById("copyright-years");
+if (yearEl) {
+  yearEl.textContent += new Date().getFullYear();
+}

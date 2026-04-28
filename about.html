@@ -45,9 +45,9 @@
           <ul>
             <li class="nav-branding-item"><a href="work.html">Work</a></li>
             <li class="nav-branding-item"><a href="about.html">About</a></li>
-            <li class="nav-branding-item"><a href="work.html">Contact</a></li>
+            <li class="nav-branding-item"><a href="work.html">Art Direction</a></li>
             <li class="nav-branding-item">
-              <a href="404.html">Illustration</a>
+              <a href="404.html">UX/UI</a>
             </li>
           </ul>
         </div>
@@ -79,7 +79,7 @@
         <div class="about-grid-text">
           <h1 class="about-header">Hi, I'm Rachel,</h1>
 
-          <h4>
+          <p>
             an interdisciplinary designer and recent graduate from Capilano
             University’s IDEA School of Design. With a passion for learning
             about all things design, I strive to adapt to the fluid creative
@@ -87,38 +87,38 @@
             that design isn’t just about aesthetics; it should solve real-world
             problems, clearly communicate a meaningful message, and most
             importantly be grounded in strong concepts.
-          </h4>
-          <h4>
+          </p>
+          <p>
             Since you read all the way down here, we should totally be friends.
             Let’s connect and talk some more about design
-          </h4>
+          </p>
         </div>
       </div>
     </div>
 
     <div class="about-services">
-      <div class="about-services-title"><h3>Services</h3></div>
+      <div class="about-services-title"><h4>Services</h4></div>
 
       <ul class="services-list">
         <li class="service-item">
-          <h4>01</h4>
-          <h4>Brand Identity</h4>
+          <p>01</p>
+          <p>Brand Identity</p>
         </li>
         <li class="service-item">
-          <h4>02</h4>
-          <h4>Advertising</h4>
+          <p>02</p>
+          <p>Advertising</p>
         </li>
         <li class="service-item">
-          <h4>03</h4>
-          <h4>Motion Design</h4>
+          <p>03</p>
+          <p>Motion Design</p>
         </li>
         <li class="service-item">
-          <h4>04</h4>
-          <h4>3D Modeling</h4>
+          <p>04</p>
+          <p>3D Modeling</p>
         </li>
         <li class="service-item">
-          <h4>05</h4>
-          <h4>Web Design</h4>
+          <p>05</p>
+          <p>Web Design</p>
         </li>
       </ul>
     </div>
@@ -195,7 +195,7 @@
       </a>
     </div>
 
-   <footer class="footer-global">
+    <footer class="footer-global">
       <div class="footer-tagline">
         <p>
           Hand Crafted with ♡ by Rachel Lu &copy;
@@ -220,4 +220,33 @@
 
     <script src="js/main.js" defer></script>
   </body>
+
+  
+  <script>
+    const animatedItems = document.querySelectorAll(
+      ".service-item, .award-item, .experience-item"
+    );
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+
+            // Optional stagger delay
+            const index = Array.from(animatedItems).indexOf(entry.target);
+            entry.target.style.transitionDelay = `${index * 0.02}s`;
+          } else {
+            entry.target.classList.remove("visible");
+            entry.target.style.transitionDelay = "0s";
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    animatedItems.forEach((item) => observer.observe(item));
+  </script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 </html>

@@ -1475,8 +1475,9 @@ a.nav-link-primary:hover {
 
 .about-image {
   position: relative;
-  width: 500px;
-  height: 600px;
+  width: 100%;
+  max-width: 500px; /* keeps your design cap */
+  aspect-ratio: 5 / 6; /* replaces fixed height */
 }
 
 .about-image img {
@@ -1499,10 +1500,24 @@ a.nav-link-primary:hover {
   opacity: 0;
 }
 
-/* Image section in the About page grid */
-.about-grid-image {
-  grid-column: 1 / 2; /* Image spans the first column */
-  grid-row: 1 / 2; /* Image spans the first row */
+@media (max-width: 768px) {
+  .about-grid {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .about-grid-image {
+    order: 1;
+  }
+
+  .about-grid-info {
+    order: 2;
+    padding-left: 0;
+  }
+
+  .about-grid-text p{
+    font-size: 1rem;
+  }
 }
 
 /* Text section in the About page grid */
@@ -1674,6 +1689,8 @@ a.nav-link-primary:hover {
   width: 100%; /* line expands across the full item */
 }
 
+
+
 .about-btns {
   padding: var(--padding-jumbo);
 }
@@ -1720,96 +1737,7 @@ a.nav-link-primary:hover {
 ██      ██    ██ ██    ██    ██    ██      ██   ██ 
 ██       ██████   ██████     ██    ███████ ██   ██ 
                                                    
-*/
 
-/* -------------------------------------------------------------------------- */
-/* 📱 MOBILE FOOTER LAYOUT                                                    */
-/* Designed with mobile-first approach using CSS Grid                          */
-/* -------------------------------------------------------------------------- */
-
-/* -------------------------------------------------------------------------- */
-/* 🧩 FOOTER SECTION PLACEMENT                                                */
-/* Each component stacks vertically in mobile view                             */
-/* -------------------------------------------------------------------------- */
-
-.footer-tagline {
-  grid-column: 1 / 2; /* Full width (single column) */
-  grid-row: 1 / 2;
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-  position: relative; /* ensures child absolute elements inside button work */
-  overflow: visible; /* allow button span to expand outside */
-}
-.footer-highlights {
-  grid-column: 1 / 2;
-  grid-row: 2 / 3;
-}
-.footer-contact-social {
-  grid-column: 1 / 2;
-  grid-row: 3 / 4;
-}
-/* -------------------------------------------------------------------------- */
-/* 🌊 FULL-WIDTH BOTTOM SECTION                                               */
-/* Typically used for copyright/legal information                             */
-/* -------------------------------------------------------------------------- */
-.footer-full-width {
-  grid-column: 1 / 2;
-  grid-row: 4/5;
-  text-align: center; /* Center copyright text */
-  align-self: end; /* Push to bottom */
-}
-
-/* ------------------------------- */
-/* 📜 Reusable footer list styles */
-/* ------------------------------- */
-.footer-list {
-  margin-bottom: 2rem;
-}
-.footer-awards-list {
-  margin-bottom: 2rem;
-}
-
-.footer-socials-list {
-  margin-bottom: 2rem;
-}
-
-/* -------------------------------------------------------------------------- */
-/* 📏 Footer Item Spacing                                                     */
-/* -------------------------------------------------------------------------- */
-
-/* Apply this class to ALL list items (awards, works, social, bullets) */
-
-.footer-contact {
-  grid-column: 1/2;
-  grid-row: 1/2;
-  background: red;
-}
-.footer-item {
-  line-height: 1.2; /* Consistent line height for footer items to improve spacing */
-  margin-bottom: 0.25rem;
-  grid-column: 1/2;
-  grid-row: 2/3;
-}
-
-/* -------------------------------------------------------------------------- */
-/* ✨ Footer Special Elements                                                 */
-/* -------------------------------------------------------------------------- */
-
-.footer-fineprint {
-  font-size: 0.875rem; /* Slightly smaller for disclaimers or captions */
-  color: var(--color-text-secondary); /* Themed color */
-}
-
-/* -------------------------------------------------------------------------- */
-/* 🌐 MINIMAL FOOTER (ALTERNATIVE VERSION)                                    */
-/* A simpler alternative to the CSS Grid footer - ideal for beginners          */
-/* -------------------------------------------------------------------------- */
-
-.footer-global-wrapper {
-  padding: var(--padding-small);
-  overflow: visible;
-}
 
 /* 
 
@@ -2376,12 +2304,12 @@ Error
     overflow: visible;
   }
 
-  .about-grid-image {
-    grid-column: 1 / 2;
-    grid-row: 1 / 2;
-  }
   .about-grid-text {
     overflow: visible;
+  }
+
+  .about-grid-text p{
+    font-size: 1.5rem;
   }
 
   .about-grid-info {
@@ -2431,57 +2359,48 @@ Error
   /* ------------------------------- */
 
   .footer-global {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: var(--padding-large);
-    gap: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: var(--padding-large);
+  gap: 2rem;
+}
+
+/* Left column */
+.footer-tagline {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Right column */
+.footer-social {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Internal list layout */
+.footer-list {
+  display: flex;
+  flex-direction: row;
+  gap: 0.75rem;
+  justify-content: flex-end;
+}
+
+/* MOBILE: stack */
+@media (max-width: 768px) {
+  .footer-global {
+    grid-template-columns: 1fr; /* this makes them stack */
   }
 
-  /* Left column */
-  .footer-tagline {
-    grid-column: 1 / 2;
-
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  /* Right column */
   .footer-social {
-    grid-column: 2 / 3;
+    justify-content: flex-start; /* keeps alignment consistent */
   }
 
-  /* Internal list layout */
   .footer-list {
-    display: flex;
-    flex-direction: row;
-    gap: 0.75rem;
-    justify-content: end;
+    justify-content: flex-start;
   }
+}
 
-  
-
-
-
-  /* Work Sidebar on Large Devices */
-  .about-grid {
-    display: grid; /* Set to grid layout */
-    grid-template-columns: 1fr 1fr; /* Single column layout for mobile and smaller screens */
-    grid-gap: 4rem; /* Space between grid items */
-    background: var(--color-bg-about); /* Background color for the section */
-    padding: var(--padding-jumbo); /* Padding around the grid */
-    flex: 1; /* Flex-grow to take up available space */
-  }
-
-  /* Work Sidebar on Large Devices */
-
-  .work-sidebar {
-    width: 200px;
-    flex-shrink: 0; /* prevents it from shrinking */
-    height: calc(100vh - 2rem);
-    position: sticky;
-    top: 1rem;
-  }
 
   /* Main Work Area on Large Devices */
 
