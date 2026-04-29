@@ -2,82 +2,19 @@
  * =============================================
  * PORTFOLIO FOR CREATIVES – MAIN STYLESHEET
  * =============================================
- * Author: James Neufeld
- * Version: 2.1 | Last Updated: April 13, 2025
- * License: GNU General Public License v3.0 (GPL-3.0)
- * https://www.gnu.org/licenses/gpl-3.0.en.html
- * 
- * CONTENTS:                    DESIGN SYSTEM:
- * 1. Base Styles               - Comprehensive color & font theming 🎨
- * 2. Typography                - Mobile-first responsive architecture 📱
- * 3. Layout Components
- * 4. Page Templates
- * 5. Responsive Breakpoints
- * =============================================
- */
-
-/* 
-███████  ██████  ███    ██ ████████ ███████ 
-██      ██    ██ ████   ██    ██    ██      
-█████   ██    ██ ██ ██  ██    ██    ███████ 
-██      ██    ██ ██  ██ ██    ██         ██ 
-██       ██████  ██   ████    ██    ███████ 
 */
 
-/* ------------------------------- */
-/* 🌐 Google Fonts - Customize Your Site's Typography */
-/* You can add your own fonts here, but be mindful of performance */
-/* ------------------------------- */
+/* ======================
+   FONTS
+   ====================== */
 
-/* TODO: Replace these Google Fonts with the ones you want to use on your site. */
-/* Remember, the more fonts you load, the longer it can take for your page to load. */
+@import url("[fonts.googleapis.com](https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&display=swap)");
+@import url("[fonts.googleapis.com](https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,200..900;1,200..900&display=swap)");
 
-/* Cormorant Font (for headers or special text) */
-@import url("https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&display=swap");
 
-/* Mona Sans Font (great for readability and minimal design) */
-@import url("https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,200..900;1,200..900&display=swap");
-
-/*
-
-/* 
-██ ███    ███ ██████   ██████  ██████  ████████      ██████ ███████ ███████ 
-██ ████  ████ ██   ██ ██    ██ ██   ██    ██        ██      ██      ██      
-██ ██ ████ ██ ██████  ██    ██ ██████     ██        ██      ███████ ███████ 
-██ ██  ██  ██ ██      ██    ██ ██   ██    ██        ██           ██      ██ 
-██ ██      ██ ██       ██████  ██   ██    ██         ██████ ███████ ███████ 
-*/
-
-/* ------------------------------- */
-/* 🔗 Imported Stylesheets */
-/* These are external CSS files that add extra effects to your site. */
-/* ------------------------------- */
-
-/* TODO: Delete any stylesheets you don't plan to use on your site. */
-
-/* File for adding a glitch animation to your 404 error page */
-@import url("error.css");
-
-/* File for adding a scroll-to-top button or effect */
-@import url("scroll-to-top.css");
-
-/* 
-██    ██  █████  ██████  ██  █████  ██████  ██      ███████ ███████ 
-██    ██ ██   ██ ██   ██ ██ ██   ██ ██   ██ ██      ██      ██      
-██    ██ ███████ ██████  ██ ███████ ██████  ██      █████   ███████ 
- ██  ██  ██   ██ ██   ██ ██ ██   ██ ██   ██ ██      ██           ██ 
-  ████   ██   ██ ██   ██ ██ ██   ██ ██████  ███████ ███████ ███████ 
-*/
-
-/* ------------------------------- */
-/* 🎨 Theme Design Variables */
-/* Use CSS variables to quickly change your site's color scheme and typography */
-/* ------------------------------- */
-
-/* These design variables store important elements like colours and fonts.
-   You can easily change the look and feel of your site by adjusting these values. */
-
-/* TODO: Customize these variables to fit your design. You can add new ones or delete ones you don’t need. */
+/* ======================
+   CSS VARIABLES
+   ====================== */
 
 :root {
   /* Typography */
@@ -85,152 +22,81 @@
   --font-family-heading: "Mona Sans", sans-serif;
   --font-family-project-title: "Mona Sans", sans-serif;
   --font-family-subheading: "Mona Sans", serif;
-  /* Core Colours */
-  --color-text-primary: rgb(0, 0, 0);
-  --color-text-secondary: rgb(0, 0, 0);
+
+  /* Core Colors */
+  --color-text-primary: #000;
+  --color-text-secondary: #000;
   --color-accent-primary: #a6c6ec;
   --color-accent-secondary: #ffe436;
-  --color-overlay-primary: #000000;
-  --color-highlight: rgb(255, 246, 85);
+  --color-overlay-primary: #000;
+  --color-highlight: rgb(211, 236, 255);
 
   /* Backgrounds */
-  --color-bg: #ffffff;
-  --color-bg-about: #ffffff;
-  --color-bg-footer: #ffffff;
-  --color-bg-holding-page: rgb(255, 255, 255);
+  --color-bg: #fff;
+  --color-bg-about: #fff;
+  --color-bg-footer: #fff;
+  --color-bg-holding-page: #fff;
+  --color-bg-full-width: #000;
+  --color-bg-sidebar-work: #fff;
+  --color-bg-selection: #d7e8ef;
+
   /* Headings */
-  --h1-color: #000000;
-  --h2-color: #000000;
-  --h3-color: #000000;
-  --h4-color: #000000;
-  --h5-color: #000000;
-  --h6-color: #000000;
-  /* Special Text Colours */
-  --color-text-holding-title: #000000;
+  --h1-color: #000;
+  --h2-color: #000;
+  --h3-color: #000;
+  --h4-color: #000;
+  --h5-color: #000;
+  --h6-color: #000;
+
+  /* Text Colors */
+  --color-text-holding-title: #000;
   --color-text-project-category: #4a4a4ac1;
-  --color-text-project-description: rgb(0, 0, 0);
-  --color-text-project-sidebar: rgb(0, 0, 0);
-  --color-text-project-title: #000000;
-  --color-text-work-grid-title: #000000;
-  /* Link States */
-  --color-link: #000000;
-  --color-link-hover: #000000;
-  --color-link-visited: #000000;
-  /* Navigation */
-  --color-nav-link: #000000;
-  --color-nav-link-hover: #000000;
-  --color-nav-arrow-hover: #000000;
-  --color-nav-arrow-stroke: #000000;
-  --color-nav-arrow-stroke-hover: #000000;
-  /* Components */
-  --color-bg-full-width: #000000;
-  --color-bg-project-description: #000000;
-  --color-bg-sidebar-project: orangered;
-  --color-bg-sidebar-work: rgb(255, 255, 255);
-
-  /* Special Elements */
-
+  --color-text-project-description: #000;
+  --color-text-project-sidebar: #000;
+  --color-text-project-title: #000;
+  --color-text-work-grid-title: #000;
   --color-text-holding-footer: #f8f8ff;
-  --color-bg-selection: #d5d5d5;
-  --color-shadow-stroke: rgba(0, 0, 0, 0.4);
-  /* Assets */
 
-  /* Animation Durations */
+  /* Links */
+  --color-link: #000;
+  --color-link-hover: #000;
+  --color-link-visited: #000;
 
-  /* Rounded Corners */
-  --radius-sm: 0.5rem; /* Small interactive elements */
-  --radius-md: 1rem; /* Cards/containers */
-  --radius-lg: 1rem; /* Large decorative elements */
-  --radius-full: 50%; /* Circles/pills */
+  /* Navigation */
+  --color-nav-link: #000;
+  --color-nav-link-hover: #000;
+  --color-nav-arrow-hover: #000;
+  --color-nav-arrow-stroke: #000;
+  --color-nav-arrow-stroke-hover: #000;
+
+  /* Border Radius */
+  --radius-sm: 0.5rem;
+  --radius-md: 1rem;
+  --radius-lg: 1rem;
+  --radius-full: 50%;
+
   /* Padding Scale */
-  --padding-tiny: 0.75rem; /* Micro-spacing: icon padding, toggle switches */
-  --padding-small: 1rem; /* Compact spacing: mobile buttons, form tags */
-  --padding-medium: 2rem; /* Standard spacing: desktop buttons, card content */
-  --padding-large: 3rem; /* Section spacing: content blocks, banner padding */
-  --padding-jumbo: 4rem; /* Hero elements: full-width containers, page headers */
-  --padding-ultra: 8rem; /* Full-bleed spacing: edge-to-edge layouts, super-sized headers */
-
-  .custom-cursor {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 15px;
-    height: 15px;
-    background-color: rgb(0, 0, 0);
-    border-radius: 50%;
-    pointer-events: none;
-    transform: translate(-50%, -50%);
-    transition: width 0.2s ease, height 0.2s ease, background-color 0.3s ease;
-    z-index: 9999;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .custom-cursor.expand {
-    width: 50px;
-    height: 50px;
-    background-color: rgba(93, 192, 254, 0.883);
-    box-sizing: border-box;
-    backdrop-filter: blur(2px);
-    -webkit-backdrop-filter: blur(6px);
-  }
-
-  .cursor-arrow {
-    color: rgb(255, 255, 255);
-    font-size: 0.8rem;
-    opacity: 0; /* hidden by default */
-    transform: scale(0.5); /* small + faded out */
-    transition: opacity 0.2s ease, transform 0.2s ease;
-  }
-
-  /* Show and center arrow only in expand state */
-  .custom-cursor.expand .cursor-arrow {
-    opacity: 1;
-    transform: scale(1);
-  }
-
-  .uppercase {
-    text-transform: uppercase;
-  }
+  --padding-tiny: 0.75rem;
+  --padding-small: 1rem;
+  --padding-medium: 2rem;
+  --padding-large: 3rem;
+  --padding-jumbo: 4rem;
+  --padding-ultra: 8rem;
 }
 
 /* ======================
-   #BASE STYLES
+   BASE STYLES
    ====================== */
 
-/* 
-███    ███  ██████  ██████  ██ ██      ███████     ███████ ██ ██████  ███████ ████████ 
-████  ████ ██    ██ ██   ██ ██ ██      ██          ██      ██ ██   ██ ██         ██    
-██ ████ ██ ██    ██ ██████  ██ ██      █████       █████   ██ ██████  ███████    ██    
-██  ██  ██ ██    ██ ██   ██ ██ ██      ██          ██      ██ ██   ██      ██    ██    
-██      ██  ██████  ██████  ██ ███████ ███████     ██      ██ ██   ██ ███████    ██    
-*/
-
-/* ------------------------------- */
-/* 📱 Responsive Design for Small Devices (Portrait Phones) */
-/* No media query needed for small devices like phones under 576px. This is the default in Bootstrap. */
-/* ------------------------------- */
-
-/* Add border-box sizing to make layout easier and enable smooth scrolling behavior */
 html {
-  box-sizing: border-box; /* Makes sure padding and borders don't add extra width to elements */
-  scroll-behavior: smooth; /* Adds smooth scrolling between sections */
-  *:hover,
-  *:hover::before,
-  *:hover::after {
-    cursor: none !important;
-  }
-  /* TODO: Replace the URL above to add a custom cursor. 
-     If you want to use the default browser cursor, just delete this line. */
+  box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
-/* Ensure all elements, including pseudo-elements, follow border-box sizing */
 *,
-*:before,
-*:after {
-  box-sizing: inherit; /* Inherits the border-box setting from the html tag */
+*::before,
+*::after {
+  box-sizing: inherit;
 }
 
 body {
@@ -240,180 +106,78 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  margin: 0;
 }
-
-/* ------------------------------- */
-/* 🖍️ Text Highlight Styles */
-/* This changes the background color when you highlight text (like when you click and drag to select it) */
-/* ------------------------------- */
 
 ::selection {
-  background: var(
-    --color-bg-selection
-  ); /* Uses your custom color for highlighted text */
+  background: var(--color-bg-selection);
 }
 
-/* ---------------------------------------- */
-/* 🖼️ Responsive Image Styles */
-/* These styles make your images and icons look good on any screen size */
-/* ---------------------------------------- */
-
-/* Make all images and SVGs scale nicely */
 img,
 svg {
-  max-width: 100%; /* Keeps the image from getting too big */
-  height: auto; /* Keeps the image’s original proportions */
-  vertical-align: top; /* Removes little gaps under images (from line-height) */
-  object-fit: contain; /* Optional: Makes sure the whole image fits inside its box */
-  /* Try 'cover' if you want it to fill the space, or remove this line if not needed */
+  max-width: 100%;
+  height: auto;
+  vertical-align: top;
+  object-fit: contain;
 }
 
-/* ---------------------------------------- */
-/* 🎨 Utility Classes for Styling Elements  */
-/* Use these helper classes to quickly apply 
-   common styles across your portfolio site */
-/* ---------------------------------------- */
+/* ======================
+   CUSTOM CURSOR
+   ====================== */
 
-/* ------------------------ */
-/* 📐 Layout & Spacing Tools */
-/* ------------------------ */
-
-/* Horizontally centers a block element (must have a defined width) */
-.centered-block {
-  margin: 0 auto;
-}
-
-/* Vertical layout – stacks items in a column (mobile-first) */
-.flex-row {
-  display: flex;
-  flex-direction: column;
-}
-
-/* Puts the box on its own line and adds space underneath */
-.margin-bottom {
-  display: block; /* Makes it a block so it stacks nicely */
-  margin-bottom: 1rem; /* Adds space below – helps with layout breathing room */
-}
-
-.width-third,
-.width-two-thirds {
-  width: 100%;
-}
-
-/* Adds a dashed border to help you see the box while you're designing */
-.border {
-  border: 1px dashed var(--color-accent-primary); /* This uses your custom accent color */
-  /* TODO: Delete this later – it’s just here to help you see the box while you work */
-}
-
-/* ---------------------- */
-/* ✍️  Typography Helpers */
-/* ---------------------- */
-
-/* Optimal line length for readability (~60 characters) */
-.max-text-width {
-  max-width: 60ch;
-}
-
-/* Centers your text (great for headings or buttons) */
-.centered-text {
-  text-align: center;
-}
-
-/* ------------------------------ */
-/* 🌀 Animation & Interaction Tools */
-/* ------------------------------ */
-
-/* Smooth transition when applying transformations – improves hover experience */
-.rotate {
-  transition: transform 0.3s ease;
-}
-
-/* Rotates the element slightly on hover – adds a playful effect */
-.rotate:hover {
-  transform: rotate(4deg);
-}
-
-/* ----------------------------- */
-/* 📦 Padding Utilities */
-/* ----------------------------- */
-
-.padding-jumbo {
-  padding: var(--padding-small); /* Adjusted for mobile use */
-}
-
-/* ------------------------------ */
-/* 🧱 Border Radius Shortcuts */
-/* ------------------------------ */
-
-/* Small interactive elements (buttons, inputs) */
-.rounded-small {
-  border-radius: var(--radius-sm);
-}
-
-/* Default containers (cards, dropdowns) */
-.rounded-medium {
-  border-radius: var(--radius-md);
-}
-
-/* Large decorative elements (modals, banners) */
-.rounded-large {
-  border-radius: var(--radius-lg);
-}
-
-/* Perfect circles (avatars, icons) */
-.rounded-full {
-  border-radius: var(--radius-full);
-}
-
-/* ---------------------------------------- */
-/* 🎥 Responsive Embedded Video Styles      */
-/* These styles keep your videos looking sharp and correctly sized on any device */
-/* ---------------------------------------- */
-
-/* The container holds the video and maintains a 16:9 aspect ratio */
-.project-video-container {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  padding-top: 56.25%; /* 16:9 Aspect Ratio (because 9 ÷ 16 = 0.5625) */
-  margin-top: 2rem;
-}
-/* The iframe is absolutely positioned to fill the container */
-.responsive-iframe {
-  position: absolute;
+.custom-cursor {
+  position: fixed;
   top: 0;
   left: 0;
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
+  width: 15px;
+  height: 15px;
+  background-color: #000;
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s ease, height 0.2s ease, background-color 0.3s ease;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* ---------------------------------------- */
-/* 🧭 Responsive Navigation (Coming Soon)   */
-/* This section is in progress — you'll build a mobile-friendly nav bar here */
-/* ---------------------------------------- */
+.custom-cursor.expand {
+  width: 50px;
+  height: 50px;
+  background-color: rgba(93, 192, 254, 0.883);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(6px);
+}
 
-/* ------------------------------------------------------------------ */
-/* 🔤 Global & Mobile Typography                                      */
-/* Heading styles that scale nicely for mobile-first, responsive sites */
-/* ------------------------------------------------------------------ */
+.cursor-arrow {
+  color: #fff;
+  font-size: 0.8rem;
+  opacity: 0;
+  transform: scale(0.5);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
 
-/* 
-████████ ██    ██ ██████   ██████   ██████  ██████   █████  ██████  ██   ██ ██    ██ 
-   ██     ██  ██  ██   ██ ██    ██ ██       ██   ██ ██   ██ ██   ██ ██   ██  ██  ██  
-   ██      ████   ██████  ██    ██ ██   ███ ██████  ███████ ██████  ███████   ████   
-   ██       ██    ██      ██    ██ ██    ██ ██   ██ ██   ██ ██      ██   ██    ██    
-   ██       ██    ██       ██████   ██████  ██   ██ ██   ██ ██      ██   ██    ██    
-*/
+.custom-cursor.expand .cursor-arrow {
+  opacity: 1;
+  transform: scale(1);
+}
 
-/* Heading Styles (h1 - h6) */
+/* Hide default cursor when custom cursor is active */
+html *:hover,
+html *:hover::before,
+html *:hover::after {
+  cursor: none !important;
+}
+
+/* ======================
+   TYPOGRAPHY
+   ====================== */
 
 h1 {
   font-size: 2rem;
   font-family: var(--font-family-heading);
-  line-height: 5rem;
+  line-height: 1.2;
   margin-bottom: 0.25rem;
   color: var(--h1-color);
 }
@@ -428,8 +192,8 @@ h2 {
 
 h3 {
   font-size: 2rem;
-  margin-bottom: 1rem;
   line-height: 1.2;
+  margin-bottom: 1rem;
   color: var(--h3-color);
 }
 
@@ -454,11 +218,6 @@ h6 {
   color: var(--h6-color);
 }
 
-/* ------------------------------------------------------------------ */
-/* 📝 Paragraph and Text Styles                                       */
-/* Base text styles for body copy, bold, italic, and fine print       */
-/* ------------------------------------------------------------------ */
-
 p {
   font-size: 1rem;
   line-height: 1.3;
@@ -466,31 +225,256 @@ p {
 }
 
 strong {
-  font-weight: 700; /* Makes text bold */
+  font-weight: 700;
 }
 
 em {
-  font-style: italic; /* Adds emphasis with italic style */
+  font-style: italic;
 }
 
-/* ------------------------------------------------------------------ */
-/* 🎨 Custom Class Styles for Headlines, Projects, and Highlights     */
-/* Use these utility classes to style key text elements across pages  */
-/* ------------------------------------------------------------------ */
+/* ======================
+   UTILITY CLASSES
+   ====================== */
 
-/* Main hero headline — usually sits in the intro section */
+.centered-block {
+  margin: 0 auto;
+}
+
+.centered-text {
+  text-align: center;
+}
+
+.max-text-width {
+  max-width: 60ch;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.margin-bottom {
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: column;
+}
+
+.width-third,
+.width-two-thirds {
+  width: 100%;
+}
+
+/* Padding utilities */
+.padding-jumbo {
+  padding: var(--padding-small);
+}
+
+/* Border radius utilities */
+.rounded-small {
+  border-radius: var(--radius-sm);
+}
+
+.rounded-medium {
+  border-radius: var(--radius-md);
+}
+
+.rounded-large {
+  border-radius: var(--radius-lg);
+}
+
+.rounded-full {
+  border-radius: var(--radius-full);
+}
+
+/* Rotation animation */
+.rotate {
+  transition: transform 0.3s ease;
+}
+
+.rotate:hover {
+  transform: rotate(4deg);
+}
+
+/* ======================
+   LINKS
+   ====================== */
+
+a:link {
+  color: var(--color-link);
+  text-decoration: none;
+}
+
+a:visited {
+  color: var(--color-link-visited);
+}
+
+a:hover {
+  color: var(--color-link-hover);
+}
+
+a:focus {
+  outline: 1px solid var(--color-accent-primary);
+}
+
+a:active {
+  color: var(--color-link-hover);
+}
+
+a.nav-link-primary {
+  color: var(--color-nav-link);
+}
+
+a.nav-link-primary:hover {
+  color: var(--color-nav-link-hover);
+}
+
+/* Navigation arrows */
+.navigation-arrow:link,
+.navigation-arrow:visited {
+  color: var(--color-nav-arrow-hover);
+}
+
+.navigation-arrow:active,
+.navigation-arrow:hover {
+  color: var(--color-nav-arrow-hover);
+}
+
+.stroke:link,
+.stroke:visited {
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: var(--color-nav-arrow-stroke);
+}
+
+.stroke:active,
+.stroke:hover {
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: var(--color-nav-arrow-stroke-hover);
+}
+
+/* Footer item hover effect */
+.footer-item {
+  color: var(--color-link);
+  text-decoration: none;
+  position: relative;
+}
+
+.footer-item::before,
+.footer-item::after {
+  content: "";
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.footer-item::before {
+  content: "[";
+  transform: translateX(-0.4rem);
+}
+
+.footer-item::after {
+  content: "]";
+  transform: translateX(0.4rem);
+}
+
+.footer-item:hover::before,
+.footer-item:hover::after {
+  opacity: 1;
+}
+
+/* Nav branding hover effect */
+.nav-branding-item a {
+  position: relative;
+  display: inline-block;
+  color: #000;
+  font-size: 3rem;
+  font-weight: 400;
+  text-decoration: none;
+  transition: font-weight 0.3s ease;
+}
+
+.nav-branding-item a::before,
+.nav-branding-item a::after {
+  content: "";
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  display: inline-block;
+  font-size: 1em;
+  color: inherit;
+}
+
+.nav-branding-item a::before {
+  content: "[";
+  margin-right: 0.2rem;
+  transform: translateX(-0.4rem);
+}
+
+.nav-branding-item a::after {
+  content: "]";
+  margin-left: 0.2rem;
+  transform: translateX(0.4rem);
+}
+
+.nav-branding-item a:hover::before,
+.nav-branding-item a:hover::after {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ======================
+   RESPONSIVE VIDEO
+   ====================== */
+
+.project-video-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 aspect ratio */
+  margin-top: 2rem;
+}
+
+.responsive-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* ======================
+   HERO SECTION
+   ====================== */
+
+.hero {
+  width: 100%;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-header {
+  min-height: 6rem;
+  position: relative;
+  z-index: 10;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-left: var(--padding-medium);
+  padding-right: var(--padding-medium);
+}
+
 .hero-headline {
-  color: #000000; /* Uses your brand's dominant color */
-  font-size: .75rem;
+  color: #000;
+  font-size: 0.75rem;
   line-height: 1.5rem;
-  max-width: 40ch; /* Optimal line length for readability (~40 characters) */
+  max-width: 40ch;
   text-transform: uppercase;
 }
 
 .hero-subhead {
   font-size: 1.25rem;
   line-height: 1.75rem;
-
 }
 
 .hero-headline,
@@ -499,7 +483,7 @@ em {
   opacity: 0;
   transform: translateY(50px);
   transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
-              transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .hero-headline.show,
@@ -514,7 +498,6 @@ em {
   animation: bounce 3s infinite ease-in-out;
 }
 
-/* Bouncing arrow animation */
 @keyframes bounce {
   0%,
   100% {
@@ -524,7 +507,404 @@ em {
     transform: translateY(20px);
   }
 }
-/* Large project title — appears on individual project pages */
+
+.hero-image-wrapper {
+  perspective: 1000px;
+  display: inline-block;
+  position: relative;
+  padding-bottom: var(--padding-tiny);
+}
+
+.hero-image {
+  width: 100%;
+  max-width: 1000px;
+  max-height: 80vh;
+  transition: transform 0.25s ease-out, box-shadow 0.3s ease;
+  transform-style: preserve-3d;
+  will-change: transform;
+  border-radius: 8px;
+}
+
+.hero-icon {
+  font-size: 4rem;
+}
+
+.hero-footer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.hero-footer-navigation {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: var(--padding-small);
+}
+
+/* ======================
+   NAVIGATION
+   ====================== */
+
+.nav-branding {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left: var(--padding-jumbo);
+  padding-right: var(--padding-jumbo);
+  margin-top: 2rem;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  gap: 2rem;
+}
+
+.nav-branding-group {
+  display: flex;
+  flex-direction: row;
+}
+
+.nav-branding-item {
+  padding: 0.5rem;
+}
+
+.nav-branding-logo {
+  width: auto;
+}
+
+.nav-branding-logo img {
+  width: 2rem;
+  height: auto;
+  display: block;
+}
+
+/* ======================
+   MENU
+   ====================== */
+
+.menu {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 48px;
+  height: 48px;
+}
+
+.menu-link {
+  all: unset;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  position: relative;
+  z-index: 1002;
+  transition: transform 0.2s ease;
+}
+
+.menu-link:hover {
+  transform: scale(1.05);
+}
+
+.menu-link:focus-visible {
+  outline: 2px solid #000;
+  outline-offset: 4px;
+}
+
+.menu-icon {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.menu-line {
+  width: 18px;
+  height: 2px;
+  background-color: #000;
+  border-radius: 1px;
+  transition: transform 0.3s ease, opacity 0.2s ease;
+}
+
+.menu.open .menu-line-1 {
+  transform: translateY(6px) rotate(-45deg);
+}
+
+.menu.open .menu-line-2 {
+  opacity: 0;
+}
+
+.menu.open .menu-line-3 {
+  transform: translateY(-6px) rotate(45deg);
+}
+
+.menu-circle {
+  position: absolute;
+  inset: 0;
+  background-color: #fff;
+  border-radius: 50%;
+  transform: scale(1.2);
+  z-index: 1000;
+  transition: transform 0.4s ease-in-out;
+}
+
+.menu:hover .menu-circle {
+  transform: scale(1.5);
+}
+
+.menu.open .menu-circle {
+  transform: scale(60);
+}
+
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: #fff;
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease;
+  z-index: 1001;
+}
+
+.menu-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ======================
+   MARQUEE
+   ====================== */
+
+.marquee-top {
+  position: relative;
+  width: 100%;
+  min-height: 7vh;
+  overflow: hidden;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #000;
+  margin-bottom: 2rem;
+}
+
+.marquee-top__track {
+  display: flex;
+  flex-shrink: 0;
+  white-space: nowrap;
+  animation: marquee-scroll 60s linear infinite;
+}
+
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-top__content {
+  display: inline-flex;
+  flex-shrink: 0;
+}
+
+.marquee-top__list {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.marquee-top__item {
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.marquee-top__item--icon h3 {
+  font-size: 1rem;
+}
+
+.marquee-top__item--image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.marquee-top__item--text h3 {
+  font-size: 0.8rem;
+  margin: 0;
+  white-space: nowrap;
+  color: #000;
+  text-transform: uppercase;
+}
+
+/* ======================
+   FULL-WIDTH SECTIONS
+   ====================== */
+
+.full-width-section {
+  width: 100%;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-bg-full-width);
+  margin-bottom: 1rem;
+}
+
+.full-width-headline-wrapper {
+  width: 100%;
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-small);
+  text-align: center;
+}
+
+.section-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-small);
+  margin-bottom: 1rem;
+}
+
+.section-item {
+  padding: var(--padding-small);
+  margin: 1rem;
+}
+
+/* ======================
+   WORK PAGE GRID
+   ====================== */
+
+.main-work-section {
+  flex: 1;
+}
+
+.portfolio,
+.project-wrapper,
+.work-sidebar-wrapper {
+  padding: var(--padding-small);
+}
+
+.work-sidebar {
+  width: 100%;
+  background: var(--color-bg-sidebar-work);
+}
+
+.work-details {
+  width: 100%;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 0.25rem;
+}
+
+.work-page-grid-item {
+  width: 100%;
+  height: auto;
+  padding: 0.15rem;
+  position: relative;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.work-page-grid-item.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.project-img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+}
+
+.project-img video {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.project-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+  transform-origin: center;
+  border-radius: inherit;
+}
+
+.project-img:hover img {
+  transform: scale(1.1);
+}
+
+.project-container {
+  background: var(--color-accent-primary);
+  padding: var(--padding-medium);
+}
+
+.project-navigation-container {
+  margin-top: 2rem;
+}
+
+.work-grid-project-title {
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+  color: #000;
+  font-size: 1.2rem;
+  line-height: 0.2rem;
+  font-weight: 300;
+  margin-top: 1.5rem;
+}
+
+.work-grid-project-title a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -15px;
+  width: 0;
+  height: 1.5px;
+  background: #000;
+  transition: width 0.5s ease;
+}
+
+.work-page-grid-item:hover .work-grid-project-title a::after {
+  width: 100%;
+}
+
+.work-grid-project-category {
+  color: var(--color-text-project-category);
+  font-size: 0.8rem;
+  margin-top: 1rem;
+}
+
+/* ======================
+   PROJECT PAGE
+   ====================== */
+
 .project-title {
   font-size: 1rem;
   font-family: var(--font-family-project-title);
@@ -539,69 +919,49 @@ em {
   display: inline-block;
 }
 
-/* Each word wrapper hides overflow */
 .project-header .word-wrapper {
   display: inline-block;
-  overflow: hidden; /* hides the word's starting position */
-  vertical-align: bottom; /* aligns the text baseline nicely */
-  margin-right: 0.1rem; /* optional spacing between words */
+  overflow: hidden;
+  vertical-align: bottom;
+  margin-right: 0.1rem;
 }
 
-/* The actual word slides up */
 .project-header .word-wrapper span {
   display: inline-block;
-  transform: translateY(100%); /* start below the wrapper */
+  transform: translateY(100%);
   transition: transform 0.6s ease-out;
 }
 
 .project-header .word-wrapper span.show {
-  transform: translateY(0); /* slide into place */
+  transform: translateY(0);
 }
 
-/* Project description text — pairs with the project title */
 .project-description {
   color: var(--color-text-project-description);
-  margin-bottom: 1rem;
   margin-top: 1rem;
 }
+
+.project-description p{
+  font-size: 1.2rem;
+}
+
 
 .project-button {
   margin-top: 2rem;
 }
 
-/* 🧱 Full-width headings — useful in layouts that span edge-to-edge */
 .h1-full-width,
 .h2-full-width {
   width: 100%;
   padding: var(--padding-small);
 }
 
-/* ✨ Highlighted text — great for emphasis */
 .highlight-primary {
   color: var(--color-accent-secondary);
 }
 
-/* 📂 Project grid title — used in grid view (like a portfolio gallery) */
-.work-grid-project-title {
-  font-size: 1rem;
-  line-height: 0.5rem;
-  color: var(--color-text-work-grid-title);
-  font-weight: 300;
-}
-
-/* 🏷️ Project category label — displays the type or role of the project */
-.work-grid-project-category {
-  color: var(--color-text-project-category);
-  font-size: .8rem;
-}
-
-.work-grid-project-title,
-.work-grid-project-category {
-  margin-top: 1rem; /* spacing below image */
-}
-
 .project-detail h4 {
-  font-family: "cormorant", serif;
+  font-family: "Cormorant", serif;
   font-style: italic;
 }
 
@@ -637,31 +997,21 @@ em {
 .project-award p {
   padding: 0.5rem 1rem;
   border: 1px solid #000;
-  background-color: #000000;
-  color: #ffffff;
+  background-color: #000;
+  color: #fff;
   border-radius: 60px;
   font-size: 0.85rem;
 }
 
-.project-heading {
+.project-heading,
+.project-heading h2,
+.project-section-heading p {
   color: #a1a1a1;
   font-family: "Mona Sans", sans-serif;
   font-size: 1rem;
 }
 
 .project-paragraph {
-  font-family: "Mona Sans", sans-serif;
-  font-size: 1rem;
-}
-
-.project-heading h2 {
-  color: #a1a1a1;
-  font-family: "Mona Sans", sans-serif;
-  font-size: 1rem;
-}
-
-.project-section-heading p {
-  color: #a1a1a1;
   font-family: "Mona Sans", sans-serif;
   font-size: 1rem;
 }
@@ -677,1084 +1027,7 @@ em {
   justify-content: flex-end;
 }
 
-/* -----------------------------------------------------
-   Marquee Structure (Top)
------------------------------------------------------ */
-
-/* The outer container — holds everything in place */
-.marquee-top {
-  position: relative;
-  width: 100%;
-  min-height: 7vh;
-  overflow: hidden;
-  background: #fff;
-  display: flex;
-  align-items: center;
-  border-bottom: 1px solid #000;
-  margin-bottom: 2rem;
-
-}
-
-/* The moving "track" that slides left to right */
-.marquee-top__track {
-  display: flex;
-  flex-shrink: 0;
-  white-space: nowrap;
-  animation: marquee-scroll 60s linear infinite;
- 
-}
-
-/* Animation: moves the track smoothly across the screen */
-@keyframes marquee-scroll {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-/* Each block of repeated content (we duplicate it in HTML) */
-.marquee-top__content {
-  display: inline-flex;
-  flex-shrink: 0; /* Prevents shrinking */
- 
-}
-
-/* The list and items inside the marquee */
-.marquee-top__list {
-  display: flex;
-  align-items: center;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-/* Base style for all items */
-.marquee-top__item {
-  padding: 0 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Image-specific item */
-.marquee-top__item--icon h3 {
-  font-size: 1rem;
-}
-
-/* Image formatting */
-.marquee-top__item--image img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* Text item formatting */
-.marquee-top__item--text h3 {
-  font-size: .8rem;
-  margin: 0;
-  white-space: nowrap;
-  color: #000000;
-  text-transform: uppercase;
-  /* border: 1px solid #000;
-  padding: 10px 10px 10px 10px;
-  border-radius: 60px;*/
-}
-
-
-
-
-
-
-
-/* ======================
-   MENU CONTAINER
-====================== */
-.menu {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  width: 48px;
-  height: 48px;
-}
-
-/* ======================
-   MENU BUTTON
-====================== */
-.menu-link {
-  all: unset;
-  width: 100%;
-  height: 100%;
-  background-color: #fff;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  cursor: pointer;
-  position: relative;
-  z-index: 1002;
-  transition: transform 0.2s ease;
-}
-
-.menu-link:hover {
-  transform: scale(1.05);
-}
-
-.menu-link:focus-visible {
-  outline: 2px solid #000;
-  outline-offset: 4px;
-}
-
-/* ======================
-   HAMBURGER ICON
-====================== */
-.menu-icon {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.menu-line {
-  width: 18px;
-  height: 2px;
-  background-color: #000;
-  border-radius: 1px;
-  transition: transform 0.3s ease, opacity 0.2s ease;
-}
-
-/* Open → X animation */
-.menu.open .menu-line-1 {
-  transform: translateY(6px) rotate(-45deg);
-}
-
-.menu.open .menu-line-2 {
-  opacity: 0;
-}
-
-.menu.open .menu-line-3 {
-  transform: translateY(-6px) rotate(45deg);
-}
-
-/* ======================
-   EXPANDING CIRCLE
-====================== */
-.menu-circle {
-  position: absolute;
-  inset: 0;
-  background-color: #fff;
-  border-radius: 50%;
-  transform: scale(1.2);
-  z-index: 1000;
-  transition: transform 0.4s ease-in-out;
-}
-
-.menu:hover .menu-circle {
-  transform: scale(1.5);
-}
-
-.menu.open .menu-circle {
-  transform: scale(60);
-}
-
-/* ======================
-   MENU OVERLAY
-====================== */
-.menu-overlay {
-  position: fixed;
-  inset: 0;
-  background-color: #fff;
-  color: #000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.25s ease;
-  z-index: 1001;
-}
-
-.menu-overlay.open {
-  opacity: 1;
-  visibility: visible;
-}
-
-
-
-
-
-/* ------------- */
-.info {
-  text-align: center;
-  position: absolute;
-  top: 50%;
-  transform: translate(-50%, -50%);
-}
-.overlay-info {
-  text-align: center;
-  color: #ffffff;
-}
-
-.name {
-  font-size: .8rem;
-  text-transform: uppercase;
-}
-/*----figma embed------*/
-.figma-embed {
-  border-radius: 16px;
-}
-/*
-██   ██ ██    ██ ██████  ███████ ██████  ██      ██ ███    ██ ██   ██ ███████ 
-██   ██  ██  ██  ██   ██ ██      ██   ██ ██      ██ ████   ██ ██  ██  ██      
-███████   ████   ██████  █████   ██████  ██      ██ ██ ██  ██ █████   ███████ 
-██   ██    ██    ██      ██      ██   ██ ██      ██ ██  ██ ██ ██  ██       ██ 
-██   ██    ██    ██      ███████ ██   ██ ███████ ██ ██   ████ ██   ██ ███████ 
-
-*/
-
-/* -------------------------------------------------------------------------- */
-/* 🔗 Hyperlink Styles — LVHFA                                                */
-/* LVHFA = Link, Visited, Hover, Focus, Active                                */
-/* These are the five main states a hyperlink can be in                       */
-/* -------------------------------------------------------------------------- */
-
-/* Unvisited link */
-a:link {
-  color: var(--color-link);
-  text-decoration: none; /* Removes underline */
-}
-
-/* Visited link — after a user clicks and returns */
-a:visited {
-  color: var(--color-link-visited);
-}
-
-/* Hover — when a user hovers their mouse over the link */
-a:hover {
-  color: var(--color-link-hover);
-}
-
-/* Focus — when a link is focused (keyboard navigation) */
-a:focus {
-  outline: 1px solid var(--color-accent-primary);
-}
-
-/* Active — when the link is actively being clicked or tapped */
-a:active {
-  color: var(--color-link-hover);
-  /* Useful for mobile tap interactions */
-}
-
-/* -------------------------------------------------------------------------- */
-/* 🧭 Hyperlink Class Styles                                                  */
-/* These are custom styles for specific types of navigation links             */
-/* -------------------------------------------------------------------------- */
-
-a.nav-link-primary {
-  color: var(--color-nav-link);
-}
-a.nav-link-primary:hover {
-  color: var(--color-nav-link-hover);
-}
-
-/* -------------------------------------------------------------------------- */
-/* 🧭 Previous & Next Project Navigation Arrows                               */
-/* These styles are for the left and right arrows used to move between       */
-/* individual project pages in your portfolio. Includes stroke effect styles.*/
-/* -------------------------------------------------------------------------- */
-
-/* Default and visited state for navigation arrows */
-
-.navigation-arrow:link,
-.navigation-arrow:visited {
-  color: var(--color-nav-arrow);
-}
-
-/* Hover and active (clicked) states — makes arrows feel interactive */
-.navigation-arrow:active,
-.navigation-arrow:hover {
-  color: var(--color-nav-arrow-hover);
-}
-
-/* 🖋️ Optional stroke effect for a bold, outlined arrow look */
-
-.stroke:link,
-.stroke:visited {
-  -webkit-text-stroke-width: 2px;
-  -webkit-text-stroke-color: var(--color-nav-arrow-stroke);
-}
-
-.stroke:active,
-.stroke:hover {
-  -webkit-text-stroke-width: 2px;
-  -webkit-text-stroke-color: var(--color-nav-arrow-stroke-hover);
-}
-/* footer item hover */
-.footer-item {
-  color: var(--color-link);
-  text-decoration: none;
-  position: relative;
-}
-
-.footer-item::before,
-.footer-item::after {
-  content: "";
-  opacity: 0; /* hidden by default */
-  transition: opacity 0.3s ease;
-}
-
-.footer-item::before {
-  content: "["; /* left bracket */
-  transform: translateX(-0.4rem); /* starts slightly to the left */
-}
-
-.footer-item::after {
-  content: "]"; /* right bracket */
-  transform: translateX(0.4rem); /* starts slightly to the right */
-}
-
-.footer-item:hover::before,
-.footer-item:hover::after {
-  opacity: 1; /* show on hover */
-}
-
-/* nav-branding-item hover */
-.nav-branding-item h3 {
-  position: relative;
-  display: inline-block;
-  color: #000000;
-  font-size: 3rem;
-  font-weight: 400;
-  transition: font-weight 0.3s ease;
-}
-
-.nav-branding-item h3::before,
-.nav-branding-item h3::after {
-  opacity: 0;
-  transition: opacity 0.3s ease, transform 0.3s ease; /* add transform animation */
-  font-size: 1em;
-  color: inherit;
-  display: inline-block;
-}
-
-.nav-branding-item h3::before {
-  content: "[";
-  margin-right: 0.2rem;
-  transform: translateX(-0.4rem); /* starts slightly to the left */
-}
-
-.nav-branding-item h3::after {
-  content: "]";
-  margin-left: 0.2rem;
-  transform: translateX(0.4rem); /* starts slightly to the right */
-}
-
-.nav-branding-item a:hover h3::before,
-.nav-branding-item a:hover h3::after {
-  opacity: 1;
-  transform: translateX(0); /* slide into place */
-}
-
-/* nav branding item */
-.nav-branding-item a {
-  position: relative;
-  display: inline-block;
-  color: #000;
-  font-size: 3rem;
-  font-weight: 400;
-  text-decoration: none;
-  transition: font-weight 0.3s ease;
-}
-
-/* Add brackets animation */
-.nav-branding-item a::before,
-.nav-branding-item a::after {
-  content: '';
-  opacity: 0;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  display: inline-block;
-  font-size: 1em;
-  color: inherit;
-}
-
-.nav-branding-item a::before {
-  content: "[";
-  margin-right: 0.2rem;
-  transform: translateX(-0.4rem);
-}
-
-.nav-branding-item a::after {
-  content: "]";
-  margin-left: 0.2rem;
-  transform: translateX(0.4rem);
-}
-
-/* Hover effect */
-.nav-branding-item a:hover::before,
-.nav-branding-item a:hover::after {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-/* 
-
-██   ██ ███████ ██████   ██████  
-██   ██ ██      ██   ██ ██    ██ 
-███████ █████   ██████  ██    ██ 
-██   ██ ██      ██   ██ ██    ██ 
-██   ██ ███████ ██   ██  ██████  
-                                 
-*/
-
-/* -------------------------------------------------------------------------- */
-/* 🦸 Hero Section Layout                                                     */
-/* Full-page intro area with logo, headline, icon, and footer nav            */
-/* Great place for first impression and personal branding                    */
-/* -------------------------------------------------------------------------- */
-
-.hero {
-  width: 100%;
-  min-height: 80vh; /* Takes up most of the screen height */
-  display: flex;
-  flex-direction: column;
-}
-.hero-header {
-  min-height: 6rem; /* Space reserved for logo + nav */
-  position: relative;
-  z-index: 10;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  padding-left: var(--padding-medium);
-  padding-right: var(--padding-medium);
-}
-
-/* Nav branding list */
-.nav-branding {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 2rem;
-  list-style: none;
-  margin: 0;
-  padding: 1rem 2rem;
-}
-
-.nav-branding {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding-left: var(--padding-jumbo);
-  padding-right: var(--padding-jumbo);
-  margin-top: 2rem;
-  align-items: center;
-}
-
-.nav-branding-group {
-  display: flex;
-  flex-direction: row;
-}
-.nav-branding-item {
-  padding: 0.5rem;
-}
-
-.nav-branding-logo {
-  width: auto;
-  /* TODO: Adjust the width of the logo on mobile devices here */
-}
-
-.nav-branding-logo img {
-  width: 2rem; /* Adjust size as needed */
-  height: auto; /* Maintain aspect ratio */
-  display: block; /* Remove inline spacing issues */
-}
-
-
-.hero-image-wrapper {
-  perspective: 1000px;
-  display: inline-block;
-  position: relative;
-  padding-bottom: var(--padding-tiny);
-}
-
-.hero-image {
-  width: 100%;
-  max-width: 1000px;
-  max-height: 80vh;
-  transition: transform 0.25s ease-out, box-shadow 0.3s ease;
-  transform-style: preserve-3d;
-  will-change: transform;
-  border-radius: 8px;
-}
-
-.hero-image::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: radial-gradient(
-    circle at 30% 30%,
-    rgba(255, 255, 255, 0.25),
-    transparent 60%
-  );
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
-}
-
-.hero-image-wrapper:hover .hero-image::after {
-  opacity: 0.5;
-}
-
-.hero-icon {
-  font-size: 4rem;
-}
-
-.hero-footer {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  text-align: center;
-}
-
-.hero-footer-navigation {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: var(--padding-small);
-}
-
-/*
-
- ██████  ██████  ███    ███ ██████   ██████  ███    ██ ███████ ███    ██ ████████ ███████ 
-██      ██    ██ ████  ████ ██   ██ ██    ██ ████   ██ ██      ████   ██    ██    ██      
-██      ██    ██ ██ ████ ██ ██████  ██    ██ ██ ██  ██ █████   ██ ██  ██    ██    ███████ 
-██      ██    ██ ██  ██  ██ ██      ██    ██ ██  ██ ██ ██      ██  ██ ██    ██         ██ 
- ██████  ██████  ██      ██ ██       ██████  ██   ████ ███████ ██   ████    ██    ███████ 
-                                                                                          
-*/
-
-/* -------------------------------------------------------------------------- */
-/* 🔧 Full-Width Section Components                                             */
-/* These components create flexible, full-screen sections for your portfolio   */
-/* Perfect for highlighting key information and projects                      */
-/* -------------------------------------------------------------------------- */
-
-.full-width-section {
-  width: 100%;
-  min-height: 80vh; /* Takes up most of the screen height */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: var(
-    --color-bg-full-width
-  ); /* Background color for full-width sections */
-  margin-bottom: 1rem;
-}
-
-.full-width-headline-wrapper {
-  width: 100%;
-  min-height: 60vh; /* Ensures the headline takes up a good portion of the screen */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: var(--padding-small);
-  text-align: center; /* Keeps the text centered */
-}
-
-.section-container {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: var(--padding-small);
-  margin-bottom: 1rem;
-}
-.section-item {
-  padding: var(--padding-small);
-  margin: 1rem;
-}
-
-/* 
-
-██     ██  ██████  ██████  ██   ██     ██████   █████   ██████  ███████ 
-██     ██ ██    ██ ██   ██ ██  ██      ██   ██ ██   ██ ██       ██      
-██  █  ██ ██    ██ ██████  █████       ██████  ███████ ██   ███ █████   
-██ ███ ██ ██    ██ ██   ██ ██  ██      ██      ██   ██ ██    ██ ██      
- ███ ███   ██████  ██   ██ ██   ██     ██      ██   ██  ██████  ███████ 
-
-*/
-
-/* -------------------------------------------------------------------------- */
-/* 🔲 Work Page Layout Components                                               */
-/* These styles create the layout for your work portfolio and project pages    */
-/* The goal is to showcase your projects and provide a responsive, clean UI  */
-/* -------------------------------------------------------------------------- */
-
-/* Initial state: hidden and below */
-.work-page-grid-item {
-  opacity: 0;
-  transform: translateY(50px);
-  transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-/* Final state: visible and in place */
-.work-page-grid-item.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.project-img {
-  width: 100%;
-  aspect-ratio: 16/9;
-  /* border-radius: 1rem; */
-  overflow: hidden;
-}
-
-.project-img video {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-}
-
-.project-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.3s ease;
-  transform-origin: center center;
-  border-radius: inherit;
-}
-
-.project-img:hover img {
-  transform: scale(1.1);
-}
-
-/* Work wrapper (takes up available space) */
-.main-work-section {
-  flex: 1;
-}
-
-/* Padding around work grid and project page */
-.portfolio,
-.project-wrapper,
-.work-sidebar-wrapper {
-  padding: var(
-    --padding-small
-  ); /* Padding to keep content from touching edges */
-}
-
-/* Work Sidebar on Mobile */
-.work-sidebar {
-  width: 100%;
-  background: var(
-    --color-bg-sidebar-work
-  ); /* Background color for the sidebar */
-}
-
-/* Main Work Area with Sidebar on Mobile */
-.work-details {
-  width: 100%;
-}
-
-/* Defining the work page grid */
-.grid {
-  display: grid;
-
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax(300px, 1fr)
-  ); /* Creates a responsive grid */
-  grid-gap: .25rem; /* Space between grid items */
-  /* The auto-fit and minmax() function help ensure responsiveness across screen sizes */
-}
-
-/* Individual Work Grid Item */
-.work-page-grid-item {
-  width: 100%;
-  height: auto;
-  padding: .15rem;
-  position: relative; /* Needed to position the overlay */
-}
-
-/* Project container for background and padding */
-.project-container {
-  background: var(--color-accent-primary); /* Set project background color */
-  padding: var(--padding-medium);
-}
-
-.project-navigation-container {
-  margin-top: 2rem;
-}
-
-.work-grid-project-title {
-  display: inline-block; /* ensures box matches text width */
-  position: relative;
-  text-decoration: none;
-  color: #000000; /* adjust as needed */
-  font-size: 1.2rem;
-  margin-top: 2rem;
-}
-
-/* Hidden underline */
-.work-grid-project-title a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -15px; /* adjust gap below text */
-  width: 0; /* start invisible */
-  height: 1.5px; /* underline thickness */
-  background: #000000; /* underline color */
-  transition: width 0.5s ease;
-}
-
-/* When the li is hovered, reveal underline on the title link */
-.work-page-grid-item:hover .work-grid-project-title a::after {
-  width: 100%; /* expands to match text length */
-}
-
-.content-drag-area {
-  max-width: 100vw;
-  min-height: 80vh;
-  max-height: 100vh;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  justify-content: flex-start;
-  background: radial-gradient(
-    circle,
-    #d1ebfa,
-    #e8f6ff,
-    #ffffff,
-    #ffffff,
-    #ffffff,
-    #ffffff
-  );
-  background-size: 100vw 80vh;
-}
-
-.img-drag {
-  position: relative;
-  display: block;
-  width: 10vw;
-  min-width: 80px;
-  max-width: 100px;
-  margin: 4rem;
-}
-
-/*█████  ██████   ██████  ██    ██ ████████ 
-██   ██ ██   ██ ██    ██ ██    ██    ██    
-███████ ██████  ██    ██ ██    ██    ██    
-██   ██ ██   ██ ██    ██ ██    ██    ██    
-██   ██ ██████   ██████   ██████     ██    
-                                           
-*/
-
-/* -------------------------------------------------------------------------- */
-/* 📚 About Page Grid Styles                                                   */
-/* These styles structure the layout of the "About" page using a grid system.  */
-/* The grid has 3 main sections: an image, text, and footer.                   */
-/* -------------------------------------------------------------------------- */
-
-/* Grid container for the About section */
-.about-grid {
-  display: grid; /* Set to grid layout */
-  grid-template-columns: 1fr; /* Single column layout for mobile and smaller screens */
-  grid-gap: 4rem; /* Space between grid items */
-  background: var(--color-bg-about); /* Background color for the section */
-  padding: var(--padding-jumbo); /* Padding around the grid */
-  flex: 1; /* Flex-grow to take up available space */
-}
-
-.about-image {
-  position: relative;
-  width: 100%;
-  max-width: 500px; /* keeps your design cap */
-  aspect-ratio: 5 / 6; /* replaces fixed height */
-}
-
-.about-image img {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: opacity 0.3s ease;
-}
-
-.img-hover {
-  opacity: 0;
-}
-
-.about-image:hover .img-hover {
-  opacity: 1;
-}
-
-.about-image:hover .img-default {
-  opacity: 0;
-}
-
-@media (max-width: 768px) {
-  .about-grid {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .about-grid-image {
-    order: 1;
-  }
-
-  .about-grid-info {
-    order: 2;
-    padding-left: 0;
-  }
-
-  .about-grid-text p{
-    font-size: 1rem;
-  }
-}
-
-/* Text section in the About page grid */
-.about-grid-text .about-grid-info .about-grid .about-btns {
-  overflow: visible;
-}
-
-.about-grid-info {
-  grid-column: 1 / 2; /* Text spans the first column */
-  grid-row: 2 / 3; /* Text spans the second row */
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding-left: 2rem;
-}
-
-.about-awards {
-  display: flex;
-  flex-direction: column;
-  background: var(--color-bg-about);
-  padding: var(--padding-jumbo);
-  gap: 2rem;
-}
-
-.awards-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-/* 🔑 This creates the 3-column layout */
-.award-item {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr; /* adjust ratios as needed */
-  gap: 2rem;
-
-  padding: 1.5rem 0;
-  border-bottom: 1px solid rgba(0,0,0,0.1); /* optional clean divider */
-}
-
-/* Reset default spacing */
-.award-item p {
-  margin: 0;
-  text-align: left;
-}
-
-/* Optional: tighten hierarchy */
-.award-title {
-  font-weight: 500;
-}
-
-.award-org {
-  opacity: 0.8;
-}
-
-.award-year {
-  opacity: 0.6;
-}
-
-/* 📱 Responsive: stack on small screens */
-@media (max-width: 600px) {
-  .award-item{
-    grid-template-columns: 1fr;
-    gap: 0.25rem;
-  }
-}
-
-.about-experience {
-  display: flex;
-  flex-direction: column;
-  background: var(--color-bg-about);
-  padding: var(--padding-jumbo);
-  gap: 2rem;
-}
-
-.experience-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-/* 🔑 3-column layout (same as awards) */
-.experience-item {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  gap: 2rem;
-
-  padding: 1.5rem 0;
-  border-bottom: 1px solid rgba(0,0,0,0.1);
-}
-
-/* Reset spacing */
-.experience-item p {
-  margin: 0;
-  text-align: left;
-}
-
-/* Hierarchy */
-.experience-org {
-  font-weight: 500;
-}
-
-.experience-title {
-  opacity: 0.8;
-}
-
-.experience-year {
-  opacity: 0.6;
-}
-
-/* 📱 SAME responsive behavior */
-@media (max-width: 600px) {
-  .experience-item {
-    grid-template-columns: 1fr;
-    gap: 0.25rem;
-  }
-}
-
-
-.about-services {
-  display: grid; /* Set to grid layout */
-  grid-template-columns: 1fr; /* Single column layout for mobile and smaller screens */
-  grid-gap: 2rem; /* Space between grid items */
-  background: var(--color-bg-about); /* Background color for the section */
-  padding: var(--padding-jumbo); /* Padding around the grid */
-}
-
-.about-services-title {
-  grid-column: 1/2; /* Image spans the first column */
-  grid-row: 1/2; /* Image spans the first row */
-}
-
-.services-list {
-  grid-column: 1/2; /* Text spans the first column */
-  grid-row: 2/3; /* Text spans the second row */
-}
-
-.service-item {
-  margin-bottom: 1rem;
-  display: flex;
-  justify-content: start;
-  gap: 3rem;
-  padding-top: 2.5rem;
-  padding-bottom: 1rem;
-  /* Animation setup */
-  opacity: 0;
-  transform: translateX(-50px); /* slide in from left */
-  transition: all 0.9s ease-out;
-  position: relative;
-}
-/* Line animation using ::after */
-.service-item::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  height: 2px;
-  width: 0;
-  background-color: #000;
-  transition: width 0.9s ease-out;
-}
-/* When visible, slide in + expand line */
-.service-item.visible {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.service-item.visible::after {
-  width: 100%; /* line expands across the full item */
-}
-
-
-
-.about-btns {
-  padding: var(--padding-jumbo);
-}
-
-/* =========================
-   AWARD & EXPERIENCE ITEMS (fade + slide up + animated top border)
-   ========================= */
-
-/* Larger top padding for experience section */
-.experience-item {
-  padding-top: 4rem;
-  padding-bottom: 2rem;
-}
-
-/* Create an animated top border using ::before */
-.award-item::before,
-.experience-item::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 1px;
-  width: 0;
-  background-color: #000;
-  transition: width 0.9s ease-out;
-}
-
-/* Animate in: fade, slide, and draw border */
-.award-item.visible,
-.experience-item.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.award-item.visible::before,
-.experience-item.visible::before {
-  width: 100%;
-}
-/* 
-
-███████  ██████   ██████  ████████ ███████ ██████  
-██      ██    ██ ██    ██    ██    ██      ██   ██ 
-█████   ██    ██ ██    ██    ██    █████   ██████  
-██      ██    ██ ██    ██    ██    ██      ██   ██ 
-██       ██████   ██████     ██    ███████ ██   ██ 
-                                                   
-
-
-/* 
-
-██████  ██████   ██████       ██ ███████  ██████ ████████     ██████   █████   ██████  ███████ 
-██   ██ ██   ██ ██    ██      ██ ██      ██         ██        ██   ██ ██   ██ ██       ██      
-██████  ██████  ██    ██      ██ █████   ██         ██        ██████  ███████ ██   ███ █████   
-██      ██   ██ ██    ██ ██   ██ ██      ██         ██        ██      ██   ██ ██    ██ ██      
-██      ██   ██  ██████   █████  ███████  ██████    ██        ██      ██   ██  ██████  ███████ 
-                                                                                               
-*/
-
-/* ---------------------------------------------------------------------------------- */
-/* Project Page Layout - This section contains the layout for project pages,         */
-/* including the project image, description, sidebar, and navigation arrows.         */
-/* ---------------------------------------------------------------------------------- */
-
-/* Wrapper for the main project section and sidebar */
+/* Project wrapper and layout */
 .project-wrapper {
   display: flex;
   flex-direction: column;
@@ -1766,13 +1039,13 @@ a.nav-link-primary:hover {
   align-items: flex-start;
 }
 
-/* Full-width wrapper for the project section */
 .project-wrapper-full-width {
   width: 100%;
   padding: var(--padding-small);
   margin-top: 2rem;
 }
 
+/* Case progress indicator */
 .case-progress {
   position: fixed;
   margin-top: 1rem;
@@ -1812,32 +1085,25 @@ a.nav-link-primary:hover {
   background: #000;
 }
 
-/* Container for the project content with full-width display */
 .project-full-width {
   width: 100%;
   margin-bottom: 2rem;
 }
 
-/* Container for project images with center alignment */
 .project-image-container {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: row;
-  margin-bottom: 1rem; /* Space below the image */
-}
-
-/* Container for project description */
-.project-description-container {
-  display: grid;
-  grid-template-columns: 1fr;
   margin-bottom: 1rem;
 }
 
+.project-description-container,
 .project-description-container-intro {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: .75fr;
   margin-bottom: 1rem;
+  margin-top: 1rem;
 }
 
 .project-page-divider {
@@ -1845,12 +1111,10 @@ a.nav-link-primary:hover {
   margin-bottom: var(--padding-jumbo);
 }
 
-/* Column styles for two-column layouts */
 .col-2 {
   width: 50%;
 }
 
-/* Project image styling */
 .project-image {
   width: 100%;
   height: auto;
@@ -1860,15 +1124,13 @@ a.nav-link-primary:hover {
   margin-top: 1rem;
 }
 
-/* Project image pair layout */
 .project-image-pair {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* two columns by default */
+  grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
   margin-top: 1rem;
 }
 
-/* Each image keeps 4:5 ratio */
 .project-image-pair .project-image {
   width: 100%;
   aspect-ratio: 4 / 3;
@@ -1893,17 +1155,12 @@ a.nav-link-primary:hover {
   aspect-ratio: 21 / 9;
 }
 
-/* Project details section */
 .project-details {
   width: 100%;
   padding: var(--padding-small);
-  background: var(
-    --color-gradient-project-details
-  ); /* TODO: Remove gradient background if you prefer a simpler design */
 }
 
-/* Previous/Next Arrow Styles */
-
+/* Project navigation */
 .project-navigation {
   display: flex;
   flex-direction: row;
@@ -1913,11 +1170,11 @@ a.nav-link-primary:hover {
   width: 100%;
 }
 
-/* Styling for left and right arrows */
 .arrow-left,
 .arrow-right {
   width: 50%;
 }
+
 .arrow-right {
   text-align: right;
 }
@@ -1926,6 +1183,7 @@ a.nav-link-primary:hover {
   padding: 0;
 }
 
+/* Slide up animation */
 .slide-up {
   opacity: 0;
   transform: translateY(100px) scale(0.98);
@@ -1937,58 +1195,316 @@ a.nav-link-primary:hover {
   transform: translateY(0) scale(1);
 }
 
-/* Blog and Resume page styles */
+/* ======================
+   ABOUT PAGE
+   ====================== */
 
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 4rem;
+  background: var(--color-bg-about);
+  padding: var(--padding-jumbo);
+  flex: 1;
+}
+
+.about-image {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  aspect-ratio: 5 / 6;
+}
+
+.about-image img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.3s ease;
+}
+
+.img-hover {
+  opacity: 0;
+}
+
+.about-image:hover .img-hover {
+  opacity: 1;
+}
+
+.about-image:hover .img-default {
+  opacity: 0;
+}
+
+.about-grid-info {
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-left: 2rem;
+  overflow: visible;
+}
+
+.about-btns {
+  padding: var(--padding-jumbo);
+}
+
+/* Awards section */
+.about-awards {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-bg-about);
+  padding: var(--padding-jumbo);
+  gap: 2rem;
+}
+
+.awards-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.award-item {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 2rem;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  position: relative;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.9s ease-out;
+}
+
+.award-item p {
+  margin: 0;
+  text-align: left;
+}
+
+.award-title {
+  font-weight: 500;
+}
+
+.award-org {
+  opacity: 0.8;
+}
+
+.award-year {
+  opacity: 0.6;
+}
+
+.award-link {
+  color: #fff;
+}
+
+/* Animated top border */
+.award-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 1px;
+  width: 0;
+  background-color: #000;
+  transition: width 0.9s ease-out;
+}
+
+.award-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.award-item.visible::before {
+  width: 100%;
+}
+
+/* Experience section */
+.about-experience {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-bg-about);
+  padding: var(--padding-jumbo);
+  gap: 2rem;
+}
+
+.experience-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.experience-item {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 2rem;
+  padding-top: 4rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  position: relative;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.9s ease-out;
+}
+
+.experience-item p {
+  margin: 0;
+  text-align: left;
+}
+
+.experience-org {
+  font-weight: 500;
+}
+
+.experience-title {
+  opacity: 0.8;
+}
+
+.experience-year {
+  opacity: 0.6;
+}
+
+.experience-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 1px;
+  width: 0;
+  background-color: #000;
+  transition: width 0.9s ease-out;
+}
+
+.experience-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.experience-item.visible::before {
+  width: 100%;
+}
+
+/* Services section */
+.about-services {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 2rem;
+  background: var(--color-bg-about);
+  padding: var(--padding-jumbo);
+}
+
+.about-services-title {
+  grid-column: 1/2;
+  grid-row: 1/2;
+}
+
+.services-list {
+  grid-column: 1/2;
+  grid-row: 2/3;
+}
+
+.service-item {
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: start;
+  gap: 3rem;
+  padding-top: 2.5rem;
+  padding-bottom: 1rem;
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: all 0.9s ease-out;
+  position: relative;
+}
+
+.service-item::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 0;
+  background-color: #000;
+  transition: width 0.9s ease-out;
+}
+
+.service-item.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.service-item.visible::after {
+  width: 100%;
+}
+
+/* ======================
+   FOOTER
+   ====================== */
+
+.footer-global {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: var(--padding-medium);
+  gap: 2rem;
+}
+
+.footer-tagline {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.footer-social {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.footer-list {
+  display: flex;
+  flex-direction: row;
+  gap: 0.75rem;
+  justify-content: flex-start;
+}
+
+/* ======================
+   MISC COMPONENTS
+   ====================== */
+
+.info {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.overlay-info {
+  text-align: center;
+  color: #fff;
+}
+
+.name {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+}
+
+.figma-embed {
+  border-radius: 16px;
+}
+
+/* Text section */
 .text-section {
   width: 100%;
   background: var(--color-bg);
   padding: var(--padding-small);
 }
+
 .list-item {
   line-height: 1.3;
   list-style-type: disc;
   margin-left: 1.2rem;
 }
 
-/* Holding page styles */
-
-.holding-page-wrapper {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr auto;
-  place-items: center;
-  text-align: center;
-  width: 100%;
-  min-height: 100vh;
-}
-
-.holding-page-animation {
-  margin-bottom: 1rem;
-}
-
-.holding-page-title {
-  font-size: 1.5rem;
-  color: var(--color-text-holding-title);
-}
-
-.holding-page-footer {
-  display: grid;
-  place-items: center;
-  min-height: 10vh;
-  width: 100%;
-}
-
-.holding-page-copyright {
-  font-size: 0.8rem; /* Smaller font size for copyright text */
-  color: var(
-    --color-text-holding-footer
-  ); /* Custom color for the footer text */
-  margin-bottom: 0; /* Removes default margin from the bottom of the copyright text */
-}
-
-/*
-Error
-*/
+/* ======================
+   ERROR PAGE
+   ====================== */
 
 .error-headline-wrapper {
   width: 85%;
@@ -2006,6 +1522,18 @@ Error
   width: 25rem;
 }
 
+.error-message {
+  margin: 0 2rem 2rem 2rem;
+}
+
+.error-message h2 {
+  font-size: 1rem;
+}
+
+/* ======================
+   BUTTONS
+   ====================== */
+
 .btn-primary {
   display: inline-block;
   background: transparent;
@@ -2014,7 +1542,7 @@ Error
   text-decoration: none;
   padding: 0 1.5rem;
   border-radius: 2rem;
-  font-family: Mona Sans, sans-serif;
+  font-family: "Mona Sans", sans-serif;
   position: relative;
   overflow: hidden;
   transition: color 0.25s ease-in-out;
@@ -2036,90 +1564,87 @@ Error
   aspect-ratio: 1;
   z-index: -1;
 }
-.btn-primary:hover {
-  color: rgb(255, 255, 255);
-}
 
-.award-link {
+.btn-primary:hover {
   color: #fff;
 }
-.error-message {
-  margin: 0 2rem 2rem 2rem;
-}
 
-.error-message h2 {
-  font-size: 1rem;
-}
 
-.sandbox-header {
-  display: flex;
-  align-content: center;
-  justify-content: center;
-}
+/* ======================
+   MEDIA QUERIES
+   ====================== */
 
-.sandbox-header h3 {
-  display: flex;
-  font-size: 1.5rem;
-  font-style: italic;
-  font-family: "cormorant", serif;
-}
-
-.sandbox {
-  max-height: 80vh;
-  display: flex;
-  margin-top: 3rem;
-}
-
-/*
-
-███    ███ ███████ ██████  ██  █████       ██████  ██    ██ ███████ ██████  ██ ███████ ███████ 
-████  ████ ██      ██   ██ ██ ██   ██     ██    ██ ██    ██ ██      ██   ██ ██ ██      ██      
-██ ████ ██ █████   ██   ██ ██ ███████     ██    ██ ██    ██ █████   ██████  ██ █████   ███████ 
-██  ██  ██ ██      ██   ██ ██ ██   ██     ██ ▄▄ ██ ██    ██ ██      ██   ██ ██ ██           ██ 
-██      ██ ███████ ██████  ██ ██   ██      ██████   ██████  ███████ ██   ██ ██ ███████ ███████ 
-
-*/
-
-/* Media Queries for Layout Adjustments */
-
-/* Medium devices (tablets, 320px and up) */
-
-/* Medium devices (tablets, 768px and up) */
-
-@media (min-width: 768px) {
-  /* TODO: Adjust  layout for tablets */
-}
-
-/* Large devices (desktops, 992px and up) */
-
-/* Switch from mobile to desktop navigation */
-
-@media (min-width: 992px) {
-  /* TODO: Add or adjust styles here for large devices. */
-
-  .img-drag {
-    position: relative;
-    display: block;
-    width: 10vw;
-    min-width: 120px;
-    max-width: 200px;
-    margin: 4rem;
+/* Mobile: About page reorder */
+@media (max-width: 991px) {
+  .about-grid {
+    display: flex;
+    flex-direction: column;
   }
+
+  .about-grid-image {
+    order: 1;
+  }
+
+  .about-grid-info {
+    order: 2;
+    padding-left: 0;
+  }
+
+  .about-grid-text p {
+    font-size: 1rem;
+  }
+
+  .award-item,
+  .experience-item {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
+
+  .footer-global {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-social {
+    justify-content: flex-start;
+  }
+
+  .footer-list {
+    justify-content: flex-start;
+  }
+
+  .hero-headline-wrapper {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: var(--padding-small);
+  }
+   .hero-subhead, .hero-subhead-work {
+    font-size: 0.75rem;
+    line-height: 1.5rem;
+    text-transform: uppercase;
+    font-family: "Mona Sans", sans-serif;
+  }
+
+}
+
+/* Large devices (992px and up) */
+@media (min-width: 992px) {
 
   .hero-subhead {
     font-size: 2rem;
   }
 
   .flex-row {
-    flex-direction: row; /* Changes to row layout on larger screens */
+    flex-direction: row;
   }
 
   .width-third {
     width: 33.333%;
   }
+
   .width-two-thirds {
     width: 66.666%;
   }
+
   .holding-page-title {
     font-size: 2rem;
   }
@@ -2140,25 +1665,17 @@ Error
   .h1-full-width,
   .h2-full-width {
     width: 70%;
-    padding: var(--padding-small);
   }
+
   .padding-jumbo {
     padding: var(--padding-large);
-  }
-  .nav-branding-logo {
-    width: auto;
-    /* TODO: Adjust the width of the logo on large devices here. */
   }
 
   .hero {
     min-height: 100vh;
   }
 
-
-  }
   .error-headline-wrapper {
-    padding-top: var(--padding-small);
-    padding-bottom: var(--padding-small);
     padding-left: var(--padding-ultra);
     padding-right: var(--padding-ultra);
   }
@@ -2167,14 +1684,10 @@ Error
     font-size: 5rem;
   }
 
-  /* Work Page Grid for Large Devices */
-
   .grid {
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     grid-gap: 1rem;
   }
-
-  /* Padding around work grid and project page */
 
   .portfolio,
   .project-wrapper,
@@ -2182,53 +1695,32 @@ Error
     padding: var(--padding-medium);
   }
 
-  /* Project Page Flex Direction on Large Devices */
-
   .project-wrapper {
     flex-direction: row;
   }
 
-  /* Project Full Width Styles */
-
   .project-wrapper-full-width {
-    padding: var(--padding-small) var(--padding-jumbo);
+    padding: var(--padding-medium);
   }
 
-
- .hero-headline-wrapper {
-  padding: var(--padding-tiny) var(--padding-medium) var(--padding-medium);
-
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  align-items: start;
-}
-
-/* Shared text styles (DRY cleanup) */
-.hero-headline,
-.hero-subhead,
-.hero-subhead-work {
-  color: #000;
-  font-size: 0.8rem;
-  line-height: 1.2rem;
-  max-width: 40ch;
-  text-transform: uppercase;
-}
-
-/* Font differences */
-.hero-subhead,
-.hero-subhead-work {
-  font-family: 'Mona Sans', sans-serif;
-}
-
-@media (max-width: 768px) {
   .hero-headline-wrapper {
-    grid-template-columns: 1fr;
-    gap: 1rem;
+    padding: var(--padding-tiny) var(--padding-medium) var(--padding-medium);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    align-items: start;
   }
-}
-  
-  /* Main Project Image Area on Large Devices */
+
+  .hero-headline,
+  .hero-subhead,
+  .hero-subhead-work {
+    color: #000;
+    font-size: 0.8rem;
+    line-height: 1.2rem;
+    max-width: 40ch;
+    text-transform: uppercase;
+    font-family: "Mona Sans", sans-serif;
+  }
 
   .project-details {
     width: 65%;
@@ -2239,12 +1731,10 @@ Error
   }
 
   .project-description-container {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-columns: 1.2fr 1fr 1fr;
   }
 
   .project-description-container-intro {
-    display: grid;
     grid-template-columns: 1fr 0.75fr 1.4fr;
     margin-bottom: 5rem;
     margin-top: 5rem;
@@ -2252,14 +1742,10 @@ Error
 
   .project-description {
     grid-column: 1/2;
-    color: var(--color-text-project-description);
-    margin-bottom: 1rem;
   }
 
   .project-description-intro {
     grid-column: 3/4;
-    color: var(--color-text-project-description);
-    margin-bottom: 1rem;
   }
 
   .project-title {
@@ -2271,18 +1757,21 @@ Error
     line-height: 4.4rem;
     margin-bottom: 3rem;
   }
+
   .project-classification p {
     font-size: 1rem;
   }
+
   .project-image-container,
   .project-description-container {
     flex-direction: row;
   }
 
   .section-container {
-    width: 80%; /* Adjust this width for larger screens if needed */
+    width: 80%;
     flex-direction: row;
   }
+
   .col-2 {
     width: 100%;
     margin-top: 1rem;
@@ -2296,27 +1785,19 @@ Error
     padding-right: 1rem;
   }
 
-  /* About Page Grid for Large Devices */
-
   .about-grid {
-    padding: var(--padding-jumbo);
     grid-template-columns: 2fr 3fr;
-    overflow: visible;
   }
 
-  .about-grid-text {
-    overflow: visible;
-  }
-
-  .about-grid-text p{
+  .about-grid-text p {
     font-size: 1.5rem;
   }
 
   .about-grid-info {
     grid-row: 1 / 2;
     grid-column: 2 / 3;
-    overflow: visible;
   }
+
   .about-header {
     margin-bottom: 2rem;
   }
@@ -2327,104 +1808,41 @@ Error
   }
 
   .about-services {
-    display: grid; /* Set to grid layout */
-    grid-template-columns: 1fr 1fr; /* Single column layout for mobile and smaller screens */
-    grid-gap: 2rem; /* Space between grid items */
-    background: var(--color-bg-about); 
-    padding: var(--padding-jumbo); 
-  }
-
-  .about-services-title {
-    grid-column: 1/2; /* Image spans the first column */
-    grid-row: 1/2; 
+    grid-template-columns: 1fr 1fr;
   }
 
   .services-list {
-    grid-column: 2/3; /* Text spans the first column */
-    grid-row: 1/2; /* Text spans the second row */
+    grid-column: 2/3;
+    grid-row: 1/2;
   }
 
-  /*---draggable---*/
-
-  .sandbox {
-    max-height: 80vh;
-    display: flex;
-    margin-top: 3rem;
-  }
-
-  /*---Project Scroll Bar---*/
-
-  /* ------------------------------- */
-  /* 🖥️ FOOTER GRID - DESKTOP LAYOUT */
-  /* ------------------------------- */
-
   .footer-global {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  padding: var(--padding-large);
-  gap: 2rem;
-}
-
-/* Left column */
-.footer-tagline {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-/* Right column */
-.footer-social {
-  display: flex;
-  justify-content: flex-end;
-}
-
-/* Internal list layout */
-.footer-list {
-  display: flex;
-  flex-direction: row;
-  gap: 0.75rem;
-  justify-content: flex-end;
-}
-
-/* MOBILE: stack */
-@media (max-width: 768px) {
-  .footer-global {
-    grid-template-columns: 1fr; /* this makes them stack */
+    grid-template-columns: 1fr 1fr;
   }
 
   .footer-social {
-    justify-content: flex-start; /* keeps alignment consistent */
+    justify-content: flex-end;
   }
 
   .footer-list {
-    justify-content: flex-start;
+    justify-content: flex-end;
   }
-}
-
-
-  /* Main Work Area on Large Devices */
 
   .work-details {
     width: 75%;
   }
+}
 
-  /* X-Large devices (large desktops, 1200px and up)*/
-
-  @media (min-width: 1200px) {
-    /* TODO: Add styles here for X-large devices. */
-
-    .grid {
-      grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-    }
+/* X-Large devices (1200px and up) */
+@media (min-width: 1200px) {
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
   }
+}
 
-  /* XX-Large devices (larger desktops, 1400px and up) */
-
-  @media (min-width: 1400px) {
-    /* TODO: Add styles here for XX-large devices. */
-
-    .grid {
-      grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
-    }
+/* XX-Large devices (1400px and up) */
+@media (min-width: 1400px) {
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
   }
-
+}
