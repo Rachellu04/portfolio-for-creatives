@@ -385,41 +385,25 @@ a.nav-link-primary:hover {
 
 /* Nav branding hover effect */
 .nav-branding-item a {
-  position: relative;
   display: inline-block;
-  color: #000;
-  font-size: 3rem;
-  font-weight: 400;
+  position: relative;
   text-decoration: none;
-  transition: font-weight 0.3s ease;
+  color: #000;
 }
 
-.nav-branding-item a::before,
 .nav-branding-item a::after {
   content: "";
-  opacity: 0;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  display: inline-block;
-  font-size: 1em;
-  color: inherit;
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 1.5px;
+  background: #000;
+  transition: width 0.5s ease;
 }
 
-.nav-branding-item a::before {
-  content: "[";
-  margin-right: 0.2rem;
-  transform: translateX(-0.4rem);
-}
-
-.nav-branding-item a::after {
-  content: "]";
-  margin-left: 0.2rem;
-  transform: translateX(0.4rem);
-}
-
-.nav-branding-item a:hover::before,
 .nav-branding-item a:hover::after {
-  opacity: 1;
-  transform: translateX(0);
+  width: 100%;
 }
 
 /* ======================
@@ -454,22 +438,17 @@ a.nav-link-primary:hover {
 }
 
 .hero-header {
-  min-height: 6rem;
-  position: relative;
-  z-index: 10;
   display: flex;
-  justify-content: flex-end;
   align-items: center;
-  padding-left: var(--padding-medium);
-  padding-right: var(--padding-medium);
+  justify-content: space-between;
+  padding: var(--padding-medium);
 }
 
 .hero-headline {
   color: #000;
-  font-size: 0.75rem;
-  line-height: 1.5rem;
+  font-size: 2rem;
+  line-height: 2rem;
   max-width: 40ch;
-  text-transform: uppercase;
 }
 
 .hero-subhead {
@@ -584,9 +563,9 @@ a.nav-link-primary:hover {
    ====================== */
 
 .menu {
-  position: absolute;
-  top: 20px;
-  left: 20px;
+  position: relative;   /* changed from absolute */
+  top: auto;            /* remove */
+  left: auto;           /* remove */
   width: 48px;
   height: 48px;
 }
@@ -804,12 +783,14 @@ a.nav-link-primary:hover {
 }
 
 .work-sidebar {
-  width: 100%;
+  width: 180px;        /* or whatever width fits your design */
+  flex-shrink: 0;      /* stops it from squishing */
   background: var(--color-bg-sidebar-work);
 }
 
 .work-details {
-  width: 100%;
+  flex: 1;             /* fills all remaining space */
+  min-width: 0;        /* prevents content from overflowing */
 }
 
 .grid {
@@ -876,7 +857,7 @@ a.nav-link-primary:hover {
   color: #000;
   font-size: 1.2rem;
   line-height: 0.2rem;
-  font-weight: 300;
+  font-weight: 350;
   margin-top: 1.5rem;
 }
 
@@ -1481,8 +1462,10 @@ a.nav-link-primary:hover {
 }
 
 .name {
-  font-size: 0.8rem;
+  font-size: 1.2rem;
   text-transform: uppercase;
+  order: -1;
+  letter-spacing: 0.12em;
 }
 
 .figma-embed {
@@ -1614,7 +1597,7 @@ a.nav-link-primary:hover {
 
   .hero-headline-wrapper {
     grid-template-columns: 1fr;
-    gap: 1rem;
+    gap: 2rem;
     padding: var(--padding-small);
   }
    .hero-subhead, .hero-subhead-work {
@@ -1624,6 +1607,57 @@ a.nav-link-primary:hover {
     font-family: "Mona Sans", sans-serif;
   }
 
+}
+
+/* ======================
+   DESKTOP MENU OVERRIDE
+   ====================== */
+
+@media (min-width: 768px) {
+  .menu {
+    position: static;
+    width: auto;
+    height: auto;
+    display: flex;
+    align-items: center;
+  }
+
+  .menu-overlay li a {
+    color: #000;
+    text-decoration: none;
+    font-size: 1.2rem; /* ← adjust this to whatever size you want */
+  }
+
+  /* Hide the hamburger button + circle entirely on desktop */
+  .menu-link {
+    display: none;
+  }
+
+  /* Turn the overlay into a normal, always-visible horizontal bar */
+  .menu-overlay {
+    position: static;
+    inset: auto;
+    background-color: transparent;
+    opacity: 1;
+    visibility: visible;
+    transition: none;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .menu-overlay ul {
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .menu-overlay li a {
+    color: #000; /* adjust to match your site's desktop nav color */
+    text-decoration: none;
+  }
 }
 
 /* Large devices (992px and up) */
@@ -1704,16 +1738,25 @@ a.nav-link-primary:hover {
   }
 
   .hero-headline-wrapper {
-    padding: var(--padding-tiny) var(--padding-medium) var(--padding-medium);
+    padding: var(--padding-large) var(--padding-medium) var(--padding-medium);
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    margin-top: 5rem;
+    grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
     align-items: start;
   }
 
-  .hero-headline,
-  .hero-subhead,
-  .hero-subhead-work {
+  .hero-headline
+  {
+    color: #000;
+    font-size: 2rem;
+    line-height: 2rem;
+    max-width: 40ch;
+    font-family: "Mona Sans", sans-serif;
+  }
+
+  .hero-subhead
+  {
     color: #000;
     font-size: 0.8rem;
     line-height: 1.2rem;
