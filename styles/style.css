@@ -1745,6 +1745,25 @@ a.nav-link-primary:hover {
     gap: 2rem;
     align-items: start;
   }
+  
+  .hero-subhead {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.subhead-row {
+  display: grid;
+  grid-template-columns: 120px 1fr; /* Fixed width for dates column */
+  gap: .5rem;
+  align-items: baseline;
+}
+
+.subhead-row .date {
+  opacity: 0.6; /* Muted date style */
+  font-size: 0.9rem;
+}
+
 
   .hero-headline
   {
